@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import BarcodeScanner
+import Hero
 
-class ScanVC: UIViewController {
+class ScanVC: BarcodeScannerViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.codeDelegate = self as? BarcodeScannerCodeDelegate
+        self.errorDelegate = self as? BarcodeScannerErrorDelegate
+        self.dismissalDelegate = self as? BarcodeScannerDismissalDelegate
+        
+        self.messageViewController.view.isHidden = true
+        self.messageViewController.view.layer.zPosition -= 1
 
         // Do any additional setup after loading the view.
     }
@@ -27,4 +36,9 @@ class ScanVC: UIViewController {
     }
     */
 
+}
+
+extension ScanVC: BarcodeScannerCodeDelegate {
+    func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
+    }
 }
