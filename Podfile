@@ -7,6 +7,8 @@ target 'Trashy' do
 
   pod 'BarcodeScanner'
   pod 'Hero'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
 
   target 'TrashyTests' do
     inherit! :search_paths
