@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D0B855622C2565E003D8CAA /* MainNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855522C2565E003D8CAA /* MainNVC.swift */; };
+		3D0B855822C256AD003D8CAA /* MainTBC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855722C256AD003D8CAA /* MainTBC.swift */; };
+		3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855922C256C8003D8CAA /* ScanVC.swift */; };
+		3D0B855C22C2573F003D8CAA /* ErgebnisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */; };
+		3D0B855E22C257DD003D8CAA /* InformationTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855D22C257DD003D8CAA /* InformationTVC.swift */; };
+		3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */; };
+		3D0B856722C258CC003D8CAA /* EinstellungenTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B856622C258CC003D8CAA /* EinstellungenTVC.swift */; };
 		3D3A86BA22BFB46C007D2741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A86B922BFB46C007D2741 /* AppDelegate.swift */; };
 		3D3A86BF22BFB46C007D2741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D3A86BD22BFB46C007D2741 /* Main.storyboard */; };
 		3D3A86C222BFB46C007D2741 /* Trashy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A86C022BFB46C007D2741 /* Trashy.xcdatamodeld */; };
@@ -34,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D0B855522C2565E003D8CAA /* MainNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNVC.swift; sourceTree = "<group>"; };
+		3D0B855722C256AD003D8CAA /* MainTBC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTBC.swift; sourceTree = "<group>"; };
+		3D0B855922C256C8003D8CAA /* ScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanVC.swift; sourceTree = "<group>"; };
+		3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgebnisVC.swift; sourceTree = "<group>"; };
+		3D0B855D22C257DD003D8CAA /* InformationTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationTVC.swift; sourceTree = "<group>"; };
+		3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationInhaltVC.swift; sourceTree = "<group>"; };
+		3D0B856622C258CC003D8CAA /* EinstellungenTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EinstellungenTVC.swift; sourceTree = "<group>"; };
 		3D3A86B622BFB46C007D2741 /* Trashy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trashy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3A86B922BFB46C007D2741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D3A86BE22BFB46C007D2741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +91,10 @@
 		3D0B855222C244BA003D8CAA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3D0B856122C25821003D8CAA /* Main */,
+				3D0B856522C258A7003D8CAA /* Einstellungen */,
+				3D0B856322C25838003D8CAA /* Scan */,
+				3D0B856422C25849003D8CAA /* Information */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -93,6 +111,41 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3D0B856122C25821003D8CAA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3D0B855522C2565E003D8CAA /* MainNVC.swift */,
+				3D0B855722C256AD003D8CAA /* MainTBC.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3D0B856322C25838003D8CAA /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				3D0B855922C256C8003D8CAA /* ScanVC.swift */,
+				3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		3D0B856422C25849003D8CAA /* Information */ = {
+			isa = PBXGroup;
+			children = (
+				3D0B855D22C257DD003D8CAA /* InformationTVC.swift */,
+				3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */,
+			);
+			path = Information;
+			sourceTree = "<group>";
+		};
+		3D0B856522C258A7003D8CAA /* Einstellungen */ = {
+			isa = PBXGroup;
+			children = (
+				3D0B856622C258CC003D8CAA /* EinstellungenTVC.swift */,
+			);
+			path = Einstellungen;
 			sourceTree = "<group>";
 		};
 		3D3A86AD22BFB46B007D2741 = {
@@ -280,8 +333,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D0B855622C2565E003D8CAA /* MainNVC.swift in Sources */,
+				3D0B856722C258CC003D8CAA /* EinstellungenTVC.swift in Sources */,
+				3D0B855E22C257DD003D8CAA /* InformationTVC.swift in Sources */,
+				3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */,
+				3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */,
 				3D3A86C222BFB46C007D2741 /* Trashy.xcdatamodeld in Sources */,
+				3D0B855822C256AD003D8CAA /* MainTBC.swift in Sources */,
 				3D3A86BA22BFB46C007D2741 /* AppDelegate.swift in Sources */,
+				3D0B855C22C2573F003D8CAA /* ErgebnisVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
