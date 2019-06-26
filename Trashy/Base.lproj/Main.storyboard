@@ -39,7 +39,6 @@
                     <tabBarItem key="tabBarItem" title="Scan" id="agc-tW-NjS"/>
                     <connections>
                         <segue destination="i11-sE-lc1" kind="show" identifier="toErgebnisVC" id="yfM-ge-PDt"/>
-                        <segue destination="G4l-m0-3gm" kind="show" identifier="toEingabeVC" id="V87-TN-x5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ou4-D9-cfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -61,10 +60,67 @@
             </objects>
             <point key="canvasLocation" x="1090" y="867"/>
         </scene>
+        <!--Kein Ergebnis Pop UpVC-->
+        <scene sceneID="RTC-C4-nof">
+            <objects>
+                <viewController storyboardIdentifier="KeinErgebnisPopUpVCSB" id="L3v-2z-Ecb" customClass="KeinErgebnisPopUpVC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zFs-dm-khE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R1E-dm-NXQ">
+                                <rect key="frame" x="77" y="314" width="260" height="268"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isv-1d-Zpf" customClass="RoundView" customModule="Trashy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="80"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="260" id="Hvo-Ld-zMe"/>
+                                            <constraint firstAttribute="height" constant="80" id="ugk-Jc-NeN"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-bz-G6l" customClass="RoundView" customModule="Trashy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="88" width="260" height="180"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjl-km-9ak" customClass="RoundButton" customModule="Trashy" customModuleProvider="target">
+                                                <rect key="frame" x="75" y="113" width="110" height="51"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="eingabeButtonAction:" destination="L3v-2z-Ecb" eventType="touchUpInside" id="Y8a-EA-xxU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="180" id="q44-KX-Dpe"/>
+                                            <constraint firstAttribute="width" constant="260" id="zJh-z4-7HF"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="R1E-dm-NXQ" firstAttribute="centerX" secondItem="zFs-dm-khE" secondAttribute="centerX" id="1Rk-KW-dqD"/>
+                            <constraint firstItem="R1E-dm-NXQ" firstAttribute="centerY" secondItem="zFs-dm-khE" secondAttribute="centerY" id="twR-zw-kOm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Asl-fQ-AkZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="eingabeButton" destination="pjl-km-9ak" id="JEu-wD-vNJ"/>
+                        <outlet property="mainView" destination="IaL-bz-G6l" id="gEI-VF-GIH"/>
+                        <outlet property="titleView" destination="Isv-1d-Zpf" id="w6h-Mn-6WO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wXB-pK-T2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1815.9420289855075" y="866.51785714285711"/>
+        </scene>
         <!--EingabeVC-->
         <scene sceneID="28t-Vs-7Ll">
             <objects>
-                <viewController id="G4l-m0-3gm" customClass="EingabeVC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EingabeVCSB" id="G4l-m0-3gm" customClass="EingabeVC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oba-Vs-Msk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpy-Gy-7nK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1822" y="867"/>
+            <point key="canvasLocation" x="2546" y="867"/>
         </scene>
         <!--Information-->
         <scene sceneID="zQz-VV-rqI">

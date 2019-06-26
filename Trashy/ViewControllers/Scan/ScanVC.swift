@@ -8,10 +8,12 @@
 
 import UIKit
 import BarcodeScanner
+import Hero
 
 class ScanVC: BarcodeScannerViewController {
     
     var produktArray = [Produkt]()
+    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,8 @@ class ScanVC: BarcodeScannerViewController {
         self.codeDelegate = self as? BarcodeScannerCodeDelegate
         self.errorDelegate = self as? BarcodeScannerErrorDelegate
         self.dismissalDelegate = self as? BarcodeScannerDismissalDelegate
+        
+        self.messageViewController.textLabel.hero.id = "KeinErgebnisPopUpVCAnimation"
         
         setUpEingabeButton()
     }
@@ -37,10 +41,25 @@ class ScanVC: BarcodeScannerViewController {
         let margins = view.layoutMarginsGuide
         eingabeButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 3).isActive = true
         eingabeButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -30).isActive = true
+        
+        eingabeButton.hero.id = "EingabeVCAnimation"
     }
     
     @objc func eingabeButtonAction(sender: UIButton!) {
-        self.performSegue(withIdentifier: "toEingabeVC", sender: self)
+        toEingabeVC()
+    }
+    
+    func toEingabeVC() {
+        let eingabeVC = storyBoard.instantiateViewController(withIdentifier: "EingabeVCSB") as! EingabeVC
+        
+        self.present(eingabeVC, animated: true, completion: nil)
+    }
+    
+    func toKeinErgebnisPopUpVC() {
+        let keinErgebnisPopUpVC = storyBoard.instantiateViewController(withIdentifier: "KeinErgebnisPopUpVCSB") as! KeinErgebnisPopUpVC
+        keinErgebnisPopUpVC.modalPresentationStyle = .overFullScreen
+        
+        self.present(keinErgebnisPopUpVC, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,9 +84,7 @@ extension ScanVC: BarcodeScannerCodeDelegate {
                     
                     self.performSegue(withIdentifier: "toErgebnisVC", sender: self)
                 } else {
-                    //PopUp
-                    
-                    self.performSegue(withIdentifier: "toEingabeVC", sender: self)
+                    self.toKeinErgebnisPopUpVC()
                 }
             }
         }

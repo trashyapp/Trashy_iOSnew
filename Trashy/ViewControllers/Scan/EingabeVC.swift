@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class EingabeVC: UIViewController {
     
@@ -14,6 +15,9 @@ class EingabeVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hero.isEnabled = true
+        self.view.hero.id = "EingabeVCAnimation"
 
         print("hi")
     }
