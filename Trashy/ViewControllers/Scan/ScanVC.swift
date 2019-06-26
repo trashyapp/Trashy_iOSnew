@@ -51,6 +51,7 @@ class ScanVC: BarcodeScannerViewController {
     
     func toEingabeVC() {
         let eingabeVC = storyBoard.instantiateViewController(withIdentifier: "EingabeVCSB") as! EingabeVC
+        eingabeVC.produktArray = produktArray
         
         self.present(eingabeVC, animated: true, completion: nil)
     }
@@ -58,6 +59,7 @@ class ScanVC: BarcodeScannerViewController {
     func toKeinErgebnisPopUpVC() {
         let keinErgebnisPopUpVC = storyBoard.instantiateViewController(withIdentifier: "KeinErgebnisPopUpVCSB") as! KeinErgebnisPopUpVC
         keinErgebnisPopUpVC.modalPresentationStyle = .overFullScreen
+        keinErgebnisPopUpVC.produktArray = produktArray
         
         self.present(keinErgebnisPopUpVC, animated: true, completion: nil)
     }
@@ -72,18 +74,19 @@ class ScanVC: BarcodeScannerViewController {
 
 extension ScanVC: BarcodeScannerCodeDelegate {
     func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
+        print("ScanVC1: " + code)
         
         DataService.instance.getProdukt(code: code) { (returnedProduktArray) in
             self.produktArray = returnedProduktArray
             
             DispatchQueue.main.async {
-                if self.produktArray.count != 0 {
-                    print(self.produktArray)
-                    print(self.produktArray[0].barcodeNummer)
-                    print(self.produktArray[0])
+                if self.produktArray[0].produktNummer != -1 {
+                    print("ScanVC2: " + self.produktArray[0].barcodeNummer)
                     
                     self.performSegue(withIdentifier: "toErgebnisVC", sender: self)
                 } else {
+                    print("ScanVC3: " + self.produktArray[0].barcodeNummer)
+                    
                     self.toKeinErgebnisPopUpVC()
                 }
             }

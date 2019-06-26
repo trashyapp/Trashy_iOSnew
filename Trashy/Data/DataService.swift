@@ -52,13 +52,11 @@ class DataService {
                     
                     let produkt = Produkt(produktNummer: produktNummer, barcodeNummer: barcodeNummer, produktName: produktName, produktMaterialien: produktMaterialienArray, produktBild: produktBild, letzteAenderung: letzteAenderung)
                     
-                    print(code)
-                    print(barcodeNummer)
-                    print(produktMaterialienArray)
-                    
                     produktArray.append(produkt)
                 } else {
-                    //case: this product is not yet in database
+                    let produkt = Produkt(produktNummer: -1, barcodeNummer: code, produktName: "-1", produktMaterialien: [-1], produktBild: -1, letzteAenderung: "-1")
+                    
+                    produktArray.append(produkt)
                 }
             }
             handler(produktArray)

@@ -28,6 +28,8 @@ class KeinErgebnisPopUpVC: UIViewController {
         eingabeButton.hero.id = "EingabeVCAnimation"
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.25)
+        
+        print("KeinErgebnisVC: " + produktArray[0].barcodeNummer)
     }
     
     @IBAction func eingabeButtonAction(_ sender: Any) {
@@ -36,6 +38,7 @@ class KeinErgebnisPopUpVC: UIViewController {
     
     func toEingabeVC() {
         let eingabeVC = storyBoard.instantiateViewController(withIdentifier: "EingabeVCSB") as! EingabeVC
+        eingabeVC.produktArray = produktArray
         
         self.present(eingabeVC, animated: true, completion: nil)
     }

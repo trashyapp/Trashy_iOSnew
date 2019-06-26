@@ -14,6 +14,8 @@ class ErgebnisVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("ErgebnisVC: " + produktArray[0].barcodeNummer)
     }
     
     /*override func viewDidAppear(_ animated: Bool) {

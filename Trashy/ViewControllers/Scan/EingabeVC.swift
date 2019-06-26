@@ -19,6 +19,6 @@ class EingabeVC: UIViewController {
         self.hero.isEnabled = true
         self.view.hero.id = "EingabeVCAnimation"
 
-        print("hi")
+        print("KeinErgebnisVC: " + produktArray[0].barcodeNummer)
     }
 }
