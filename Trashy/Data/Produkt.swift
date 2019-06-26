@@ -12,17 +12,17 @@ class Produkt {
     private var _produktNummer: Int
     private var _barcodeNummer: String
     private var _produktName: String
-    private var _produktHersteller: String
-    private var _produktBild: Int
     private var _produktMaterialien: [Int]
+    private var _produktBild: Int
+    private var _letzteAenderung: String
     
-    init(produktNummer: Int, barcodeNummer: String, produktName: String, produktHersteller: String, produktBild: Int, produktMaterialien: [Int]) {
+    init(produktNummer: Int, barcodeNummer: String, produktName: String, produktMaterialien: [Int], produktBild: Int, letzteAenderung: String) {
         self._produktNummer = produktNummer
         self._barcodeNummer = barcodeNummer
         self._produktName = produktName
-        self._produktHersteller = produktHersteller
-        self._produktBild = produktBild
         self._produktMaterialien = produktMaterialien
+        self._produktBild = produktBild
+        self._letzteAenderung = letzteAenderung
     }
     
     var produktNummer: Int {
@@ -37,15 +37,15 @@ class Produkt {
         return _produktName
     }
     
-    var produktHersteller: String {
-        return _produktHersteller
+    var produktMaterialien: [Int] {
+        return _produktMaterialien
     }
     
     var produktBild: Int {
         return _produktBild
     }
     
-    var produktMaterialien: [Int] {
-        return _produktMaterialien
+    var letzteAenderung: String {
+        return _letzteAenderung
     }
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import BarcodeScanner
-import Hero
 
 class ScanVC: BarcodeScannerViewController {
     
@@ -23,21 +22,14 @@ class ScanVC: BarcodeScannerViewController {
         
         self.messageViewController.view.isHidden = true
         self.messageViewController.view.layer.zPosition -= 1
-
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.destination is ErgebnisVC {
+            let ergebnisVC = segue.destination as? ErgebnisVC
+            ergebnisVC?.produktArray = produktArray
+        }
     }
-    */
-
 }
 
 extension ScanVC: BarcodeScannerCodeDelegate {
@@ -49,6 +41,9 @@ extension ScanVC: BarcodeScannerCodeDelegate {
             DispatchQueue.main.async {
                 print(self.produktArray)
                 print(self.produktArray[0].barcodeNummer)
+                print(self.produktArray[0])
+                
+                self.performSegue(withIdentifier: "toErgebnisVC", sender: self)
             }
         }
     }

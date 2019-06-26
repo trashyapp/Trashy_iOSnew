@@ -37,6 +37,9 @@
                         <viewLayoutGuide key="safeArea" id="0E7-Vf-R2w"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" id="agc-tW-NjS"/>
+                    <connections>
+                        <segue destination="i11-sE-lc1" kind="show" identifier="toErgebnisVC" id="yfM-ge-PDt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ou4-D9-cfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
