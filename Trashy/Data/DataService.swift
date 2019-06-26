@@ -39,17 +39,22 @@ class DataService {
             }
             
             for produkt in produktSnapshot {
+                let produktNummer = produkt.childSnapshot(forPath: "produktNummer").value as! Int
                 let barcodeNummer = produkt.childSnapshot(forPath: "barcodeNummer").value as! String
                 let produktName = produkt.childSnapshot(forPath: "produktName").value as! String
                 let produktHersteller = produkt.childSnapshot(forPath: "produktHersteller").value as! String
                 let produktBild = produkt.childSnapshot(forPath: "produktBild").value as! Int
-                //let produktMaterialien = produkt.childSnapshot(forPath: "produktMaterialien").value as! [String]
+                let produktMaterialien = produkt.childSnapshot(forPath: "produktMaterialien").value as! String
                 
                 if code == barcodeNummer {
-                    let produkt = Produkt(barcodeNummer: barcodeNummer, produktName: produktName, produktHersteller: produktHersteller, produktBild: produktBild/*, produktMaterialien: produktMaterialien*/)
+                    let produktMaterialienArrayString = produktMaterialien.split(separator: ",")
+                    let produktMaterialienArray = produktMaterialienArrayString.map { Int($0)! }
+                    
+                    let produkt = Produkt(produktNummer: produktNummer, barcodeNummer: barcodeNummer, produktName: produktName, produktHersteller: produktHersteller, produktBild: produktBild, produktMaterialien: produktMaterialienArray)
                     
                     print(code)
                     print(barcodeNummer)
+                    print(produktMaterialienArray)
                     
                     produktArray.append(produkt)
                 } else {

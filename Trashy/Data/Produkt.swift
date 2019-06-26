@@ -9,18 +9,24 @@
 import Foundation
 
 class Produkt {
+    private var _produktNummer: Int
     private var _barcodeNummer: String
     private var _produktName: String
     private var _produktHersteller: String
     private var _produktBild: Int
-    //private var _produktMaterialien: [String]
+    private var _produktMaterialien: [Int]
     
-    init(barcodeNummer: String, produktName: String, produktHersteller: String, produktBild: Int/*, produktMaterialien: [String]*/) {
+    init(produktNummer: Int, barcodeNummer: String, produktName: String, produktHersteller: String, produktBild: Int, produktMaterialien: [Int]) {
+        self._produktNummer = produktNummer
         self._barcodeNummer = barcodeNummer
         self._produktName = produktName
         self._produktHersteller = produktHersteller
         self._produktBild = produktBild
-        //self._produktMaterialien = produktMaterialien
+        self._produktMaterialien = produktMaterialien
+    }
+    
+    var produktNummer: Int {
+        return _produktNummer
     }
     
     var barcodeNummer: String {
@@ -39,7 +45,7 @@ class Produkt {
         return _produktBild
     }
     
-    /*var produktMaterialien: [String] {
+    var produktMaterialien: [Int] {
         return _produktMaterialien
-    }*/
+    }
 }
