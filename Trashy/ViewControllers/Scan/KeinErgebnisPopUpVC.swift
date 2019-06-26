@@ -39,6 +39,7 @@ class KeinErgebnisPopUpVC: UIViewController {
     func toEingabeVC() {
         let eingabeVC = storyBoard.instantiateViewController(withIdentifier: "EingabeVCSB") as! EingabeVC
         eingabeVC.produktArray = produktArray
+        eingabeVC.barcodeVorhanden = true
         
         self.present(eingabeVC, animated: true, completion: nil)
     }
