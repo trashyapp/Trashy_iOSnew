@@ -29,9 +29,35 @@ class DataService {
         REF_PRODUKT.child(pID).updateChildValues(produktData)
     }*/
     
-    func getProdukt(pID: String) {
-        REF_PRODUKT.observe(.value, with: { (produkt) in
-        })
+    func getProdukt(code: String, handler: @escaping (_ produkt: [Produkt]) -> ()) {
+        var produktArray = [Produkt]()
+        
+        REF_PRODUKT.observeSingleEvent(of: .value) { (produktSnapshot) in
+            guard let produktSnapshot = produktSnapshot.children.allObjects as? [DataSnapshot] else {
+                print("something is not right")
+                return
+            }
+            
+            for produkt in produktSnapshot {
+                let barcodeNummer = produkt.childSnapshot(forPath: "barcodeNummer").value as! String
+                let produktName = produkt.childSnapshot(forPath: "produktName").value as! String
+                let produktHersteller = produkt.childSnapshot(forPath: "produktHersteller").value as! String
+                let produktBild = produkt.childSnapshot(forPath: "produktBild").value as! Int
+                //let produktMaterialien = produkt.childSnapshot(forPath: "produktMaterialien").value as! [String]
+                
+                if code == barcodeNummer {
+                    let produkt = Produkt(barcodeNummer: barcodeNummer, produktName: produktName, produktHersteller: produktHersteller, produktBild: produktBild/*, produktMaterialien: produktMaterialien*/)
+                    
+                    print(code)
+                    print(barcodeNummer)
+                    
+                    produktArray.append(produkt)
+                } else {
+                    //case: this product is not yet in database
+                }
+            }
+            handler(produktArray)
+        }
     }
 }
 

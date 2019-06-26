@@ -11,6 +11,8 @@ import BarcodeScanner
 import Hero
 
 class ScanVC: BarcodeScannerViewController {
+    
+    var produktArray = [Produkt]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,5 +42,14 @@ class ScanVC: BarcodeScannerViewController {
 
 extension ScanVC: BarcodeScannerCodeDelegate {
     func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
+        
+        DataService.instance.getProdukt(code: code) { (returnedProduktArray) in
+            self.produktArray = returnedProduktArray
+            
+            DispatchQueue.main.async {
+                print(self.produktArray)
+                print(self.produktArray[0].barcodeNummer)
+            }
+        }
     }
 }

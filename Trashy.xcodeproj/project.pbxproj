@@ -21,6 +21,7 @@
 		3D3A86C722BFB46E007D2741 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D3A86C522BFB46E007D2741 /* LaunchScreen.storyboard */; };
 		3D3A86D222BFB46E007D2741 /* TrashyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A86D122BFB46E007D2741 /* TrashyTests.swift */; };
 		3D3A86DD22BFB46E007D2741 /* TrashyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A86DC22BFB46E007D2741 /* TrashyUITests.swift */; };
+		3D3A929F22C34E0A00FE9BAB /* Produkt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A929E22C34E0A00FE9BAB /* Produkt.swift */; };
 		3D9195E922C2941F008BA78A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D9195E822C2941F008BA78A /* GoogleService-Info.plist */; };
 		3D9195EB22C2957B008BA78A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9195EA22C2957B008BA78A /* DataService.swift */; };
 		B5A11D9E3412DC8D78518286 /* Pods_Trashy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29D1F6721DC529976A077D7 /* Pods_Trashy.framework */; };
@@ -70,6 +71,7 @@
 		3D3A86D822BFB46E007D2741 /* TrashyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrashyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3A86DC22BFB46E007D2741 /* TrashyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashyUITests.swift; sourceTree = "<group>"; };
 		3D3A86DE22BFB46E007D2741 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D3A929E22C34E0A00FE9BAB /* Produkt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Produkt.swift; sourceTree = "<group>"; };
 		3D9195E822C2941F008BA78A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D9195EA22C2957B008BA78A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		4FA411F9E8290F6602F05D9A /* Pods-TrashyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrashyTests.debug.xcconfig"; path = "Target Support Files/Pods-TrashyTests/Pods-TrashyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				3D9195EA22C2957B008BA78A /* DataService.swift */,
+				3D3A929E22C34E0A00FE9BAB /* Produkt.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				3D0B855622C2565E003D8CAA /* MainNVC.swift in Sources */,
 				3D0B856722C258CC003D8CAA /* EinstellungenTVC.swift in Sources */,
 				3D0B855E22C257DD003D8CAA /* InformationTVC.swift in Sources */,
+				3D3A929F22C34E0A00FE9BAB /* Produkt.swift in Sources */,
 				3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */,
 				3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */,
 				3D3A86C222BFB46C007D2741 /* Trashy.xcdatamodeld in Sources */,
