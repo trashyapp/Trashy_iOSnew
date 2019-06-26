@@ -33,17 +33,37 @@
                     <view key="view" contentMode="scaleToFill" id="ZxJ-Eb-VfR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPw-gS-CoK">
+                                <rect key="frame" x="281" y="718" width="120" height="65"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="4AK-5D-MRT"/>
+                                    <constraint firstAttribute="height" constant="65" id="MZ7-v7-GAB"/>
+                                </constraints>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="eingabeButtonAction:" destination="UNF-eG-reQ" eventType="touchUpInside" id="N7E-3k-nXt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0E7-Vf-R2w" firstAttribute="bottom" secondItem="mPw-gS-CoK" secondAttribute="bottom" constant="30" id="M1M-aw-D4Y"/>
+                            <constraint firstItem="0E7-Vf-R2w" firstAttribute="trailing" secondItem="mPw-gS-CoK" secondAttribute="trailing" constant="13" id="iOc-tn-V0J"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0E7-Vf-R2w"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Scan" id="agc-tW-NjS"/>
                     <connections>
+                        <outlet property="eingabeButton" destination="mPw-gS-CoK" id="70P-2Q-RC7"/>
                         <segue destination="i11-sE-lc1" kind="show" identifier="toErgebnisVC" id="yfM-ge-PDt"/>
+                        <segue destination="G4l-m0-3gm" kind="show" identifier="toEingabeVC" id="V87-TN-x5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ou4-D9-cfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="358" y="867"/>
+            <point key="canvasLocation" x="356.52173913043481" y="866.51785714285711"/>
         </scene>
         <!--ErgebnisVC-->
         <scene sceneID="ons-d9-jwI">
@@ -59,6 +79,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EqM-bu-aGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1090" y="867"/>
+        </scene>
+        <!--EingabeVC-->
+        <scene sceneID="28t-Vs-7Ll">
+            <objects>
+                <viewController id="G4l-m0-3gm" customClass="EingabeVC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oba-Vs-Msk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="4Vs-bW-Xyg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpy-Gy-7nK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1822" y="867"/>
         </scene>
         <!--Information-->
         <scene sceneID="zQz-VV-rqI">

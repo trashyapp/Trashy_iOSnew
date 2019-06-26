@@ -289,7 +289,7 @@ public final class CameraViewController: UIViewController {
     animatedFocusViewConstraints.activate()
 
     UIView.animate(
-      withDuration: 1.0,
+      withDuration: 2.5,
       delay: 0,
       options: [.repeat, .autoreverse, .beginFromCurrentState],
       animations: ({ [weak self] in
@@ -353,8 +353,10 @@ private extension CameraViewController {
     )
 
     let focusViewSize = barCodeFocusViewType == .oneDimension
-      ? CGSize(width: 280, height: 80)
-      : CGSize(width: 218, height: 150)
+      /*? CGSize(width: 280, height: 80)
+      : CGSize(width: 218, height: 150)*/
+      ? CGSize(width: 300, height: 130)
+      : CGSize(width: 260, height: 160)
 
     regularFocusViewConstraints = [
       focusView.widthAnchor.constraint(equalToConstant: focusViewSize.width),
@@ -362,8 +364,8 @@ private extension CameraViewController {
     ]
 
     animatedFocusViewConstraints = [
-      focusView.widthAnchor.constraint(equalToConstant: 280),
-      focusView.heightAnchor.constraint(equalToConstant: 80)
+      focusView.widthAnchor.constraint(equalToConstant: 300),
+      focusView.heightAnchor.constraint(equalToConstant: 130)
     ]
 
     NSLayoutConstraint.activate(regularFocusViewConstraints)

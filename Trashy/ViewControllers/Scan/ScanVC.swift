@@ -13,6 +13,8 @@ class ScanVC: BarcodeScannerViewController {
     
     var produktArray = [Produkt]()
 
+    @IBOutlet weak var eingabeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,8 +22,14 @@ class ScanVC: BarcodeScannerViewController {
         self.errorDelegate = self as? BarcodeScannerErrorDelegate
         self.dismissalDelegate = self as? BarcodeScannerDismissalDelegate
         
-        self.messageViewController.view.isHidden = true
-        self.messageViewController.view.layer.zPosition -= 1
+        //self.messageViewController.view.isHidden = true
+        //self.messageViewController.view.layer.zPosition -= 1
+        
+        self.eingabeButton.layer.zPosition += 1
+    }
+    
+    @IBAction func eingabeButtonAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "toEingabeVC", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,11 +47,17 @@ extension ScanVC: BarcodeScannerCodeDelegate {
             self.produktArray = returnedProduktArray
             
             DispatchQueue.main.async {
-                print(self.produktArray)
-                print(self.produktArray[0].barcodeNummer)
-                print(self.produktArray[0])
-                
-                self.performSegue(withIdentifier: "toErgebnisVC", sender: self)
+                if self.produktArray.count != 0 {
+                    print(self.produktArray)
+                    print(self.produktArray[0].barcodeNummer)
+                    print(self.produktArray[0])
+                    
+                    self.performSegue(withIdentifier: "toErgebnisVC", sender: self)
+                } else {
+                    //PopUp
+                    
+                    self.performSegue(withIdentifier: "toEingabeVC", sender: self)
+                }
             }
         }
     }
