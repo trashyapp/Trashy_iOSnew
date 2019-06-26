@@ -16,6 +16,7 @@ class DataService {
     
     private var _REF_BASE = DB_BASE
     private var _REF_PRODUKT = DB_BASE.child("produkt")
+    private var _REF_MATERIAL = DB_BASE.child("material")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -25,9 +26,9 @@ class DataService {
         return _REF_PRODUKT
     }
     
-    /*func addDBProdukt(pID: String, produktData: Dictionary<String, Any>) {
-        REF_PRODUKT.child(pID).updateChildValues(produktData)
-    }*/
+    var REF_MATERIAL: DatabaseReference {
+        return _REF_MATERIAL
+    }
     
     func getProdukt(code: String, handler: @escaping (_ produkt: [Produkt]) -> ()) {
         var produktArray = [Produkt]()
@@ -60,6 +61,30 @@ class DataService {
                 }
             }
             handler(produktArray)
+        }
+    }
+    
+    func getMaterial(handler: @escaping (_ material: [Material]) -> ()) {
+        var materialArray = [Material]()
+        
+        REF_MATERIAL.observeSingleEvent(of: .value) { (materialSnapshot) in
+            guard let materialSnapshot = materialSnapshot.children.allObjects as? [DataSnapshot] else {
+                print("something is not right")
+                return
+            }
+            
+            for material in materialSnapshot {
+                let materialNummer = material.childSnapshot(forPath: "materialNummer").value as! Int
+                let materialName = material.childSnapshot(forPath: "materialName").value as! String
+                let materialBeschreibung = material.childSnapshot(forPath: "materialBeschreibung").value as! String
+                let materialBild = material.childSnapshot(forPath: "materialBild").value as! Int
+                let umwelt = material.childSnapshot(forPath: "umwelt").value as! Int
+                    
+                let material = Material(materialNummer: materialNummer, materialName: materialName, materialBeschreibung: materialBeschreibung, materialBild: materialBild, umwelt: umwelt)
+                    
+                 materialArray.append(material)
+            }
+            handler(materialArray)
         }
     }
 }

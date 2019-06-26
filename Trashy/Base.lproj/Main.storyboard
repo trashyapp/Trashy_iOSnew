@@ -64,7 +64,7 @@
         <scene sceneID="RTC-C4-nof">
             <objects>
                 <viewController storyboardIdentifier="KeinErgebnisPopUpVCSB" id="L3v-2z-Ecb" customClass="KeinErgebnisPopUpVC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zFs-dm-khE">
+                    <view key="view" contentMode="scaleToFill" id="zFs-dm-khE" customClass="EingabeVCMaterialienTVCell" customModule="Trashy" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -131,13 +131,16 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RNM-k5-byH">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="558"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <searchBar key="tableHeaderView" contentMode="redraw" misplaced="YES" id="ObR-QB-wnO">
+                                        <searchBar key="tableHeaderView" contentMode="redraw" misplaced="YES" text="" id="ObR-QB-wnO">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="G4l-m0-3gm" id="fQU-z9-EZQ"/>
+                                            </connections>
                                         </searchBar>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="107" id="cEK-Oh-bGz">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MaterialienCell" rowHeight="107" id="cEK-Oh-bGz" customClass="EingabeVCMaterialienTVCell" customModule="Trashy" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="84" width="414" height="107"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cEK-Oh-bGz" id="a9D-PS-diU">
@@ -148,6 +151,7 @@
                                                             <rect key="frame" x="20" y="11" width="80" height="85"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="1X5-CB-Fjf"/>
+                                                                <constraint firstAttribute="height" constant="85" id="BMB-qL-PYj"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tki-Xo-tSv">
@@ -167,8 +171,16 @@
                                                         <constraint firstItem="HXn-uN-TGb" firstAttribute="leading" secondItem="a9D-PS-diU" secondAttribute="leadingMargin" id="sm3-EJ-xXm"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="materialImageView" destination="HXn-uN-TGb" id="IuC-Qa-1mO"/>
+                                                    <outlet property="materialLabel" destination="tki-Xo-tSv" id="K6t-6Y-3Jg"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="G4l-m0-3gm" id="hPW-bm-Pis"/>
+                                            <outlet property="delegate" destination="G4l-m0-3gm" id="qje-rd-IYF"/>
+                                        </connections>
                                     </tableView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fU2-0S-bWv">
                                         <rect key="frame" x="0.0" y="558" width="414" height="260"/>
@@ -208,6 +220,9 @@
                         <viewLayoutGuide key="safeArea" id="4Vs-bW-Xyg"/>
                     </view>
                     <connections>
+                        <outlet property="materialienCollectionView" destination="fU2-0S-bWv" id="tyk-lG-i5Y"/>
+                        <outlet property="materialienSearchBar" destination="ObR-QB-wnO" id="Shc-4c-LTC"/>
+                        <outlet property="materialienTableView" destination="RNM-k5-byH" id="v9Q-EX-aj4"/>
                         <outlet property="searchDisplayController" destination="Qb3-R4-ALn" id="pWg-Ai-IBk"/>
                     </connections>
                 </viewController>
