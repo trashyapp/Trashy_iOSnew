@@ -12,8 +12,6 @@ import BarcodeScanner
 class ScanVC: BarcodeScannerViewController {
     
     var produktArray = [Produkt]()
-
-    @IBOutlet weak var eingabeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,13 +20,26 @@ class ScanVC: BarcodeScannerViewController {
         self.errorDelegate = self as? BarcodeScannerErrorDelegate
         self.dismissalDelegate = self as? BarcodeScannerDismissalDelegate
         
-        //self.messageViewController.view.isHidden = true
-        //self.messageViewController.view.layer.zPosition -= 1
-        
-        self.eingabeButton.layer.zPosition += 1
+        setUpEingabeButton()
     }
     
-    @IBAction func eingabeButtonAction(_ sender: Any) {
+    func setUpEingabeButton() {
+        let eingabeButton = UIButton()
+        eingabeButton.backgroundColor = .white
+        eingabeButton.addTarget(self, action: #selector(eingabeButtonAction), for: .touchUpInside)
+        eingabeButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.cameraViewController.view.addSubview(eingabeButton)
+        
+        eingabeButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        eingabeButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        
+        let margins = view.layoutMarginsGuide
+        eingabeButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 3).isActive = true
+        eingabeButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -30).isActive = true
+    }
+    
+    @objc func eingabeButtonAction(sender: UIButton!) {
         self.performSegue(withIdentifier: "toEingabeVC", sender: self)
     }
     
