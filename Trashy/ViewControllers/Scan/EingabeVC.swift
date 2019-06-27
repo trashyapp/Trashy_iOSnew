@@ -9,7 +9,7 @@
 import UIKit
 import Hero
 
-class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     //mit collectionview und suchefeld - materialien werden mit hilfe von bildern und titeln angezeigt
     
     var produktArray = [Produkt]()
@@ -18,6 +18,8 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     var currentMaterialNameArray = [String]()
     var barcodeVorhanden = false
     var searchActive = false
+    var selectedMaterialArray = ["Bestaetigen"]
+    let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
     @IBOutlet weak var materialienTableView: UITableView!
     @IBOutlet weak var materialienCollectionView: UICollectionView!
@@ -55,22 +57,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
     }
     
-    /*func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        for i in 0..<materialArray.count {
-            materialNameArray.append(materialArray[i].materialName)
-        }
-        
-        filteredMaterialNameArray = searchText.isEmpty ? materialNameArray : materialNameArray.filter { (item: String) -> Bool in
-            // If dataItem matches the searchText, return true to include it
-            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-        }
-        
-        materialienTableView.reloadData()
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.materialienSearchBar.showsCancelButton = true
-    }*/
+    //SearchBar
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true
@@ -106,13 +93,13 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         self.materialienTableView.reloadData()
     }
     
-
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
         searchBar.text = ""
         searchBar.resignFirstResponder()
     }
+    
+    //TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentMaterialNameArray.count
@@ -130,5 +117,37 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 110
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMaterialArray.append(currentMaterialNameArray[indexPath.row])
+        currentMaterialNameArray = materialNameArray
+        
+        materialienCollectionView.reloadData()
+        materialienTableView.reloadData()
+        materialienSearchBar.text = ""
+    }
+    
+    //CollectionView
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return selectedMaterialArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedMaterialCell", for: indexPath) as! EingabeErgebnisCVCell
+        
+        //cell?.selectedMaterialImageView.
+        print(selectedMaterialArray[indexPath.row])
+        cell.selectedMaterialLabel.text = selectedMaterialArray[indexPath.row]
+        
+        return cell
+    }
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        let mainNVC = storyBoard.instantiateViewController(withIdentifier: "MainNVCSB") as! MainNVC
+        
+        self.present(mainNVC, animated: true, completion: nil)
     }
 }

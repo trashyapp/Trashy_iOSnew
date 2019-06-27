@@ -87,7 +87,9 @@ extension ScanVC: BarcodeScannerCodeDelegate {
                 } else {
                     print("ScanVC3: " + self.produktArray[0].barcodeNummer)
                     
-                    self.toKeinErgebnisPopUpVC()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        self.toKeinErgebnisPopUpVC()
+                    }
                 }
             }
         }
