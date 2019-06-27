@@ -17,6 +17,7 @@
 		3D374BE622C49AF90004C738 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BE522C49AF90004C738 /* Keyboard.swift */; };
 		3D374BEA22C49D2E0004C738 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BE922C49D2E0004C738 /* RoundImageView.swift */; };
 		3D374BEC22C49E3F0004C738 /* EingabeErgebnisCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BEB22C49E3F0004C738 /* EingabeErgebnisCVCell.swift */; };
+		3D374BEE22C4AE070004C738 /* EingabeErgebnisButtonCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BED22C4AE070004C738 /* EingabeErgebnisButtonCVCell.swift */; };
 		3D3A86BA22BFB46C007D2741 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A86B922BFB46C007D2741 /* AppDelegate.swift */; };
 		3D3A86BF22BFB46C007D2741 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D3A86BD22BFB46C007D2741 /* Main.storyboard */; };
 		3D3A86C222BFB46C007D2741 /* Trashy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A86C022BFB46C007D2741 /* Trashy.xcdatamodeld */; };
@@ -72,6 +73,7 @@
 		3D374BE522C49AF90004C738 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keyboard.swift; path = "../../../Arbeiten/iMac/Arbeiten/Außerschulisch/Swift/Apps/KKG/KKG/Extensions/Keyboard.swift"; sourceTree = "<group>"; };
 		3D374BE922C49D2E0004C738 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		3D374BEB22C49E3F0004C738 /* EingabeErgebnisCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EingabeErgebnisCVCell.swift; sourceTree = "<group>"; };
+		3D374BED22C4AE070004C738 /* EingabeErgebnisButtonCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EingabeErgebnisButtonCVCell.swift; sourceTree = "<group>"; };
 		3D3A86B622BFB46C007D2741 /* Trashy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trashy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3A86B922BFB46C007D2741 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D3A86BE22BFB46C007D2741 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				3D3A92A422C37B5200FE9BAB /* EingabeVC.swift */,
 				3D3A92B022C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift */,
 				3D374BEB22C49E3F0004C738 /* EingabeErgebnisCVCell.swift */,
+				3D374BED22C4AE070004C738 /* EingabeErgebnisButtonCVCell.swift */,
 				3D3A92AC22C3A21800FE9BAB /* EingabeErgebnisVC.swift */,
 				3D3A92AE22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift */,
 			);
@@ -521,6 +524,7 @@
 				3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */,
 				3D374BEC22C49E3F0004C738 /* EingabeErgebnisCVCell.swift in Sources */,
 				3D3A92A522C37B5200FE9BAB /* EingabeVC.swift in Sources */,
+				3D374BEE22C4AE070004C738 /* EingabeErgebnisButtonCVCell.swift in Sources */,
 				3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */,
 				3D3A86C222BFB46C007D2741 /* Trashy.xcdatamodeld in Sources */,
 				3D0B855822C256AD003D8CAA /* MainTBC.swift in Sources */,

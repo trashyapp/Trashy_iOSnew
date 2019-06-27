@@ -18,7 +18,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     var currentMaterialNameArray = [String]()
     var barcodeVorhanden = false
     var searchActive = false
-    var selectedMaterialArray = ["Bestaetigen"]
+    var selectedMaterialArray = [String]()
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
     @IBOutlet weak var materialienTableView: UITableView!
@@ -123,6 +123,14 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         selectedMaterialArray.append(currentMaterialNameArray[indexPath.row])
         currentMaterialNameArray = materialNameArray
         
+        //Auto scroll
+        for i in 0..<selectedMaterialArray.count {
+            if selectedMaterialArray[i] == currentMaterialNameArray[indexPath.row] {
+                let indexPathCV = IndexPath(item: i, section: 0)
+                self.materialienCollectionView.scrollToItem(at: indexPathCV, at: [.centeredVertically, .centeredHorizontally], animated: true)
+                //self.materialienCollectionView.reloadItems(at: [indexPathCV])
+            }
+        }
         materialienCollectionView.reloadData()
         materialienTableView.reloadData()
         materialienSearchBar.text = ""
@@ -131,18 +139,28 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     //CollectionView
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectedMaterialArray.count
+        return selectedMaterialArray.count+1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if indexPath.row == selectedMaterialArray.count {
+            let bestaetigenCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BestaetigenCell", for: indexPath) as! EingabeErgebnisButtonCVCell
+            
+            bestaetigenCell.bestaetigenButton.setTitle("Fertig", for: .normal)
+            
+            return bestaetigenCell
+        }
+        let materialCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedMaterialCell", for: indexPath) as! EingabeErgebnisCVCell
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedMaterialCell", for: indexPath) as! EingabeErgebnisCVCell
-        
-        //cell?.selectedMaterialImageView.
-        print(selectedMaterialArray[indexPath.row])
-        cell.selectedMaterialLabel.text = selectedMaterialArray[indexPath.row]
-        
-        return cell
+        if indexPath.row == selectedMaterialArray.count-1 {
+            print(selectedMaterialArray[indexPath.row])
+            materialCell.selectedMaterialLabel.text = selectedMaterialArray[indexPath.row]
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.materialienCollectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
+            }
+        }
+        return materialCell
     }
     
     @IBAction func cancelButton(_ sender: Any) {

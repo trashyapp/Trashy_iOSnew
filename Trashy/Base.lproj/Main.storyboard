@@ -176,6 +176,33 @@
                                             <outlet property="selectedMaterialLabel" destination="0vX-uG-vWe" id="r4z-br-HBs"/>
                                         </connections>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BestaetigenCell" id="bpf-yo-ZJM" customClass="EingabeErgebnisButtonCVCell" customModule="Trashy" customModuleProvider="target">
+                                        <rect key="frame" x="140" y="20" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6l-bi-G2f" customClass="RoundButton" customModule="Trashy" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="n6l-bi-G2f" secondAttribute="trailing" id="Waf-7f-J09"/>
+                                            <constraint firstAttribute="bottom" secondItem="n6l-bi-G2f" secondAttribute="bottom" id="bBm-Co-QY7"/>
+                                            <constraint firstItem="n6l-bi-G2f" firstAttribute="top" secondItem="bpf-yo-ZJM" secondAttribute="top" id="hMu-7Q-crW"/>
+                                            <constraint firstItem="n6l-bi-G2f" firstAttribute="leading" secondItem="bpf-yo-ZJM" secondAttribute="leading" id="qzp-hR-haG"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="bestaetigenButton" destination="n6l-bi-G2f" id="1Sg-ch-AtS"/>
+                                        </connections>
+                                    </collectionViewCell>
                                 </cells>
                                 <connections>
                                     <outlet property="dataSource" destination="G4l-m0-3gm" id="MKv-DB-ZKN"/>
