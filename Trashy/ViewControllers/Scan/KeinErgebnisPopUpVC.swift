@@ -24,12 +24,22 @@ class KeinErgebnisPopUpVC: UIViewController {
         self.hero.isEnabled = true
         self.titleView.hero.id = "KeinErgebnisPopUpVCAnimation"
         mainView.hero.modifiers = [.translate(x: -120)]
+        eingabeButton.hero.modifiers = [.translate(x: -120)]
         
         eingabeButton.hero.id = "EingabeVCAnimation"
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.25)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.10)
+        setUpShatten(view: mainView, op: 0.75)
+        setUpShatten(view: titleView, op: 1.0)
         
         print("KeinErgebnisVC: " + produktArray[0].barcodeNummer)
+    }
+    
+    func setUpShatten(view: UIView, op: Float) {
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowOpacity = op
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 10
     }
     
     @IBAction func eingabeButtonAction(_ sender: Any) {

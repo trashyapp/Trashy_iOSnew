@@ -20,6 +20,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     var searchActive = false
     var selectedMaterialArray = [String]()
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    var longPressedEnabled = false
 
     @IBOutlet weak var materialienTableView: UITableView!
     @IBOutlet weak var materialienCollectionView: UICollectionView!
@@ -29,24 +30,65 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         super.viewDidLoad()
         
         hideKeyboardWhenTappedAround()
+        deletionDone()
         
+        //Hero
         self.hero.isEnabled = true
         self.view.hero.id = "EingabeVCAnimation"
         
+        setUpShatten(view: materialienCollectionView, op: 1.0)
+        
+        //Case: Wenn User von KeinErgebnisPopUpVC kommt, also ein Barcode hat, welcher nicht in der DB ist
         if barcodeVorhanden {
             print("KeinErgebnisVC: " + produktArray[0].barcodeNummer)
             //Dann wird eine view / ein button sichtbar, die fragt, ob man helfen will, das Produkt hinzuzufügen
-        } else {
+        }
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longTap(_:)))
+        materialienCollectionView.addGestureRecognizer(longPressGesture)
+    }
+    
+    func deletionDone() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(EingabeVC.dismissWiggle))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissWiggle() {
+        longPressedEnabled = false
+        
+        self.materialienCollectionView.reloadData()
+    }
+    
+    @objc func longTap(_ gesture: UIGestureRecognizer){
+        
+        switch(gesture.state) {
+        case .began:
+            guard let selectedIndexPath = materialienCollectionView.indexPathForItem(at: gesture.location(in: materialienCollectionView)) else {
+                return
+            }
+            materialienCollectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+        case .changed:
+            materialienCollectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+        case .ended:
+            materialienCollectionView.endInteractiveMovement()
+            longPressedEnabled = true
+            self.materialienCollectionView.reloadData()
+        default:
+            materialienCollectionView.cancelInteractiveMovement()
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        //DataService Verbindung herstellen
         DataService.instance.getMaterial() { (returnedMaterialArray) in
             self.materialArray = returnedMaterialArray
             
             print(self.materialArray[0].materialBeschreibung)
             
+            //Materialiennamen in ein einzelnes Array packen
             for i in 0..<self.materialArray.count {
                 self.materialNameArray.append(self.materialArray[i].materialName)
             }
@@ -111,6 +153,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
 
         cell.materialLabel.text = currentMaterialNameArray[indexPath.row]
+        setUpShatten(view: cell.materialImageView, op: 0.75)
         
         return cell
     }
@@ -121,7 +164,6 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedMaterialArray.append(currentMaterialNameArray[indexPath.row])
-        currentMaterialNameArray = materialNameArray
         
         //Auto scroll
         for i in 0..<selectedMaterialArray.count {
@@ -131,9 +173,17 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
                 //self.materialienCollectionView.reloadItems(at: [indexPathCV])
             }
         }
+        
+        //Zu dem normalen Zustand zurücksetzen (TableView, SearchBar)
+        currentMaterialNameArray = materialNameArray
+        materialienSearchBar.text = ""
+        
+        //Änderungen sichtbar machen
         materialienCollectionView.reloadData()
         materialienTableView.reloadData()
-        materialienSearchBar.text = ""
+        
+        materialienTableView.layoutIfNeeded()
+        materialienTableView.setContentOffset(.zero, animated: true)
     }
     
     //CollectionView
@@ -143,6 +193,8 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        //Bestätigungsbutton initialisieren (Sichtbar machen)
         if indexPath.row == selectedMaterialArray.count {
             let bestaetigenCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BestaetigenCell", for: indexPath) as! EingabeErgebnisButtonCVCell
             
@@ -150,12 +202,30 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             
             return bestaetigenCell
         }
+        
+        //Die ausgewählten Materialien
         let materialCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedMaterialCell", for: indexPath) as! EingabeErgebnisCVCell
         
+        /*
+        let cSelector = #selector(reset(sender:))
+        let UpSwipe = UISwipeGestureRecognizer(target: self, action: cSelector )
+        UpSwipe.direction = UISwipeGestureRecognizer.Direction.up
+        materialCell.addGestureRecognizer(UpSwipe)*/
+        
+        materialCell.selectedMaterialDeleteButton.addTarget(self, action: #selector(selectedMaterialDeleteButtonAction(_:)), for: .touchUpInside)
+        
+        if longPressedEnabled   {
+            materialCell.startAnimate()
+        }else{
+            materialCell.stopAnimate()
+        }
+        
+        //Neu ausgewählte Materialien initialieren (Sichtbar machen)
         if indexPath.row == selectedMaterialArray.count-1 {
             print(selectedMaterialArray[indexPath.row])
             materialCell.selectedMaterialLabel.text = selectedMaterialArray[indexPath.row]
             
+            //Scrolle bis zum Bestätigungsbutton, mit einer Sekunde Verzögerung
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.materialienCollectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
             }
@@ -163,9 +233,45 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         return materialCell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.size.width/4 - 20, height: UIScreen.main.bounds.size.width/4 - 20)
+    }
+    
+    @objc func selectedMaterialDeleteButtonAction(_ sender: AnyObject) {
+        let hitPoint = (sender).convert(CGPoint.zero, to: self.materialienCollectionView)
+        let hitIndex = self.materialienCollectionView.indexPathForItem(at: hitPoint)
+        
+        //remove the image and refresh the collection view
+        self.selectedMaterialArray.remove(at: (hitIndex?.row)!)
+        self.materialienCollectionView.reloadData()
+    }
+    
+    /*@objc func reset(sender: UISwipeGestureRecognizer) {
+        let cell = sender.view as! UICollectionViewCell
+        let i = self.materialienCollectionView.indexPath(for: cell)!.item
+        selectedMaterialArray.remove(at: i) //replace favoritesInstance.favoritesArray with your own array
+        self.materialienCollectionView.reloadData() // replace favoritesCV with your own collection view.
+    }*/
+    
+    func setUpShatten(view: AnyObject, op: Float) {
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowOpacity = op
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 10
+    }
+    
+    //X-Button rechts-oben: Schließt EingabeVC und geht zu MainNVC - (Abbrechen)
     @IBAction func cancelButton(_ sender: Any) {
         let mainNVC = storyBoard.instantiateViewController(withIdentifier: "MainNVCSB") as! MainNVC
-        
         self.present(mainNVC, animated: true, completion: nil)
+    }
+}
+
+extension UICollectionViewCell {
+    func shake() {
+        self.transform = CGAffineTransform(translationX: 20, y: 0)
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
+            self.transform = CGAffineTransform.identity
+        }, completion: nil)
     }
 }

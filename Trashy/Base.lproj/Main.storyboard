@@ -158,20 +158,33 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTi-MR-hac">
+                                                    <rect key="frame" x="70" y="0.0" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Idi-IJ-r9Y"/>
+                                                        <constraint firstAttribute="width" constant="30" id="ao4-N3-2Or"/>
+                                                    </constraints>
+                                                    <state key="normal" title="X">
+                                                        <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Jug-eq-Htx" secondAttribute="bottom" id="PJB-Hv-VYG"/>
+                                            <constraint firstItem="BTi-MR-hac" firstAttribute="top" secondItem="sP2-F7-nJV" secondAttribute="top" id="QKa-ng-1TF"/>
                                             <constraint firstItem="Jug-eq-Htx" firstAttribute="leading" secondItem="sP2-F7-nJV" secondAttribute="leading" id="XBV-ZZ-Dph"/>
                                             <constraint firstItem="Jug-eq-Htx" firstAttribute="top" secondItem="sP2-F7-nJV" secondAttribute="top" id="e2X-a1-4Gt"/>
                                             <constraint firstItem="0vX-uG-vWe" firstAttribute="leading" secondItem="sP2-F7-nJV" secondAttribute="leadingMargin" constant="6" id="f3F-rO-BJC"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="0vX-uG-vWe" secondAttribute="trailing" constant="6" id="fiI-9b-aVK"/>
+                                            <constraint firstAttribute="trailing" secondItem="BTi-MR-hac" secondAttribute="trailing" id="tb1-HS-bUK"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="0vX-uG-vWe" secondAttribute="bottom" constant="21" id="uvD-V3-nJz"/>
                                             <constraint firstAttribute="trailing" secondItem="Jug-eq-Htx" secondAttribute="trailing" id="yBN-LL-HOc"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="selectedMaterialDeleteButton" destination="BTi-MR-hac" id="C3l-aj-8ad"/>
                                             <outlet property="selectedMaterialImageView" destination="Jug-eq-Htx" id="vja-6r-iFw"/>
                                             <outlet property="selectedMaterialLabel" destination="0vX-uG-vWe" id="r4z-br-HBs"/>
                                         </connections>
