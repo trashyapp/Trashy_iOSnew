@@ -26,6 +26,8 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideKeyboardWhenTappedAround()
+        
         self.hero.isEnabled = true
         self.view.hero.id = "EingabeVCAnimation"
         
@@ -127,6 +129,6 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 85
+        return 110
     }
 }
