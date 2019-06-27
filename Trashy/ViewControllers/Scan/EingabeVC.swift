@@ -25,6 +25,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     @IBOutlet weak var materialienTableView: UITableView!
     @IBOutlet weak var materialienCollectionView: UICollectionView!
     @IBOutlet weak var materialienSearchBar: UISearchBar!
+    @IBOutlet weak var materialienView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +37,9 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         self.hero.isEnabled = true
         self.view.hero.id = "EingabeVCAnimation"
         
-        setUpShatten(view: materialienCollectionView, op: 1.0)
+        setUpShatten(view: materialienView, op: 0.5)
+   
+        materialienCollectionView.layer.zPosition += 1
         
         //Case: Wenn User von KeinErgebnisPopUpVC kommt, also ein Barcode hat, welcher nicht in der DB ist
         if barcodeVorhanden {
@@ -153,7 +156,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
 
         cell.materialLabel.text = currentMaterialNameArray[indexPath.row]
-        setUpShatten(view: cell.materialImageView, op: 0.75)
+        //setUpShatten(view: cell.materialImageView, op: 0.75)
         
         return cell
     }
@@ -253,13 +256,13 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         self.materialienCollectionView.reloadData() // replace favoritesCV with your own collection view.
     }*/
     
-    func setUpShatten(view: AnyObject, op: Float) {
-        view.layer.shadowColor = UIColor.darkGray.cgColor
+    func setUpShatten(view: UIView, op: Float) {
+        view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = op
         view.layer.shadowOffset = .zero
-        view.layer.shadowRadius = 10
+        view.layer.shadowRadius = 20
     }
-    
+
     //X-Button rechts-oben: Schließt EingabeVC und geht zu MainNVC - (Abbrechen)
     @IBAction func cancelButton(_ sender: Any) {
         let mainNVC = storyBoard.instantiateViewController(withIdentifier: "MainNVCSB") as! MainNVC
@@ -267,11 +270,13 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
 }
 
-extension UICollectionViewCell {
-    func shake() {
-        self.transform = CGAffineTransform(translationX: 20, y: 0)
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
-            self.transform = CGAffineTransform.identity
-        }, completion: nil)
+/*extension UIView {
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
     }
-}
+}*/
+
+
