@@ -15,8 +15,9 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     var produktArray = [Produkt]()
     var materialArray = [Material]()
     var materialNameArray = [String]()
-    var filteredMaterialNameArray = [String]()
+    var currentMaterialNameArray = [String]()
     var barcodeVorhanden = false
+    var searchActive = false
 
     @IBOutlet weak var materialienTableView: UITableView!
     @IBOutlet weak var materialienCollectionView: UICollectionView!
@@ -32,7 +33,6 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             print("KeinErgebnisVC: " + produktArray[0].barcodeNummer)
             //Dann wird eine view / ein button sichtbar, die fragt, ob man helfen will, das Produkt hinzuzufügen
         } else {
-            
         }
     }
     
@@ -43,11 +43,17 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             
             print(self.materialArray[0].materialBeschreibung)
             
+            for i in 0..<self.materialArray.count {
+                self.materialNameArray.append(self.materialArray[i].materialName)
+            }
+            
+            self.currentMaterialNameArray = self.materialNameArray
+            
             self.materialienTableView.reloadData()
         }
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    /*func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         for i in 0..<materialArray.count {
             materialNameArray.append(materialArray[i].materialName)
         }
@@ -62,7 +68,43 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.materialienSearchBar.showsCancelButton = true
+    }*/
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
     }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            currentMaterialNameArray = materialNameArray
+            self.materialienTableView.reloadData()
+            return
+        }
+        currentMaterialNameArray = materialNameArray.filter({ material -> Bool in
+            material.lowercased().contains(searchText.lowercased())
+        })
+        
+        if currentMaterialNameArray.count == 0 {
+            searchActive = false
+        } else {
+            searchActive = true
+        }
+        self.materialienTableView.reloadData()
+    }
+    
+
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
@@ -71,7 +113,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return materialArray.count
+        return currentMaterialNameArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -79,7 +121,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             return UITableViewCell()
         }
 
-        cell.materialLabel.text = materialArray[indexPath.row].materialName
+        cell.materialLabel.text = currentMaterialNameArray[indexPath.row]
         
         return cell
     }
