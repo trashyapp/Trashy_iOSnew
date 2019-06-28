@@ -35,14 +35,28 @@
                     <view key="view" contentMode="scaleToFill" id="ZxJ-Eb-VfR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NP0-Ty-jPX" customClass="RoundView" customModule="Trashy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="788" width="414" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NhE-gO-Oex"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0E7-Vf-R2w" firstAttribute="bottom" secondItem="NP0-Ty-jPX" secondAttribute="bottom" constant="-25" id="2ps-gF-ryw"/>
+                            <constraint firstItem="NP0-Ty-jPX" firstAttribute="trailing" secondItem="0E7-Vf-R2w" secondAttribute="trailing" id="DWT-1Q-rSL"/>
+                            <constraint firstItem="NP0-Ty-jPX" firstAttribute="leading" secondItem="0E7-Vf-R2w" secondAttribute="leading" id="T6w-76-Unu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0E7-Vf-R2w"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="ScanSymbol" id="agc-tW-NjS">
-                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
                         <color key="badgeColor" name="TrashyBlue"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="tabBarView" destination="NP0-Ty-jPX" id="R97-1b-QQf"/>
                         <segue destination="i11-sE-lc1" kind="show" identifier="toErgebnisVC" id="yfM-ge-PDt"/>
                     </connections>
                 </viewController>
@@ -286,10 +300,10 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTu-Ad-4n9" customClass="RoundView" customModule="Trashy" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="736" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="736" width="414" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="fzT-h0-ekq"/>
+                                    <constraint firstAttribute="height" constant="50" id="fzT-h0-ekq"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bi-IV-MKp">
@@ -318,7 +332,7 @@
                             <constraint firstItem="4Vs-bW-Xyg" firstAttribute="trailing" secondItem="5bi-IV-MKp" secondAttribute="trailing" constant="10" id="Xdc-Ya-D2d"/>
                             <constraint firstItem="ObR-QB-wnO" firstAttribute="leading" secondItem="4Vs-bW-Xyg" secondAttribute="leading" constant="12" id="aeF-8V-krb"/>
                             <constraint firstItem="fU2-0S-bWv" firstAttribute="top" secondItem="RNM-k5-byH" secondAttribute="bottom" id="cJL-gM-au2"/>
-                            <constraint firstItem="fU2-0S-bWv" firstAttribute="top" secondItem="qTu-Ad-4n9" secondAttribute="bottom" constant="-10" id="ciw-G4-7Gt"/>
+                            <constraint firstItem="fU2-0S-bWv" firstAttribute="top" secondItem="qTu-Ad-4n9" secondAttribute="bottom" constant="-30" id="ciw-G4-7Gt"/>
                             <constraint firstItem="5bi-IV-MKp" firstAttribute="leading" secondItem="ObR-QB-wnO" secondAttribute="trailing" id="fKQ-Pv-s0f"/>
                             <constraint firstItem="ObR-QB-wnO" firstAttribute="top" secondItem="4Vs-bW-Xyg" secondAttribute="top" id="fYi-Yv-F2L"/>
                             <constraint firstItem="4Vs-bW-Xyg" firstAttribute="bottom" secondItem="fU2-0S-bWv" secondAttribute="bottom" constant="-34" id="h3h-DE-459"/>
@@ -379,36 +393,38 @@
             </objects>
             <point key="canvasLocation" x="3988" y="867"/>
         </scene>
-        <!--InformationTVC-->
-        <scene sceneID="zQz-VV-rqI">
+        <!--InformationVC-->
+        <scene sceneID="ayf-VS-naf">
             <objects>
-                <tableViewController id="bLA-Ka-WIJ" customClass="InformationTVC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Hjk-Hl-agG">
+                <viewController id="ElG-I8-aKB" customClass="InformationVC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7uB-Rh-2tf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcF-69-3MZ" customClass="RoundView" customModule="Trashy" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="788" width="414" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Rnk-zR-a5R"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Qjs-uw-dmP">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qjs-uw-dmP" id="Zvg-lD-KvU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="bLA-Ka-WIJ" id="I9f-Gr-73w"/>
-                            <outlet property="delegate" destination="bLA-Ka-WIJ" id="7Nw-nU-HZk"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="" id="spZ-BT-Bmn">
-                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
-                    </tabBarItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nlf-0Y-POX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="xDN-0q-T3O" firstAttribute="bottom" secondItem="mcF-69-3MZ" secondAttribute="bottom" constant="-25" id="ISA-Yw-Ty5"/>
+                            <constraint firstItem="mcF-69-3MZ" firstAttribute="leading" secondItem="xDN-0q-T3O" secondAttribute="leading" id="bDx-vw-gpH"/>
+                            <constraint firstItem="mcF-69-3MZ" firstAttribute="trailing" secondItem="xDN-0q-T3O" secondAttribute="trailing" id="vM6-TP-P3j"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xDN-0q-T3O"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" id="1Rh-fR-alt"/>
+                    <connections>
+                        <outlet property="tabBarView" destination="mcF-69-3MZ" id="77w-OE-Fkh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6GE-9h-0Tz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="358" y="1595"/>
+            <point key="canvasLocation" x="358" y="1594"/>
         </scene>
         <!--Information InhaltVC-->
         <scene sceneID="iJG-6f-xfw">
@@ -447,7 +463,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="UNF-eG-reQ" kind="relationship" relationship="viewControllers" id="Vte-ey-PUG"/>
-                        <segue destination="bLA-Ka-WIJ" kind="relationship" relationship="viewControllers" id="p6o-ES-5Gf"/>
+                        <segue destination="ElG-I8-aKB" kind="relationship" relationship="viewControllers" id="K3t-3I-e5O"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ir-Xb-hLy" userLabel="First Responder" sceneMemberID="firstResponder"/>

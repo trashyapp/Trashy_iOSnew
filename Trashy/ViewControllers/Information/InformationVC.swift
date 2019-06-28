@@ -1,23 +1,31 @@
 //
-//  MainTBC.swift
+//  InformationVC.swift
 //  Trashy
 //
-//  Created by Kai Zheng on 25.06.19.
+//  Created by Kai Zheng on 28.06.19.
 //  Copyright © 2019 Trashy. All rights reserved.
 //
 
 import UIKit
 
-class MainTBC: UITabBarController {
+class InformationVC: UIViewController {
 
+    @IBOutlet weak var tabBarView: RoundView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UITabBar.appearance().shadowImage = UIImage()
-        UITabBar.appearance().backgroundImage = UIImage()
-        UITabBar.appearance().backgroundColor = UIColor.white
-        
+
         // Do any additional setup after loading the view.
+        
+        tabBarView.layer.zPosition += 1
+        setUpShatten(view: tabBarView, op: 0.5)
+    }
+    
+    func setUpShatten(view: UIView, op: Float) {
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowOpacity = op
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 20
     }
     
 
