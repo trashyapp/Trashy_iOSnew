@@ -28,7 +28,6 @@ class InformationVC: UIViewController {
         view.layer.shadowRadius = 20
     }
     
-
     /*
     // MARK: - Navigation
 

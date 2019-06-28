@@ -16,6 +16,7 @@ class MainTBC: UITabBarController {
         UITabBar.appearance().shadowImage = UIImage()
         UITabBar.appearance().backgroundImage = UIImage()
         UITabBar.appearance().backgroundColor = UIColor.white
+        UITabBar.appearance().unselectedItemTintColor = UIColor.init(named: "TrashyLightGray")
         
         // Do any additional setup after loading the view.
     }

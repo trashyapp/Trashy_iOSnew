@@ -238,8 +238,10 @@ private extension BarcodeScannerViewController {
         constant: -BarcodeScannerViewController.footerHeight
       )
     )
+    
+    cameraView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
 
-    if navigationController != nil {
+    /*if navigationController != nil {
       cameraView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
     } else {
       headerViewController.delegate = self
@@ -254,7 +256,7 @@ private extension BarcodeScannerViewController {
         headerView.bottomAnchor.constraint(equalTo: headerViewController.navigationBar.bottomAnchor),
         cameraView.topAnchor.constraint(equalTo: headerView.bottomAnchor)
       )
-    }
+    }*/
   }
 
   private func makeExpandedConstraints() -> [NSLayoutConstraint] {

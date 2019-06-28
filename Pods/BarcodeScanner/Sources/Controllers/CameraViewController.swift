@@ -347,9 +347,12 @@ private extension CameraViewController {
   }
 
   func setupFocusViewConstraints() {
+    let screenSize: CGRect = UIScreen.main.bounds
+    let screenHeight = screenSize.height
+    
     NSLayoutConstraint.activate(
       focusView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      focusView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+      focusView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -(screenHeight / 22))
     )
 
     let focusViewSize = barCodeFocusViewType == .oneDimension

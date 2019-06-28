@@ -13,6 +13,10 @@ class MainNVC: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().isHidden = true
+        UINavigationBar.appearance().backgroundColor = UIColor.white
+        
         // Do any additional setup after loading the view.
     }
     
