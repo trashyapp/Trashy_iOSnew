@@ -415,7 +415,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xDN-0q-T3O"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="ScanSymbol" id="1Rh-fR-alt">
+                    <tabBarItem key="tabBarItem" title="" image="MenuSymbol" id="1Rh-fR-alt">
                         <inset key="imageInsets" minX="0.0" minY="-10" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <connections>
@@ -501,6 +501,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="MenuSymbol" width="40" height="40"/>
         <image name="ScanSymbol" width="40" height="40"/>
         <image name="SettingsSymbol" width="25.5" height="24"/>
         <namedColor name="TrashyBlue">

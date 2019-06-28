@@ -20,9 +20,9 @@ public enum TorchMode {
   var image: UIImage {
     switch self {
     case .on:
-      return imageNamed("flashOn")
+        return /*imageNamed("LightSymbolOn")*/ (UIImage.init(named: "LightSymbolOn") as UIImage?)!
     case .off:
-      return imageNamed("flashOff")
+      return /*imageNamed("LightSymbol")*/ (UIImage.init(named: "LightSymbol") as UIImage?)!
     }
   }
 
