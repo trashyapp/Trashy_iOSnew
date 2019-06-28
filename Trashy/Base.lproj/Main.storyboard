@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-365" y="133"/>
         </scene>
-        <!--Scan-->
+        <!--ScanVC-->
         <scene sceneID="dXq-Tn-dN3">
             <objects>
                 <viewController id="UNF-eG-reQ" customClass="ScanVC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,8 +38,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0E7-Vf-R2w"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Scan" id="agc-tW-NjS">
-                        <color key="badgeColor" red="0.91162145139999995" green="0.63300603629999996" blue="0.48203152420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <tabBarItem key="tabBarItem" title="" image="ScanSymbol" id="agc-tW-NjS">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
+                        <color key="badgeColor" name="TrashyBlue"/>
                     </tabBarItem>
                     <connections>
                         <segue destination="i11-sE-lc1" kind="show" identifier="toErgebnisVC" id="yfM-ge-PDt"/>
@@ -141,13 +143,13 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HXn-uN-TGb" customClass="RoundImageView" customModule="Trashy" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="11" width="374" height="85"/>
-                                                    <color key="backgroundColor" red="0.91162145139999995" green="0.63300603629999996" blue="0.48203152420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" name="TrashyBlue"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="85" id="BMB-qL-PYj"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tki-Xo-tSv">
-                                                    <rect key="frame" x="234" y="11" width="120" height="85"/>
+                                                    <rect key="frame" x="194" y="11" width="120" height="85"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -155,7 +157,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="tki-Xo-tSv" secondAttribute="trailing" id="AjZ-ie-3j8"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="tki-Xo-tSv" secondAttribute="trailing" constant="40" id="AjZ-ie-3j8"/>
                                                 <constraint firstItem="tki-Xo-tSv" firstAttribute="top" secondItem="a9D-PS-diU" secondAttribute="topMargin" id="Gbt-Jr-ILU"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="tki-Xo-tSv" secondAttribute="bottom" id="Pyp-Cr-MS7"/>
                                                 <constraint firstAttribute="trailing" secondItem="HXn-uN-TGb" secondAttribute="trailing" id="gkm-EZ-Ufz"/>
@@ -208,7 +210,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jug-eq-Htx" customClass="RoundImageView" customModule="Trashy" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                    <color key="backgroundColor" red="0.91162145139999995" green="0.63300603629999996" blue="0.48203152420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <color key="tintColor" red="0.67906516790000004" green="0.82515740390000003" blue="0.93335163590000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vX-uG-vWe">
@@ -377,7 +379,7 @@
             </objects>
             <point key="canvasLocation" x="3988" y="867"/>
         </scene>
-        <!--Information-->
+        <!--InformationTVC-->
         <scene sceneID="zQz-VV-rqI">
             <objects>
                 <tableViewController id="bLA-Ka-WIJ" customClass="InformationTVC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
@@ -400,7 +402,9 @@
                             <outlet property="delegate" destination="bLA-Ka-WIJ" id="7Nw-nU-HZk"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Information" id="spZ-BT-Bmn"/>
+                    <tabBarItem key="tabBarItem" title="" id="spZ-BT-Bmn">
+                        <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-10"/>
+                    </tabBarItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlf-0Y-POX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -426,8 +430,9 @@
             <objects>
                 <tabBarController id="Ypj-Y3-S5I" customClass="MainTBC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="l3d-hi-fWL">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" id="VIb-rl-9ah">
-                            <color key="tintColor" red="0.91162145139999995" green="0.63300603629999996" blue="0.48203152420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <barButtonItem key="rightBarButtonItem" image="SettingsSymbol" id="VIb-rl-9ah">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
+                            <color key="tintColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="IwE-lx-Pwm" kind="show" id="ddM-Gg-ycg"/>
                             </connections>
@@ -438,7 +443,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.91162145139999995" green="0.63300603629999996" blue="0.48203152420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="selectedImageTintColor" red="0.91162145139999995" green="0.63300603629999996" blue="0.48203152420000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="UNF-eG-reQ" kind="relationship" relationship="viewControllers" id="Vte-ey-PUG"/>
@@ -479,4 +484,11 @@
             <point key="canvasLocation" x="1090" y="133"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ScanSymbol" width="25" height="25"/>
+        <image name="SettingsSymbol" width="25.5" height="24"/>
+        <namedColor name="TrashyBlue">
+            <color red="0.15686274509803921" green="0.69019607843137254" blue="0.8666666666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

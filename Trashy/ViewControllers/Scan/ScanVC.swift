@@ -28,15 +28,18 @@ class ScanVC: BarcodeScannerViewController {
     }
     
     func setUpEingabeButton() {
+        let eingabeButtonImage = UIImage(named: "EingabeSymbol") as UIImage?
+        
         let eingabeButton = RoundButton()
         eingabeButton.layer.cornerRadius = 10
-        eingabeButton.backgroundColor = .white
+        //eingabeButton.backgroundColor = UIColor.init(named: "TrashyBlue")
         eingabeButton.addTarget(self, action: #selector(eingabeButtonAction), for: .touchUpInside)
         eingabeButton.translatesAutoresizingMaskIntoConstraints = false
+        eingabeButton.setImage(eingabeButtonImage, for: .normal)
         
         self.cameraViewController.view.addSubview(eingabeButton)
         
-        eingabeButton.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        eingabeButton.widthAnchor.constraint(equalToConstant: 65).isActive = true
         eingabeButton.heightAnchor.constraint(equalToConstant: 65).isActive = true
         
         let margins = view.layoutMarginsGuide

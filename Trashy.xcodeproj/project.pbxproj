@@ -34,8 +34,8 @@
 		3D3A92AF22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92AE22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift */; };
 		3D3A92B122C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92B022C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift */; };
 		3D3A92B322C3B0D100FE9BAB /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92B222C3B0D100FE9BAB /* Material.swift */; };
-		3D9195E922C2941F008BA78A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D9195E822C2941F008BA78A /* GoogleService-Info.plist */; };
 		3D9195EB22C2957B008BA78A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9195EA22C2957B008BA78A /* DataService.swift */; };
+		3DC31A5A22C52CF900A2E8E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */; };
 		B5A11D9E3412DC8D78518286 /* Pods_Trashy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29D1F6721DC529976A077D7 /* Pods_Trashy.framework */; };
 		D8644DB764F30172C3B0F6FC /* Pods_TrashyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E740C8AE892B82A1D188DE /* Pods_TrashyUITests.framework */; };
 		E49765D7D2AA0DDB6395E689 /* Pods_TrashyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A14C282BD76501F86C09EC /* Pods_TrashyTests.framework */; };
@@ -96,8 +96,8 @@
 		3D3A92AE22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EingabeProduktHinzufuegenVC.swift; sourceTree = "<group>"; };
 		3D3A92B022C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EingabeVCMaterialienTVCell.swift; sourceTree = "<group>"; };
 		3D3A92B222C3B0D100FE9BAB /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
-		3D9195E822C2941F008BA78A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3D9195EA22C2957B008BA78A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4FA411F9E8290F6602F05D9A /* Pods-TrashyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrashyTests.debug.xcconfig"; path = "Target Support Files/Pods-TrashyTests/Pods-TrashyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FA714B27B76C585352E8C90 /* Pods-TrashyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrashyUITests.debug.xcconfig"; path = "Target Support Files/Pods-TrashyUITests/Pods-TrashyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		71A14C282BD76501F86C09EC /* Pods_TrashyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrashyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,7 +253,7 @@
 				3D3A86C322BFB46E007D2741 /* Assets.xcassets */,
 				3D3A86C522BFB46E007D2741 /* LaunchScreen.storyboard */,
 				3D3A86C822BFB46E007D2741 /* Info.plist */,
-				3D9195E822C2941F008BA78A /* GoogleService-Info.plist */,
+				3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */,
 				3D3A86C022BFB46C007D2741 /* Trashy.xcdatamodeld */,
 			);
 			path = Trashy;
@@ -396,7 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D3A86C722BFB46E007D2741 /* LaunchScreen.storyboard in Resources */,
-				3D9195E922C2941F008BA78A /* GoogleService-Info.plist in Resources */,
+				3DC31A5A22C52CF900A2E8E3 /* GoogleService-Info.plist in Resources */,
 				3D3A86C422BFB46E007D2741 /* Assets.xcassets in Resources */,
 				3D3A86BF22BFB46C007D2741 /* Main.storyboard in Resources */,
 			);
