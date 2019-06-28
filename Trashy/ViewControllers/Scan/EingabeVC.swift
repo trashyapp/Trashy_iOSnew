@@ -265,8 +265,8 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
 
     //X-Button rechts-oben: Schließt EingabeVC und geht zu MainNVC - (Abbrechen)
     @IBAction func cancelButton(_ sender: Any) {
-        let mainNVC = storyBoard.instantiateViewController(withIdentifier: "MainNVCSB") as! MainNVC
-        self.present(mainNVC, animated: true, completion: nil)
+        let mainTBC = storyBoard.instantiateViewController(withIdentifier: "MainTBCSB") as! MainTBC
+        self.present(mainTBC, animated: true, completion: nil)
     }
 }
 

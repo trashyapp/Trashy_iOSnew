@@ -151,6 +151,8 @@
 		3DC31A6022C60F7400A2E8E3 /* LightSymbol@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A5E22C60F7300A2E8E3 /* LightSymbol@3x.png */; };
 		3DC31A6322C60F7B00A2E8E3 /* LightSymbolOn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A6122C60F7B00A2E8E3 /* LightSymbolOn@2x.png */; };
 		3DC31A6422C60F7B00A2E8E3 /* LightSymbolOn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A6222C60F7B00A2E8E3 /* LightSymbolOn@3x.png */; };
+		3DC31A6722C629BC00A2E8E3 /* ScanSymbolTabBar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A6522C629BC00A2E8E3 /* ScanSymbolTabBar@3x.png */; };
+		3DC31A6822C629BC00A2E8E3 /* ScanSymbolTabBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A6622C629BC00A2E8E3 /* ScanSymbolTabBar@2x.png */; };
 		3DEA8BB6673D1C9F92090902E58F583A /* FirebaseDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 132EB5F59E650F199E9C7035909FB84B /* FirebaseDatabase.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DFC7CD01683C0BFD8C1019753B14FA1 /* FTransformedEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = CF0916AB462FCFB0FCB56AD56BDBD6C8 /* FTransformedEnumerator.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3F2E0B15A5294B7E0F9A21F57AA44652 /* FTreeSortedDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AC2889879BA748D043EECDE57D97BFA /* FTreeSortedDictionary.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -884,6 +886,8 @@
 		3DC31A5E22C60F7300A2E8E3 /* LightSymbol@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LightSymbol@3x.png"; sourceTree = "<group>"; };
 		3DC31A6122C60F7B00A2E8E3 /* LightSymbolOn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LightSymbolOn@2x.png"; sourceTree = "<group>"; };
 		3DC31A6222C60F7B00A2E8E3 /* LightSymbolOn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LightSymbolOn@3x.png"; sourceTree = "<group>"; };
+		3DC31A6522C629BC00A2E8E3 /* ScanSymbolTabBar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScanSymbolTabBar@3x.png"; sourceTree = "<group>"; };
+		3DC31A6622C629BC00A2E8E3 /* ScanSymbolTabBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ScanSymbolTabBar@2x.png"; sourceTree = "<group>"; };
 		3E0389B7BD5FBFCB1CE348948042E2CE /* FTrackedQuery.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FTrackedQuery.m; path = Firebase/Database/Persistence/FTrackedQuery.m; sourceTree = "<group>"; };
 		3E47D719226F678A6B0FCA6C603447B0 /* FirebaseCore.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FirebaseCore.modulemap; sourceTree = "<group>"; };
 		3EA1A022D40C0C62A19113096BBCBE20 /* FIRDatabaseQuery_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FIRDatabaseQuery_Private.h; path = Firebase/Database/Api/Private/FIRDatabaseQuery_Private.h; sourceTree = "<group>"; };
@@ -1764,6 +1768,8 @@
 				3DC31A6222C60F7B00A2E8E3 /* LightSymbolOn@3x.png */,
 				3DC31A5D22C60F7300A2E8E3 /* LightSymbol@2x.png */,
 				3DC31A5E22C60F7300A2E8E3 /* LightSymbol@3x.png */,
+				3DC31A6622C629BC00A2E8E3 /* ScanSymbolTabBar@2x.png */,
+				3DC31A6522C629BC00A2E8E3 /* ScanSymbolTabBar@3x.png */,
 				958802439C38C6C788713EE8FF2E1594 /* cameraRotate@3x.png */,
 				45E9E56EE414670B24BBAB0664B5CA1F /* flashOff@3x.png */,
 				CDFF9ECA8BF80674A11E2F306B4E7B1B /* flashOn@3x.png */,
@@ -3051,8 +3057,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DC31A6722C629BC00A2E8E3 /* ScanSymbolTabBar@3x.png in Resources */,
 				65F589CDA610DC5F5100B39911A8AC8D /* BarcodeScanner.bundle in Resources */,
 				3DC31A6322C60F7B00A2E8E3 /* LightSymbolOn@2x.png in Resources */,
+				3DC31A6822C629BC00A2E8E3 /* ScanSymbolTabBar@2x.png in Resources */,
 				3DC31A5F22C60F7400A2E8E3 /* LightSymbol@2x.png in Resources */,
 				3DC31A6022C60F7400A2E8E3 /* LightSymbol@3x.png in Resources */,
 				47C6FDD3E25D259665C8157A8D74250D /* Localization.bundle in Resources */,

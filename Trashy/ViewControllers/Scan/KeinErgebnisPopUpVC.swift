@@ -14,36 +14,40 @@ class KeinErgebnisPopUpVC: UIViewController {
     var produktArray = [Produkt]()
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
-    @IBOutlet weak var titleView: RoundView!
     @IBOutlet weak var mainView: RoundView!
+    @IBOutlet weak var kEStackView: UIStackView!
     @IBOutlet weak var eingabeButton: RoundButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.hero.isEnabled = true
-        self.titleView.hero.id = "KeinErgebnisPopUpVCAnimation"
-        mainView.hero.modifiers = [.translate(x: -120)]
-        eingabeButton.hero.modifiers = [.translate(x: -120)]
+        self.eingabeButton.hero.id = "KeinErgebnisPopUpVCAnimation"
+        mainView.hero.modifiers = [.translate(x: 120)]
         
-        eingabeButton.hero.id = "EingabeVCAnimation"
+        setUpShatten(any: mainView, op: 0.5)
+        setUpShatten(any: eingabeButton, op: 0.5)
         
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.10)
-        setUpShatten(view: mainView, op: 0.75)
-        setUpShatten(view: titleView, op: 1.0)
+        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.01)
         
         print("KeinErgebnisVC: " + produktArray[0].barcodeNummer)
     }
     
-    func setUpShatten(view: UIView, op: Float) {
-        view.layer.shadowColor = UIColor.darkGray.cgColor
-        view.layer.shadowOpacity = op
-        view.layer.shadowOffset = .zero
-        view.layer.shadowRadius = 10
+    func setUpShatten(any: AnyObject, op: Float) {
+        any.layer.shadowColor = UIColor.darkGray.cgColor
+        any.layer.shadowOpacity = op
+        any.layer.shadowOffset = .zero
+        any.layer.shadowRadius = 30
     }
     
     @IBAction func eingabeButtonAction(_ sender: Any) {
+        eingabeButton.hero.id = "EingabeVCAnimation"
         toEingabeVC()
+    }
+    
+    @IBAction func cancelButton(_ sender: Any) {
+        let mainTBC = storyBoard.instantiateViewController(withIdentifier: "MainTBCSB") as! MainTBC
+        self.present(mainTBC, animated: true, completion: nil)
     }
     
     func toEingabeVC() {

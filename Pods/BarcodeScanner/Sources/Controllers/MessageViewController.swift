@@ -3,9 +3,9 @@ import UIKit
 /// View controller used for showing info text and loading animation.
 public final class MessageViewController: UIViewController {
   // Image tint color for all the states, except for `.notFound`.
-  public var regularTintColor: UIColor = .black
+  public var regularTintColor: UIColor = UIColor(red: 40.0/255.0, green: 176.0/255.0, blue: 221.0/255.0, alpha: 1.0)
   // Image tint color for `.notFound` state.
-  public var errorTintColor: UIColor = .red
+  public var errorTintColor: UIColor = UIColor(red: 40.0/255.0, green: 176.0/255.0, blue: 221.0/255.0, alpha: 1.0)
   // Customizable state messages.
   public var messages = StateMessageProvider()
 
@@ -138,7 +138,7 @@ private extension MessageViewController {
   func makeTextLabel() -> UILabel {
     let label = UILabel()
     label.translatesAutoresizingMaskIntoConstraints = false
-    label.textColor = .black
+    label.textColor = UIColor(red: 40.0/255.0, green: 176.0/255.0, blue: 221.0/255.0, alpha: 1.0)
     label.numberOfLines = 3
     label.font = UIFont.boldSystemFont(ofSize: 14)
     return label
@@ -147,8 +147,9 @@ private extension MessageViewController {
   func makeImageView() -> UIImageView {
     let imageView = UIImageView()
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    imageView.image = imageNamed("info").withRenderingMode(.alwaysTemplate)
-    imageView.tintColor = .black
+    //imageView.image = imageNamed("info").withRenderingMode(.alwaysTemplate)
+    imageView.image = UIImage.init(named: "ScanSymbolTabBar")
+    imageView.tintColor = UIColor(red: 40.0/255.0, green: 176.0/255.0, blue: 221.0/255.0, alpha: 1.0)
     return imageView
   }
 
@@ -158,7 +159,7 @@ private extension MessageViewController {
     view.backgroundColor = .clear
     view.layer.borderWidth = 2
     view.layer.cornerRadius = 10
-    view.layer.borderColor = UIColor.black.cgColor
+    view.layer.borderColor = UIColor(red: 40.0/255.0, green: 176.0/255.0, blue: 221.0/255.0, alpha: 1.0).cgColor
     return view
   }
 }

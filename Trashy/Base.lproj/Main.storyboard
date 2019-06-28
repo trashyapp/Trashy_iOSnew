@@ -88,32 +88,46 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R1E-dm-NXQ">
                                 <rect key="frame" x="77" y="254" width="260" height="388"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Isv-1d-Zpf" customClass="RoundView" customModule="Trashy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="260" height="80"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="260" id="Hvo-Ld-zMe"/>
-                                            <constraint firstAttribute="height" constant="80" id="ugk-Jc-NeN"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-bz-G6l" customClass="RoundView" customModule="Trashy" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="88" width="260" height="300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="300"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjl-km-9ak" customClass="RoundButton" customModule="Trashy" customModuleProvider="target">
-                                                <rect key="frame" x="75" y="113" width="110" height="51"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cun-wD-bv0">
+                                                <rect key="frame" x="214" y="10" width="36" height="36"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="dRQ-w4-3ho"/>
+                                                    <constraint firstAttribute="width" constant="36" id="unk-IS-G9g"/>
+                                                </constraints>
+                                                <state key="normal" image="ExitSymbol">
+                                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
-                                                    <action selector="eingabeButtonAction:" destination="L3v-2z-Ecb" eventType="touchUpInside" id="Y8a-EA-xxU"/>
+                                                    <action selector="cancelButton:" destination="L3v-2z-Ecb" eventType="touchUpInside" id="0pz-u3-Gl3"/>
+                                                    <action selector="cancelButton:" destination="G4l-m0-3gm" eventType="touchUpInside" id="kU2-Bw-8Z3"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="Cun-wD-bv0" firstAttribute="top" secondItem="IaL-bz-G6l" secondAttribute="top" constant="10" id="eYF-px-PjE"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cun-wD-bv0" secondAttribute="trailing" constant="10" id="hlF-hz-4qx"/>
                                             <constraint firstAttribute="height" constant="300" id="q44-KX-Dpe"/>
                                             <constraint firstAttribute="width" constant="260" id="zJh-z4-7HF"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDw-vX-COm" customClass="RoundButton" customModule="Trashy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="308" width="260" height="80"/>
+                                        <color key="backgroundColor" name="TrashyBlue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="nES-2T-eNs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="27"/>
+                                        <state key="normal" title="JA BITTE">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="eingabeButtonAction:" destination="L3v-2z-Ecb" eventType="touchUpInside" id="9Ka-8E-7At"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -125,9 +139,9 @@
                         <viewLayoutGuide key="safeArea" id="Asl-fQ-AkZ"/>
                     </view>
                     <connections>
-                        <outlet property="eingabeButton" destination="pjl-km-9ak" id="JEu-wD-vNJ"/>
+                        <outlet property="eingabeButton" destination="FDw-vX-COm" id="5LW-pJ-GWO"/>
+                        <outlet property="kEStackView" destination="R1E-dm-NXQ" id="exh-PC-3qo"/>
                         <outlet property="mainView" destination="IaL-bz-G6l" id="gEI-VF-GIH"/>
-                        <outlet property="titleView" destination="Isv-1d-Zpf" id="w6h-Mn-6WO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXB-pK-T2g" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -143,7 +157,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RNM-k5-byH">
-                                <rect key="frame" x="20" y="94" width="374" height="662"/>
+                                <rect key="frame" x="20" y="134" width="374" height="622"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MaterialienCell" rowHeight="107" id="cEK-Oh-bGz" customClass="EingabeVCMaterialienTVCell" customModule="Trashy" customModuleProvider="target">
@@ -155,7 +169,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HXn-uN-TGb" customClass="RoundImageView" customModule="Trashy" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="11" width="374" height="85"/>
-                                                    <color key="backgroundColor" name="TrashyBlue"/>
+                                                    <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="85" id="BMB-qL-PYj"/>
                                                     </constraints>
@@ -190,9 +204,9 @@
                                 </connections>
                             </tableView>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" text="" translatesAutoresizingMaskIntoConstraints="NO" id="ObR-QB-wnO">
-                                <rect key="frame" x="12" y="44" width="342" height="50"/>
+                                <rect key="frame" x="12" y="54" width="346" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="bRF-UT-f8K"/>
+                                    <constraint firstAttribute="height" constant="80" id="bRF-UT-f8K"/>
                                 </constraints>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -222,7 +236,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jug-eq-Htx" customClass="RoundImageView" customModule="Trashy" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                    <color key="backgroundColor" red="0.15686274510000001" green="0.69019607839999997" blue="0.86666666670000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" red="0.67906516790000004" green="0.82515740390000003" blue="0.93335163590000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0vX-uG-vWe">
@@ -304,14 +318,13 @@
                                     <constraint firstAttribute="height" constant="50" id="fzT-h0-ekq"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bi-IV-MKp">
-                                <rect key="frame" x="354" y="44" width="50" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bi-IV-MKp">
+                                <rect key="frame" x="358" y="76" width="36" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="4MB-KQ-Eyr"/>
-                                    <constraint firstAttribute="height" constant="50" id="OA0-OD-y6N"/>
+                                    <constraint firstAttribute="width" constant="36" id="4MB-KQ-Eyr"/>
+                                    <constraint firstAttribute="height" constant="36" id="8Vr-DS-8HL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
-                                <state key="normal" title="X">
+                                <state key="normal" image="ExitSymbol">
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -327,17 +340,16 @@
                             <constraint firstItem="qTu-Ad-4n9" firstAttribute="trailing" secondItem="4Vs-bW-Xyg" secondAttribute="trailing" id="Is3-x1-YEq"/>
                             <constraint firstAttribute="bottom" secondItem="fU2-0S-bWv" secondAttribute="bottom" id="SFj-Ho-r1v"/>
                             <constraint firstItem="fU2-0S-bWv" firstAttribute="leading" secondItem="4Vs-bW-Xyg" secondAttribute="leading" id="Wz1-aC-eMj"/>
-                            <constraint firstItem="4Vs-bW-Xyg" firstAttribute="trailing" secondItem="5bi-IV-MKp" secondAttribute="trailing" constant="10" id="Xdc-Ya-D2d"/>
+                            <constraint firstItem="4Vs-bW-Xyg" firstAttribute="trailing" secondItem="5bi-IV-MKp" secondAttribute="trailing" constant="20" id="Xdc-Ya-D2d"/>
                             <constraint firstItem="ObR-QB-wnO" firstAttribute="leading" secondItem="4Vs-bW-Xyg" secondAttribute="leading" constant="12" id="aeF-8V-krb"/>
                             <constraint firstItem="fU2-0S-bWv" firstAttribute="top" secondItem="RNM-k5-byH" secondAttribute="bottom" id="cJL-gM-au2"/>
                             <constraint firstItem="fU2-0S-bWv" firstAttribute="top" secondItem="qTu-Ad-4n9" secondAttribute="bottom" constant="-30" id="ciw-G4-7Gt"/>
                             <constraint firstItem="5bi-IV-MKp" firstAttribute="leading" secondItem="ObR-QB-wnO" secondAttribute="trailing" id="fKQ-Pv-s0f"/>
-                            <constraint firstItem="ObR-QB-wnO" firstAttribute="top" secondItem="4Vs-bW-Xyg" secondAttribute="top" id="fYi-Yv-F2L"/>
+                            <constraint firstItem="ObR-QB-wnO" firstAttribute="top" secondItem="4Vs-bW-Xyg" secondAttribute="top" constant="10" id="fYi-Yv-F2L"/>
                             <constraint firstItem="4Vs-bW-Xyg" firstAttribute="bottom" secondItem="fU2-0S-bWv" secondAttribute="bottom" constant="-34" id="h3h-DE-459"/>
-                            <constraint firstItem="RNM-k5-byH" firstAttribute="top" secondItem="5bi-IV-MKp" secondAttribute="bottom" id="hOn-by-aax"/>
                             <constraint firstItem="4Vs-bW-Xyg" firstAttribute="trailing" secondItem="fU2-0S-bWv" secondAttribute="trailing" id="iSZ-Hu-kdy"/>
                             <constraint firstItem="RNM-k5-byH" firstAttribute="top" secondItem="ObR-QB-wnO" secondAttribute="bottom" id="qZP-6h-aDW"/>
-                            <constraint firstItem="5bi-IV-MKp" firstAttribute="top" secondItem="4Vs-bW-Xyg" secondAttribute="top" id="sBD-E4-Z1a"/>
+                            <constraint firstItem="5bi-IV-MKp" firstAttribute="top" secondItem="4Vs-bW-Xyg" secondAttribute="top" constant="32" id="sBD-E4-Z1a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Vs-bW-Xyg"/>
                     </view>
@@ -444,7 +456,7 @@
         <!--MainTBC-->
         <scene sceneID="JTg-Y1-eGg">
             <objects>
-                <tabBarController id="Ypj-Y3-S5I" customClass="MainTBC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTBCSB" id="Ypj-Y3-S5I" customClass="MainTBC" customModule="Trashy" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="l3d-hi-fWL">
                         <barButtonItem key="rightBarButtonItem" image="SettingsSymbol" id="VIb-rl-9ah">
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="4" maxY="0.0"/>
@@ -501,6 +513,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ExitSymbol" width="40" height="40"/>
         <image name="MenuSymbol" width="40" height="40"/>
         <image name="ScanSymbol" width="40" height="40"/>
         <image name="SettingsSymbol" width="25.5" height="24"/>
