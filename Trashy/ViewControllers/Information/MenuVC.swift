@@ -10,7 +10,8 @@ import UIKit
 
 class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var menuArray = ["Einstellungen", "UeberUns", "TonneGrau", "TonneGelb", "TonneBlau", "TonneGlas", "Tonne..."]
+    var menuArray = ["Trashy", "UeberUns", "Einstellungen", "EimerGelb", "EimerBlau", "EimerGrau", "EimerBraun", "EimerGrün"]
+    var menuNameArray = ["Trashy", "Über uns", "Einstellungen", "Wert-Stoffe", "Papier", "Rest-Stoffe", "Bio-Müll", "Glas"]
     var menuImageArray = [String]()
     
     @IBOutlet weak var menuTableView: UITableView!
@@ -49,7 +50,7 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let menuCell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as! MenuVCTVCell
         
         menuCell.menuImageView.image = UIImage.init(named: menuImageArray[indexPath.row])
-        menuCell.menuLabel.text = menuArray[indexPath.row]
+        menuCell.menuLabel.text = menuNameArray[indexPath.row]
         
         setUpShatten(view: menuCell.menuShadowView, op: 0.3, radius: 8)
         
