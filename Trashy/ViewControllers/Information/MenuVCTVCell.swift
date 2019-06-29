@@ -1,18 +1,17 @@
 //
-//  EingabeVCMaterialienTVCell.swift
+//  MenuVCTVCell.swift
 //  Trashy
 //
-//  Created by Kai Zheng on 26.06.19.
+//  Created by Kai Zheng on 29.06.19.
 //  Copyright © 2019 Trashy. All rights reserved.
 //
 
 import UIKit
 
-class EingabeVCMaterialienTVCell: UITableViewCell {
+class MenuVCTVCell: UITableViewCell {
 
-    @IBOutlet weak var materialImageView: UIImageView!
-    @IBOutlet weak var materialLabel: UILabel!
-    @IBOutlet weak var materialShadowView: UIView!
+    @IBOutlet weak var menuImageView: RoundImageView!
+    @IBOutlet weak var menuShadowView: RoundView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -37,7 +37,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         self.hero.isEnabled = true
         self.view.hero.id = "EingabeVCAnimation"
         
-        setUpShatten(view: materialienView, op: 0.5)
+        setUpShatten(view: materialienView, op: 0.5, radius: 20.0)
    
         materialienCollectionView.layer.zPosition += 1
         
@@ -156,7 +156,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
 
         cell.materialLabel.text = currentMaterialNameArray[indexPath.row]
-        //setUpShatten(view: cell.materialImageView, op: 0.75)
+        setUpShatten(view: cell.materialShadowView, op: 0.2, radius: 8)
         
         return cell
     }
@@ -256,11 +256,11 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         self.materialienCollectionView.reloadData() // replace favoritesCV with your own collection view.
     }*/
     
-    func setUpShatten(view: UIView, op: Float) {
+    func setUpShatten(view: UIView, op: Float, radius: CGFloat) {
         view.layer.shadowColor = UIColor.black.cgColor
         view.layer.shadowOpacity = op
         view.layer.shadowOffset = .zero
-        view.layer.shadowRadius = 20
+        view.layer.shadowRadius = radius
     }
 
     //X-Button rechts-oben: Schließt EingabeVC und geht zu MainNVC - (Abbrechen)

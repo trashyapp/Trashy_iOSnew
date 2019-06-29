@@ -25,8 +25,8 @@ class KeinErgebnisPopUpVC: UIViewController {
         self.eingabeButton.hero.id = "KeinErgebnisPopUpVCAnimation"
         mainView.hero.modifiers = [.translate(x: 120)]
         
-        setUpShatten(any: mainView, op: 0.5)
-        setUpShatten(any: eingabeButton, op: 0.5)
+        setUpShatten(any: mainView, op: 0.3)
+        setUpShatten(any: eingabeButton, op: 0.3)
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.01)
         

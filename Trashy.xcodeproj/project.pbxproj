@@ -13,6 +13,7 @@
 		3D0B855C22C2573F003D8CAA /* ErgebnisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */; };
 		3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */; };
 		3D0B856722C258CC003D8CAA /* EinstellungenTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B856622C258CC003D8CAA /* EinstellungenTVC.swift */; };
+		3D28963D22C745B300F3F7D1 /* MenuVCTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28963C22C745B300F3F7D1 /* MenuVCTVCell.swift */; };
 		3D374BE622C49AF90004C738 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BE522C49AF90004C738 /* Keyboard.swift */; };
 		3D374BEA22C49D2E0004C738 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BE922C49D2E0004C738 /* RoundImageView.swift */; };
 		3D374BEC22C49E3F0004C738 /* EingabeErgebnisCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BEB22C49E3F0004C738 /* EingabeErgebnisCVCell.swift */; };
@@ -35,7 +36,7 @@
 		3D3A92B322C3B0D100FE9BAB /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92B222C3B0D100FE9BAB /* Material.swift */; };
 		3D9195EB22C2957B008BA78A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9195EA22C2957B008BA78A /* DataService.swift */; };
 		3DC31A5A22C52CF900A2E8E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */; };
-		3DC31A5C22C5EB3700A2E8E3 /* InformationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC31A5B22C5EB3700A2E8E3 /* InformationVC.swift */; };
+		3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */; };
 		B5A11D9E3412DC8D78518286 /* Pods_Trashy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29D1F6721DC529976A077D7 /* Pods_Trashy.framework */; };
 		D8644DB764F30172C3B0F6FC /* Pods_TrashyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E740C8AE892B82A1D188DE /* Pods_TrashyUITests.framework */; };
 		E49765D7D2AA0DDB6395E689 /* Pods_TrashyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A14C282BD76501F86C09EC /* Pods_TrashyTests.framework */; };
@@ -69,6 +70,7 @@
 		3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgebnisVC.swift; sourceTree = "<group>"; };
 		3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationInhaltVC.swift; sourceTree = "<group>"; };
 		3D0B856622C258CC003D8CAA /* EinstellungenTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EinstellungenTVC.swift; sourceTree = "<group>"; };
+		3D28963C22C745B300F3F7D1 /* MenuVCTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVCTVCell.swift; sourceTree = "<group>"; };
 		3D374BE522C49AF90004C738 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keyboard.swift; path = "../../../Arbeiten/iMac/Arbeiten/Außerschulisch/Swift/Apps/KKG/KKG/Extensions/Keyboard.swift"; sourceTree = "<group>"; };
 		3D374BE922C49D2E0004C738 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		3D374BEB22C49E3F0004C738 /* EingabeErgebnisCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EingabeErgebnisCVCell.swift; sourceTree = "<group>"; };
@@ -97,7 +99,7 @@
 		3D3A92B222C3B0D100FE9BAB /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		3D9195EA22C2957B008BA78A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3DC31A5B22C5EB3700A2E8E3 /* InformationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationVC.swift; sourceTree = "<group>"; };
+		3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		4FA411F9E8290F6602F05D9A /* Pods-TrashyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrashyTests.debug.xcconfig"; path = "Target Support Files/Pods-TrashyTests/Pods-TrashyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FA714B27B76C585352E8C90 /* Pods-TrashyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrashyUITests.debug.xcconfig"; path = "Target Support Files/Pods-TrashyUITests/Pods-TrashyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		71A14C282BD76501F86C09EC /* Pods_TrashyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrashyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,7 +207,8 @@
 		3D0B856422C25849003D8CAA /* Information */ = {
 			isa = PBXGroup;
 			children = (
-				3DC31A5B22C5EB3700A2E8E3 /* InformationVC.swift */,
+				3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */,
+				3D28963C22C745B300F3F7D1 /* MenuVCTVCell.swift */,
 				3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */,
 			);
 			path = Information;
@@ -514,6 +517,7 @@
 				3D374BE622C49AF90004C738 /* Keyboard.swift in Sources */,
 				3D3A92A922C393E900FE9BAB /* RoundView.swift in Sources */,
 				3D3A92B122C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift in Sources */,
+				3D28963D22C745B300F3F7D1 /* MenuVCTVCell.swift in Sources */,
 				3D3A92A722C38ED500FE9BAB /* KeinErgebnisPopUpVC.swift in Sources */,
 				3D0B856722C258CC003D8CAA /* EinstellungenTVC.swift in Sources */,
 				3D3A92AD22C3A21800FE9BAB /* EingabeErgebnisVC.swift in Sources */,
@@ -521,7 +525,7 @@
 				3D3A92AB22C3948C00FE9BAB /* RoundButton.swift in Sources */,
 				3D374BEA22C49D2E0004C738 /* RoundImageView.swift in Sources */,
 				3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */,
-				3DC31A5C22C5EB3700A2E8E3 /* InformationVC.swift in Sources */,
+				3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */,
 				3D374BEC22C49E3F0004C738 /* EingabeErgebnisCVCell.swift in Sources */,
 				3D3A92A522C37B5200FE9BAB /* EingabeVC.swift in Sources */,
 				3D374BEE22C4AE070004C738 /* EingabeErgebnisButtonCVCell.swift in Sources */,
