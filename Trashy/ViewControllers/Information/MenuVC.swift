@@ -11,6 +11,7 @@ import UIKit
 class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var menuArray = ["Einstellungen", "UeberUns", "TonneGrau", "TonneGelb", "TonneBlau", "TonneGlas", "Tonne..."]
+    var menuImageArray = [String]()
     
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var tabBarView: RoundView!
@@ -22,6 +23,10 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         tabBarView.layer.zPosition += 1
         setUpShatten(view: tabBarView, op: 0.5, radius: 20.0)
+        
+        for i in 0..<menuArray.count {
+            menuImageArray.append("Menu" + menuArray[i])
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -43,9 +48,10 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let menuCell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as! MenuVCTVCell
         
-        //menuCell?.menuImageView.image = UIImage.init(named: menuArray[indexPath.row])
+        menuCell.menuImageView.image = UIImage.init(named: menuImageArray[indexPath.row])
+        menuCell.menuLabel.text = menuArray[indexPath.row]
         
-        setUpShatten(view: menuCell.menuShadowView, op: 0.2, radius: 8)
+        setUpShatten(view: menuCell.menuShadowView, op: 0.3, radius: 8)
         
         return menuCell
     }

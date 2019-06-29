@@ -10,6 +10,7 @@ import UIKit
 
 class MenuVCTVCell: UITableViewCell {
 
+    @IBOutlet weak var menuLabel: UILabel!
     @IBOutlet weak var menuImageView: RoundImageView!
     @IBOutlet weak var menuShadowView: RoundView!
     

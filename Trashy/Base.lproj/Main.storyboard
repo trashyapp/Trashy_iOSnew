@@ -439,12 +439,23 @@
                                                     <rect key="frame" x="20" y="10" width="374" height="180"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bZ7-gP-fZo" customClass="RoundImageView" customModule="Trashy" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bZ7-gP-fZo" customClass="RoundImageView" customModule="Trashy" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="10" width="374" height="180"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDj-Uu-XZv">
+                                                    <rect key="frame" x="60" y="134" width="300" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="300" id="Piz-NO-5p9"/>
+                                                        <constraint firstAttribute="height" constant="40" id="p54-fY-hjn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="26"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="lDj-Uu-XZv" firstAttribute="leading" secondItem="gGK-8U-yhM" secondAttribute="leadingMargin" constant="40" id="9Qq-J9-RNe"/>
                                                 <constraint firstItem="bZ7-gP-fZo" firstAttribute="leading" secondItem="gGK-8U-yhM" secondAttribute="leading" constant="20" id="E3n-JU-zZk"/>
                                                 <constraint firstAttribute="trailing" secondItem="wy0-YY-lf2" secondAttribute="trailing" constant="20" id="Lb7-gE-63u"/>
                                                 <constraint firstItem="wy0-YY-lf2" firstAttribute="leading" secondItem="gGK-8U-yhM" secondAttribute="leading" constant="20" id="Uu5-7L-Vce"/>
@@ -452,11 +463,13 @@
                                                 <constraint firstItem="bZ7-gP-fZo" firstAttribute="top" secondItem="gGK-8U-yhM" secondAttribute="top" constant="10" id="bS9-Qp-72z"/>
                                                 <constraint firstAttribute="trailing" secondItem="bZ7-gP-fZo" secondAttribute="trailing" constant="20" id="dKc-LC-dZX"/>
                                                 <constraint firstItem="wy0-YY-lf2" firstAttribute="top" secondItem="gGK-8U-yhM" secondAttribute="top" constant="10" id="rN9-aj-15a"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="lDj-Uu-XZv" secondAttribute="bottom" constant="15" id="tYq-b9-wdE"/>
                                                 <constraint firstAttribute="bottom" secondItem="wy0-YY-lf2" secondAttribute="bottom" constant="10" id="zWf-0z-VM0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="menuImageView" destination="bZ7-gP-fZo" id="MwH-fy-HWO"/>
+                                            <outlet property="menuLabel" destination="lDj-Uu-XZv" id="w7k-Z4-KnP"/>
                                             <outlet property="menuShadowView" destination="wy0-YY-lf2" id="YbO-44-G6r"/>
                                         </connections>
                                     </tableViewCell>
