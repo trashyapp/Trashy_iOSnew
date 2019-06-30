@@ -21,7 +21,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     var selectedMaterialArray = [String]()
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var longPressedEnabled = false
-
+    
     @IBOutlet weak var materialienTableView: UITableView!
     @IBOutlet weak var materialienCollectionView: UICollectionView!
     @IBOutlet weak var materialienSearchBar: UISearchBar!
@@ -178,8 +178,17 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
         
         //Zu dem normalen Zustand zurücksetzen (TableView, SearchBar)
-        currentMaterialNameArray = materialNameArray
         materialienSearchBar.text = ""
+        
+        for k in 0..<materialNameArray.count {
+            print(materialNameArray.count)
+            print(k)
+            if currentMaterialNameArray[indexPath.row] == materialNameArray[k] {
+                self.materialNameArray.remove(at: k)
+                currentMaterialNameArray = materialNameArray
+                break
+            }
+        }
         
         //Änderungen sichtbar machen
         materialienCollectionView.reloadData()
@@ -203,17 +212,13 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
             
             bestaetigenCell.bestaetigenButton.setTitle("Fertig", for: .normal)
             
+            //self.materialienCollectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
+            
             return bestaetigenCell
         }
         
         //Die ausgewählten Materialien
         let materialCell = collectionView.dequeueReusableCell(withReuseIdentifier: "SelectedMaterialCell", for: indexPath) as! EingabeErgebnisCVCell
-        
-        /*
-        let cSelector = #selector(reset(sender:))
-        let UpSwipe = UISwipeGestureRecognizer(target: self, action: cSelector )
-        UpSwipe.direction = UISwipeGestureRecognizer.Direction.up
-        materialCell.addGestureRecognizer(UpSwipe)*/
         
         materialCell.selectedMaterialDeleteButton.addTarget(self, action: #selector(selectedMaterialDeleteButtonAction(_:)), for: .touchUpInside)
         
@@ -224,15 +229,10 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
         
         //Neu ausgewählte Materialien initialieren (Sichtbar machen)
-        if indexPath.row == selectedMaterialArray.count-1 {
-            print(selectedMaterialArray[indexPath.row])
-            materialCell.selectedMaterialLabel.text = selectedMaterialArray[indexPath.row]
-            
-            //Scrolle bis zum Bestätigungsbutton, mit einer Sekunde Verzögerung
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.materialienCollectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
-            }
-        }
+        print(selectedMaterialArray[indexPath.row])
+        print(selectedMaterialArray)
+        materialCell.selectedMaterialLabel.text = selectedMaterialArray[indexPath.row]
+        
         return materialCell
     }
     
@@ -245,16 +245,12 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         let hitIndex = self.materialienCollectionView.indexPathForItem(at: hitPoint)
         
         //remove the image and refresh the collection view
+        self.materialNameArray.append(selectedMaterialArray[(hitIndex?.row)!])
         self.selectedMaterialArray.remove(at: (hitIndex?.row)!)
+        currentMaterialNameArray = materialNameArray
         self.materialienCollectionView.reloadData()
+        self.materialienTableView.reloadData()
     }
-    
-    /*@objc func reset(sender: UISwipeGestureRecognizer) {
-        let cell = sender.view as! UICollectionViewCell
-        let i = self.materialienCollectionView.indexPath(for: cell)!.item
-        selectedMaterialArray.remove(at: i) //replace favoritesInstance.favoritesArray with your own array
-        self.materialienCollectionView.reloadData() // replace favoritesCV with your own collection view.
-    }*/
     
     func setUpShatten(view: UIView, op: Float, radius: CGFloat) {
         view.layer.shadowColor = UIColor.black.cgColor
