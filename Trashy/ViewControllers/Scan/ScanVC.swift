@@ -10,12 +10,14 @@ import UIKit
 import BarcodeScanner
 import Hero
 
-class ScanVC: BarcodeScannerViewController {
+class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var produktArray = [Produkt]()
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    var trashImageArray = ["TrashBlau", "TrashGrau", "TrashBraun", "TrashGelb"]
     
     @IBOutlet weak var tabBarView: RoundView!
+    @IBOutlet weak var scanCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,9 @@ class ScanVC: BarcodeScannerViewController {
         
         self.messageViewController.textLabel.hero.id = "KeinErgebnisPopUpVCAnimation"
         
+        scanCollectionView.layer.zPosition += 1
         tabBarView.layer.zPosition += 1
+        
         setUpShatten(view: tabBarView, op: 0.5)
         
         setUpEingabeButton()
@@ -56,7 +60,7 @@ class ScanVC: BarcodeScannerViewController {
         
         let margins = view.layoutMarginsGuide
         eingabeButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 3).isActive = true
-        eingabeButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -55).isActive = true
+        eingabeButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -155).isActive = true
         
         eingabeButton.hero.id = "EingabeVCAnimation"
     }
@@ -78,6 +82,18 @@ class ScanVC: BarcodeScannerViewController {
         keinErgebnisPopUpVC.produktArray = produktArray
         
         self.present(keinErgebnisPopUpVC, animated: true, completion: nil)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return trashImageArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let trashCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCell", for: indexPath) as! TrashCVCell
+        
+        trashCell.trashImageView.image = UIImage.init(named: trashImageArray[indexPath.row])
+        
+        return trashCell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -40,12 +40,56 @@
                                     <constraint firstAttribute="height" constant="50" id="NhE-gO-Oex"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Dar-vF-b9i">
+                                <rect key="frame" x="0.0" y="693" width="414" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="uYf-hL-9ir"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q4d-fb-vqj">
+                                    <size key="itemSize" width="80" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrashCell" id="IaS-Mc-LC6" customClass="TrashCVCell" customModule="Trashy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a4E-eO-1aP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="a4E-eO-1aP" firstAttribute="top" secondItem="IaS-Mc-LC6" secondAttribute="top" id="R3b-fv-J2L"/>
+                                            <constraint firstAttribute="trailing" secondItem="a4E-eO-1aP" secondAttribute="trailing" id="UWx-y7-tvM"/>
+                                            <constraint firstItem="a4E-eO-1aP" firstAttribute="leading" secondItem="IaS-Mc-LC6" secondAttribute="leading" id="gDL-98-rOc"/>
+                                            <constraint firstAttribute="bottom" secondItem="a4E-eO-1aP" secondAttribute="bottom" id="sp0-Ru-K8Y"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="trashImageView" destination="a4E-eO-1aP" id="mQR-Xc-dtZ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="UNF-eG-reQ" id="Y5V-ra-rmG"/>
+                                    <outlet property="delegate" destination="UNF-eG-reQ" id="V3t-1L-gZv"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="0E7-Vf-R2w" firstAttribute="bottom" secondItem="NP0-Ty-jPX" secondAttribute="bottom" constant="-25" id="2ps-gF-ryw"/>
                             <constraint firstItem="NP0-Ty-jPX" firstAttribute="trailing" secondItem="0E7-Vf-R2w" secondAttribute="trailing" id="DWT-1Q-rSL"/>
+                            <constraint firstItem="Dar-vF-b9i" firstAttribute="trailing" secondItem="0E7-Vf-R2w" secondAttribute="trailing" id="EQF-HO-url"/>
                             <constraint firstItem="NP0-Ty-jPX" firstAttribute="leading" secondItem="0E7-Vf-R2w" secondAttribute="leading" id="T6w-76-Unu"/>
+                            <constraint firstItem="Dar-vF-b9i" firstAttribute="leading" secondItem="0E7-Vf-R2w" secondAttribute="leading" id="Zab-eU-Fzc"/>
+                            <constraint firstItem="NP0-Ty-jPX" firstAttribute="top" secondItem="Dar-vF-b9i" secondAttribute="bottom" constant="-5" id="pza-kZ-QRW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0E7-Vf-R2w"/>
                     </view>
@@ -54,6 +98,7 @@
                         <color key="badgeColor" name="TrashyBlue"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="scanCollectionView" destination="Dar-vF-b9i" id="iL2-Q8-Moo"/>
                         <outlet property="tabBarView" destination="NP0-Ty-jPX" id="R97-1b-QQf"/>
                         <segue destination="i11-sE-lc1" kind="show" identifier="toErgebnisVC" id="yfM-ge-PDt"/>
                     </connections>
@@ -508,14 +553,58 @@
                                     <outlet property="delegate" destination="wL0-gv-TBd" id="bqX-PZ-a05"/>
                                 </connections>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vky-YY-qWx">
+                                <rect key="frame" x="0.0" y="623" width="414" height="100"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="F5L-bH-ynn"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gjw-F3-Jiv">
+                                    <size key="itemSize" width="80" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrashCell" id="Q6w-ES-hLr" customClass="TrashCVCell" customModule="Trashy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="33O-Ld-dSe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="100"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="33O-Ld-dSe" secondAttribute="bottom" id="FlY-hH-Pfx"/>
+                                            <constraint firstItem="33O-Ld-dSe" firstAttribute="top" secondItem="Q6w-ES-hLr" secondAttribute="top" id="OIA-Cq-EvF"/>
+                                            <constraint firstItem="33O-Ld-dSe" firstAttribute="leading" secondItem="Q6w-ES-hLr" secondAttribute="leading" id="VtN-sM-O9F"/>
+                                            <constraint firstAttribute="trailing" secondItem="33O-Ld-dSe" secondAttribute="trailing" id="jau-Xd-jr6"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="trashImageView" destination="33O-Ld-dSe" id="L7g-Ga-9vQ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="wL0-gv-TBd" id="7TA-Gx-SVf"/>
+                                    <outlet property="delegate" destination="wL0-gv-TBd" id="gQv-v3-QB8"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fk0-7w-bln" firstAttribute="top" secondItem="Fgx-m8-XE2" secondAttribute="bottom" id="1uJ-uG-ewt"/>
                             <constraint firstItem="Ffn-EK-xeF" firstAttribute="bottom" secondItem="fk0-7w-bln" secondAttribute="bottom" constant="-25" id="51Z-a0-5mh"/>
                             <constraint firstItem="Fgx-m8-XE2" firstAttribute="trailing" secondItem="Ffn-EK-xeF" secondAttribute="trailing" id="Dql-IG-ABd"/>
+                            <constraint firstItem="vky-YY-qWx" firstAttribute="trailing" secondItem="Ffn-EK-xeF" secondAttribute="trailing" id="FAo-ta-qO3"/>
                             <constraint firstItem="fk0-7w-bln" firstAttribute="trailing" secondItem="Ffn-EK-xeF" secondAttribute="trailing" id="ccj-O3-HBw"/>
                             <constraint firstItem="Fgx-m8-XE2" firstAttribute="leading" secondItem="Ffn-EK-xeF" secondAttribute="leading" id="fsn-n5-l3v"/>
+                            <constraint firstItem="fk0-7w-bln" firstAttribute="top" secondItem="vky-YY-qWx" secondAttribute="bottom" constant="-5" id="hc4-lj-MhI"/>
+                            <constraint firstItem="vky-YY-qWx" firstAttribute="leading" secondItem="Ffn-EK-xeF" secondAttribute="leading" id="kay-6J-N8W"/>
                             <constraint firstItem="fk0-7w-bln" firstAttribute="leading" secondItem="Ffn-EK-xeF" secondAttribute="leading" id="qLv-Yn-n9b"/>
                             <constraint firstItem="Fgx-m8-XE2" firstAttribute="top" secondItem="Ffn-EK-xeF" secondAttribute="top" id="ygP-RX-Ydq"/>
                         </constraints>
@@ -525,6 +614,7 @@
                         <inset key="imageInsets" minX="0.0" minY="-10" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
                     <connections>
+                        <outlet property="sucheCollectionView" destination="vky-YY-qWx" id="PaS-1n-kMl"/>
                         <outlet property="sucheTabelView" destination="Fgx-m8-XE2" id="8mo-TP-Erp"/>
                         <outlet property="tabBarView" destination="fk0-7w-bln" id="YPl-3o-qDN"/>
                     </connections>

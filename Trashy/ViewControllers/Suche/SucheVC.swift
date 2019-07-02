@@ -8,14 +8,18 @@
 
 import UIKit
 
-class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    var trashImageArray = ["TrashBlau", "TrashGrau", "TrashBraun", "TrashGelb"]
+    
     @IBOutlet weak var tabBarView: RoundView!
     @IBOutlet weak var sucheTabelView: UITableView!
+    @IBOutlet weak var sucheCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sucheCollectionView.layer.zPosition += 1
         tabBarView.layer.zPosition += 1
         setUpShatten(view: tabBarView, op: 0.5, radius: 20.0)
     }
@@ -46,5 +50,17 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return trashImageArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let trashCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCell", for: indexPath) as! TrashCVCell
+        
+        trashCell.trashImageView.image = UIImage.init(named: trashImageArray[indexPath.row])
+        
+        return trashCell
     }
 }

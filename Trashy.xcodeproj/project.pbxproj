@@ -36,6 +36,7 @@
 		3D3A92B322C3B0D100FE9BAB /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92B222C3B0D100FE9BAB /* Material.swift */; };
 		3D51816D22CB9F5F00AA16CE /* SucheVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51816C22CB9F5F00AA16CE /* SucheVC.swift */; };
 		3D51816F22CBA10800AA16CE /* SucheTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51816E22CBA10800AA16CE /* SucheTVCell.swift */; };
+		3D51817122CBB0A000AA16CE /* TrashCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51817022CBB0A000AA16CE /* TrashCVCell.swift */; };
 		3D9195EB22C2957B008BA78A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9195EA22C2957B008BA78A /* DataService.swift */; };
 		3DC31A5A22C52CF900A2E8E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */; };
 		3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */; };
@@ -101,6 +102,7 @@
 		3D3A92B222C3B0D100FE9BAB /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		3D51816C22CB9F5F00AA16CE /* SucheVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucheVC.swift; sourceTree = "<group>"; };
 		3D51816E22CBA10800AA16CE /* SucheTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucheTVCell.swift; sourceTree = "<group>"; };
+		3D51817022CBB0A000AA16CE /* TrashCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashCVCell.swift; sourceTree = "<group>"; };
 		3D9195EA22C2957B008BA78A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				3D0B855922C256C8003D8CAA /* ScanVC.swift */,
+				3D51817022CBB0A000AA16CE /* TrashCVCell.swift */,
 				3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */,
 				3D3A92A622C38ED500FE9BAB /* KeinErgebnisPopUpVC.swift */,
 				3D3A92A422C37B5200FE9BAB /* EingabeVC.swift */,
@@ -549,6 +552,7 @@
 				3D3A86C222BFB46C007D2741 /* Trashy.xcdatamodeld in Sources */,
 				3D0B855822C256AD003D8CAA /* MainTBC.swift in Sources */,
 				3D3A86BA22BFB46C007D2741 /* AppDelegate.swift in Sources */,
+				3D51817122CBB0A000AA16CE /* TrashCVCell.swift in Sources */,
 				3D0B855C22C2573F003D8CAA /* ErgebnisVC.swift in Sources */,
 				3D3A92AF22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift in Sources */,
 				3D9195EB22C2957B008BA78A /* DataService.swift in Sources */,
