@@ -34,6 +34,8 @@
 		3D3A92AF22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92AE22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift */; };
 		3D3A92B122C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92B022C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift */; };
 		3D3A92B322C3B0D100FE9BAB /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92B222C3B0D100FE9BAB /* Material.swift */; };
+		3D51816D22CB9F5F00AA16CE /* SucheVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51816C22CB9F5F00AA16CE /* SucheVC.swift */; };
+		3D51816F22CBA10800AA16CE /* SucheTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51816E22CBA10800AA16CE /* SucheTVCell.swift */; };
 		3D9195EB22C2957B008BA78A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9195EA22C2957B008BA78A /* DataService.swift */; };
 		3DC31A5A22C52CF900A2E8E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */; };
 		3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */; };
@@ -97,6 +99,8 @@
 		3D3A92AE22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EingabeProduktHinzufuegenVC.swift; sourceTree = "<group>"; };
 		3D3A92B022C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EingabeVCMaterialienTVCell.swift; sourceTree = "<group>"; };
 		3D3A92B222C3B0D100FE9BAB /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
+		3D51816C22CB9F5F00AA16CE /* SucheVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucheVC.swift; sourceTree = "<group>"; };
+		3D51816E22CBA10800AA16CE /* SucheTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucheTVCell.swift; sourceTree = "<group>"; };
 		3D9195EA22C2957B008BA78A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 			children = (
 				3D0B856122C25821003D8CAA /* Main */,
 				3D0B856322C25838003D8CAA /* Scan */,
+				3D51816922CB9F0000AA16CE /* Suche */,
 				3D0B856422C25849003D8CAA /* Information */,
 			);
 			path = ViewControllers;
@@ -278,6 +283,15 @@
 				3D3A86DE22BFB46E007D2741 /* Info.plist */,
 			);
 			path = TrashyUITests;
+			sourceTree = "<group>";
+		};
+		3D51816922CB9F0000AA16CE /* Suche */ = {
+			isa = PBXGroup;
+			children = (
+				3D51816C22CB9F5F00AA16CE /* SucheVC.swift */,
+				3D51816E22CBA10800AA16CE /* SucheTVCell.swift */,
+			);
+			path = Suche;
 			sourceTree = "<group>";
 		};
 		D90E178675A4104114C89B63 /* Frameworks */ = {
@@ -526,9 +540,11 @@
 				3D374BEA22C49D2E0004C738 /* RoundImageView.swift in Sources */,
 				3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */,
 				3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */,
+				3D51816F22CBA10800AA16CE /* SucheTVCell.swift in Sources */,
 				3D374BEC22C49E3F0004C738 /* EingabeErgebnisCVCell.swift in Sources */,
 				3D3A92A522C37B5200FE9BAB /* EingabeVC.swift in Sources */,
 				3D374BEE22C4AE070004C738 /* EingabeErgebnisButtonCVCell.swift in Sources */,
+				3D51816D22CB9F5F00AA16CE /* SucheVC.swift in Sources */,
 				3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */,
 				3D3A86C222BFB46C007D2741 /* Trashy.xcdatamodeld in Sources */,
 				3D0B855822C256AD003D8CAA /* MainTBC.swift in Sources */,
