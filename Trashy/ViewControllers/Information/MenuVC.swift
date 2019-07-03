@@ -9,10 +9,9 @@
 import UIKit
 
 class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    var menuArray = ["Trashy", "UeberUns", "Einstellungen", "EimerGelb", "EimerBlau", "EimerGrau", "EimerBraun", "EimerGrün"]
-    var menuNameArray = ["Trashy", "Über uns", "Einstellungen", "Wert-Stoffe", "Papier", "Rest-Stoffe", "Bio-Müll", "Glas"]
-    var menuImageArray = [String]()
+    
+    var menu: MenuData!
+    var menuDataArray = [Menu]()
     
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var tabBarView: RoundView!
@@ -20,14 +19,11 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        menu = MenuData()
+        menuDataArray = menu.menuDataArray
         
         tabBarView.layer.zPosition += 1
         setUpShatten(view: tabBarView, op: 0.5, radius: 20.0)
-        
-        for i in 0..<menuArray.count {
-            menuImageArray.append("Menu" + menuArray[i])
-        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -43,14 +39,14 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuArray.count
+        return menuDataArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let menuCell = tableView.dequeueReusableCell(withIdentifier: "MenuCell") as! MenuVCTVCell
         
-        menuCell.menuImageView.image = UIImage.init(named: menuImageArray[indexPath.row])
-        menuCell.menuLabel.text = menuNameArray[indexPath.row]
+        menuCell.menuImageView.image = UIImage.init(named: menuDataArray[indexPath.row].menuImage)
+        menuCell.menuLabel.text = menuDataArray[indexPath.row].menuText
         
         setUpShatten(view: menuCell.menuShadowView, op: 0.3, radius: 8)
         

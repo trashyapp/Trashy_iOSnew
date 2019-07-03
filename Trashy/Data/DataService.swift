@@ -14,6 +14,9 @@ let DB_BASE = Database.database().reference()
 class DataService {
     static let instance = DataService()
     
+    
+    //Germany
+    
     private var _REF_BASE = DB_BASE
     private var _REF_PRODUKT = DB_BASE.child("produkt")
     private var _REF_MATERIAL = DB_BASE.child("material")
@@ -87,6 +90,8 @@ class DataService {
             handler(materialArray)
         }
     }
+    
+    //China
 }
 
 
