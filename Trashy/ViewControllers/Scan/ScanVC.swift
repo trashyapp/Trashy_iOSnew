@@ -15,6 +15,7 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
     var produktArray = [Produkt]()
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var trashImageArray = ["TrashBlau", "TrashGrau", "TrashBraun", "TrashGelb"]
+    var code = false
     
     @IBOutlet weak var tabBarView: RoundView!
     @IBOutlet weak var scanCollectionView: UICollectionView!
@@ -93,6 +94,19 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
         
         trashCell.trashImageView.image = UIImage.init(named: trashImageArray[indexPath.row])
         
+        if code {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let trashAnimationVC = storyBoard.instantiateViewController(withIdentifier: "TrashAnimationVCSB") as! TrashAnimationVC
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                trashCell.trashImageView.hero.id = "trashAnimation"
+                
+                trashAnimationVC.modalPresentationStyle = .overFullScreen
+                
+                self.present(trashAnimationVC, animated: true, completion: nil)
+            }
+        }
+        
         return trashCell
     }
     
@@ -115,7 +129,10 @@ extension ScanVC: BarcodeScannerCodeDelegate {
                 if self.produktArray[0].produktNummer != -1 {
                     print("ScanVC2: " + self.produktArray[0].barcodeNummer)
                     
-                    self.performSegue(withIdentifier: "toErgebnisVC", sender: self)
+                    self.code = true
+                    self.scanCollectionView.reloadData()
+                    
+                    //self.performSegue(withIdentifier: "toErgebnisVC", sender: self)
                 } else {
                     print("ScanVC3: " + self.produktArray[0].barcodeNummer)
                     

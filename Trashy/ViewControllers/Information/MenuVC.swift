@@ -53,6 +53,10 @@ class MenuVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return menuCell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "to" + menuDataArray[indexPath.row].kategorie + "VC", sender: self)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }

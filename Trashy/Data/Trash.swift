@@ -1,5 +1,5 @@
 //
-//  Menu.swift
+//  Trash.swift
 //  Trashy
 //
 //  Created by Kai Zheng on 03.07.19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Menu {
+struct Trash {
     private var _kategorie: String
     private var _menuText: String
     private var _menuImage: String
@@ -32,7 +32,7 @@ struct Menu {
     }
 }
 
-class MenuData {
+class TrashData {
     var place: PlaceData!
     var places = [Place]()
     var menuDataArray = [Menu]()

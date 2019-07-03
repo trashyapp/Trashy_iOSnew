@@ -12,10 +12,15 @@ import Firebase
 let DB_BASE = Database.database().reference()
 
 class DataService {
+    var place: PlaceData!
+    var places = [Place]()
+    
+    init() {
+        place = PlaceData()
+        places = place.places
+    }
+    
     static let instance = DataService()
-    
-    
-    //Germany
     
     private var _REF_BASE = DB_BASE
     private var _REF_PRODUKT = DB_BASE.child("produkt")
@@ -36,34 +41,46 @@ class DataService {
     func getProdukt(code: String, handler: @escaping (_ produkt: [Produkt]) -> ()) {
         var produktArray = [Produkt]()
         
-        REF_PRODUKT.observeSingleEvent(of: .value) { (produktSnapshot) in
-            guard let produktSnapshot = produktSnapshot.children.allObjects as? [DataSnapshot] else {
-                print("something is not right")
-                return
-            }
+        for i in 0..<places.count {
             
-            for produkt in produktSnapshot {
-                let produktNummer = produkt.childSnapshot(forPath: "produktNummer").value as! Int
-                let barcodeNummer = produkt.childSnapshot(forPath: "barcodeNummer").value as! String
-                let produktName = produkt.childSnapshot(forPath: "produktName").value as! String
-                let produktMaterialien = produkt.childSnapshot(forPath: "produktMaterialien").value as! String
-                let produktBild = produkt.childSnapshot(forPath: "produktBild").value as! Int
-                let letzteAenderung = produkt.childSnapshot(forPath: "letzteAenderung").value as! String
-                
-                if code == barcodeNummer {
-                    let produktMaterialienArrayString = produktMaterialien.split(separator: ",")
-                    let produktMaterialienArray = produktMaterialienArrayString.map { Int($0)! }
-                    
-                    let produkt = Produkt(produktNummer: produktNummer, barcodeNummer: barcodeNummer, produktName: produktName, produktMaterialien: produktMaterialienArray, produktBild: produktBild, letzteAenderung: letzteAenderung)
-                    
-                    produktArray.append(produkt)
-                } else {
-                    let produkt = Produkt(produktNummer: -1, barcodeNummer: code, produktName: "-1", produktMaterialien: [-1], produktBild: -1, letzteAenderung: "-1")
-                    
-                    produktArray.append(produkt)
+            if places[i].active {
+                switch places[i].place {
+                case "Germany":
+                    REF_PRODUKT.observeSingleEvent(of: .value) { (produktSnapshot) in
+                        guard let produktSnapshot = produktSnapshot.children.allObjects as? [DataSnapshot] else {
+                            print("something is not right")
+                            return
+                        }
+                        
+                        for produkt in produktSnapshot {
+                            let produktNummer = produkt.childSnapshot(forPath: "produktNummer").value as! Int
+                            let barcodeNummer = produkt.childSnapshot(forPath: "barcodeNummer").value as! String
+                            let produktName = produkt.childSnapshot(forPath: "produktName").value as! String
+                            let produktMaterialien = produkt.childSnapshot(forPath: "produktMaterialien").value as! String
+                            let produktBild = produkt.childSnapshot(forPath: "produktBild").value as! Int
+                            let letzteAenderung = produkt.childSnapshot(forPath: "letzteAenderung").value as! String
+                            
+                            if code == barcodeNummer {
+                                let produktMaterialienArrayString = produktMaterialien.split(separator: ",")
+                                let produktMaterialienArray = produktMaterialienArrayString.map { Int($0)! }
+                                
+                                let produkt = Produkt(produktNummer: produktNummer, barcodeNummer: barcodeNummer, produktName: produktName, produktMaterialien: produktMaterialienArray, produktBild: produktBild, letzteAenderung: letzteAenderung)
+                                
+                                produktArray.append(produkt)
+                            } else {
+                                let produkt = Produkt(produktNummer: -1, barcodeNummer: code, produktName: "-1", produktMaterialien: [-1], produktBild: -1, letzteAenderung: "-1")
+                                
+                                produktArray.append(produkt)
+                            }
+                        }
+                        handler(produktArray)
+                    }
+                case "ShangHai":
+                    print("ShangHai")
+                default:
+                    break
                 }
             }
-            handler(produktArray)
         }
     }
     

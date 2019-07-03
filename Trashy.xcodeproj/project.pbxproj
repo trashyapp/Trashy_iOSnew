@@ -12,7 +12,8 @@
 		3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855922C256C8003D8CAA /* ScanVC.swift */; };
 		3D0B855C22C2573F003D8CAA /* ErgebnisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */; };
 		3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */; };
-		3D0B856722C258CC003D8CAA /* EinstellungenTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B856622C258CC003D8CAA /* EinstellungenTVC.swift */; };
+		3D0C730022CCB54C00B05F9C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C72FF22CCB54C00B05F9C /* SettingsVC.swift */; };
+		3D0C730422CCBE7000B05F9C /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C730322CCBE7000B05F9C /* Trash.swift */; };
 		3D28963D22C745B300F3F7D1 /* MenuVCTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28963C22C745B300F3F7D1 /* MenuVCTVCell.swift */; };
 		3D374BE622C49AF90004C738 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BE522C49AF90004C738 /* Keyboard.swift */; };
 		3D374BEA22C49D2E0004C738 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BE922C49D2E0004C738 /* RoundImageView.swift */; };
@@ -41,6 +42,9 @@
 		3DC31A5A22C52CF900A2E8E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */; };
 		3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */; };
 		3DE4298722CC6CF7004BB911 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4298622CC6CF7004BB911 /* Menu.swift */; };
+		3DE4298922CC7FCC004BB911 /* TrashAnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4298822CC7FCC004BB911 /* TrashAnimationVC.swift */; };
+		3DE4299122CC8C6E004BB911 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3DE4299322CC8C6E004BB911 /* Localizable.strings */; };
+		3DE4299622CC8D80004BB911 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4299522CC8D80004BB911 /* Place.swift */; };
 		B5A11D9E3412DC8D78518286 /* Pods_Trashy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29D1F6721DC529976A077D7 /* Pods_Trashy.framework */; };
 		D8644DB764F30172C3B0F6FC /* Pods_TrashyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79E740C8AE892B82A1D188DE /* Pods_TrashyUITests.framework */; };
 		E49765D7D2AA0DDB6395E689 /* Pods_TrashyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A14C282BD76501F86C09EC /* Pods_TrashyTests.framework */; };
@@ -73,7 +77,9 @@
 		3D0B855922C256C8003D8CAA /* ScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanVC.swift; sourceTree = "<group>"; };
 		3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgebnisVC.swift; sourceTree = "<group>"; };
 		3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationInhaltVC.swift; sourceTree = "<group>"; };
-		3D0B856622C258CC003D8CAA /* EinstellungenTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EinstellungenTVC.swift; sourceTree = "<group>"; };
+		3D0C72FF22CCB54C00B05F9C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		3D0C730222CCB89D00B05F9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		3D0C730322CCBE7000B05F9C /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		3D28963C22C745B300F3F7D1 /* MenuVCTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVCTVCell.swift; sourceTree = "<group>"; };
 		3D374BE522C49AF90004C738 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keyboard.swift; path = "../../../Arbeiten/iMac/Arbeiten/Außerschulisch/Swift/Apps/KKG/KKG/Extensions/Keyboard.swift"; sourceTree = "<group>"; };
 		3D374BE922C49D2E0004C738 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
@@ -108,6 +114,12 @@
 		3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		3DE4298622CC6CF7004BB911 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		3DE4298822CC7FCC004BB911 /* TrashAnimationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashAnimationVC.swift; sourceTree = "<group>"; };
+		3DE4298C22CC8BBB004BB911 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		3DE4298D22CC8BBB004BB911 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		3DE4299222CC8C6E004BB911 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3DE4299422CC8C74004BB911 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		3DE4299522CC8D80004BB911 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		4FA411F9E8290F6602F05D9A /* Pods-TrashyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrashyTests.debug.xcconfig"; path = "Target Support Files/Pods-TrashyTests/Pods-TrashyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FA714B27B76C585352E8C90 /* Pods-TrashyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrashyUITests.debug.xcconfig"; path = "Target Support Files/Pods-TrashyUITests/Pods-TrashyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		71A14C282BD76501F86C09EC /* Pods_TrashyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrashyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,10 +182,12 @@
 		3D0B855322C247D0003D8CAA /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				3DE4299522CC8D80004BB911 /* Place.swift */,
 				3D9195EA22C2957B008BA78A /* DataService.swift */,
 				3D3A929E22C34E0A00FE9BAB /* Produkt.swift */,
 				3D3A92B222C3B0D100FE9BAB /* Material.swift */,
 				3DE4298622CC6CF7004BB911 /* Menu.swift */,
+				3D0C730322CCBE7000B05F9C /* Trash.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -194,6 +208,7 @@
 			children = (
 				3D0B855522C2565E003D8CAA /* MainNVC.swift */,
 				3D0B855722C256AD003D8CAA /* MainTBC.swift */,
+				3DE4298822CC7FCC004BB911 /* TrashAnimationVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -228,7 +243,7 @@
 		3D0B856522C258A7003D8CAA /* Einstellungen */ = {
 			isa = PBXGroup;
 			children = (
-				3D0B856622C258CC003D8CAA /* EinstellungenTVC.swift */,
+				3D0C72FF22CCB54C00B05F9C /* SettingsVC.swift */,
 			);
 			path = Einstellungen;
 			sourceTree = "<group>";
@@ -258,6 +273,7 @@
 		3D3A86B822BFB46C007D2741 /* Trashy */ = {
 			isa = PBXGroup;
 			children = (
+				3DE4298E22CC8C3D004BB911 /* Text */,
 				3D0B855322C247D0003D8CAA /* Data */,
 				3D0B855222C244BA003D8CAA /* ViewControllers */,
 				3D0B856522C258A7003D8CAA /* Einstellungen */,
@@ -298,6 +314,14 @@
 				3D51816E22CBA10800AA16CE /* SucheTVCell.swift */,
 			);
 			path = Suche;
+			sourceTree = "<group>";
+		};
+		3DE4298E22CC8C3D004BB911 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				3DE4299322CC8C6E004BB911 /* Localizable.strings */,
+			);
+			path = Text;
 			sourceTree = "<group>";
 		};
 		D90E178675A4104114C89B63 /* Frameworks */ = {
@@ -400,6 +424,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 3D3A86AD22BFB46B007D2741;
 			productRefGroup = 3D3A86B722BFB46C007D2741 /* Products */;
@@ -418,6 +443,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DE4299122CC8C6E004BB911 /* Localizable.strings in Resources */,
 				3D3A86C722BFB46E007D2741 /* LaunchScreen.storyboard in Resources */,
 				3DC31A5A22C52CF900A2E8E3 /* GoogleService-Info.plist in Resources */,
 				3D3A86C422BFB46E007D2741 /* Assets.xcassets in Resources */,
@@ -540,14 +566,16 @@
 				3D3A92B122C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift in Sources */,
 				3D28963D22C745B300F3F7D1 /* MenuVCTVCell.swift in Sources */,
 				3D3A92A722C38ED500FE9BAB /* KeinErgebnisPopUpVC.swift in Sources */,
-				3D0B856722C258CC003D8CAA /* EinstellungenTVC.swift in Sources */,
 				3D3A92AD22C3A21800FE9BAB /* EingabeErgebnisVC.swift in Sources */,
 				3D3A929F22C34E0A00FE9BAB /* Produkt.swift in Sources */,
 				3D3A92AB22C3948C00FE9BAB /* RoundButton.swift in Sources */,
+				3DE4298922CC7FCC004BB911 /* TrashAnimationVC.swift in Sources */,
 				3D374BEA22C49D2E0004C738 /* RoundImageView.swift in Sources */,
 				3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */,
+				3DE4299622CC8D80004BB911 /* Place.swift in Sources */,
 				3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */,
 				3D51816F22CBA10800AA16CE /* SucheTVCell.swift in Sources */,
+				3D0C730022CCB54C00B05F9C /* SettingsVC.swift in Sources */,
 				3D374BEC22C49E3F0004C738 /* EingabeErgebnisCVCell.swift in Sources */,
 				3D3A92A522C37B5200FE9BAB /* EingabeVC.swift in Sources */,
 				3D374BEE22C4AE070004C738 /* EingabeErgebnisButtonCVCell.swift in Sources */,
@@ -559,6 +587,7 @@
 				3D51817122CBB0A000AA16CE /* TrashCVCell.swift in Sources */,
 				3D0B855C22C2573F003D8CAA /* ErgebnisVC.swift in Sources */,
 				3D3A92AF22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift in Sources */,
+				3D0C730422CCBE7000B05F9C /* Trash.swift in Sources */,
 				3D9195EB22C2957B008BA78A /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -599,6 +628,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				3D3A86BE22BFB46C007D2741 /* Base */,
+				3DE4298C22CC8BBB004BB911 /* zh-Hans */,
+				3D0C730222CCB89D00B05F9C /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -607,8 +638,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				3D3A86C622BFB46E007D2741 /* Base */,
+				3DE4298D22CC8BBB004BB911 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3DE4299322CC8C6E004BB911 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3DE4299222CC8C6E004BB911 /* en */,
+				3DE4299422CC8C74004BB911 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -618,6 +659,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -679,6 +721,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
