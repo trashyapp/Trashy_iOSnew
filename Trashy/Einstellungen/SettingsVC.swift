@@ -10,21 +10,18 @@ import UIKit
 
 class SettingsVC: UIViewController {
 
+    @IBOutlet weak var headerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setUpShatten(view: headerView, op: 0.3, radius: 2.0)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setUpShatten(view: UIView, op: Float, radius: CGFloat) {
+        view.layer.shadowColor = UIColor.darkGray.cgColor
+        view.layer.shadowOpacity = op
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = radius
     }
-    */
-
 }
