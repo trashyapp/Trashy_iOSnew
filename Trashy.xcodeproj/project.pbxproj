@@ -40,8 +40,9 @@
 		3D9195EB22C2957B008BA78A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9195EA22C2957B008BA78A /* DataService.swift */; };
 		3DA9585722CDFE7100DC4678 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9585622CDFE7100DC4678 /* Animations.swift */; };
 		3DA9585922CE43D200DC4678 /* SettingsNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9585822CE43D200DC4678 /* SettingsNVC.swift */; };
-		3DA9585B22CE442C00DC4678 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9585A22CE442C00DC4678 /* SettingsTVC.swift */; };
 		3DA9585D22CE4C9C00DC4678 /* SettingsSelectionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9585C22CE4C9C00DC4678 /* SettingsSelectionTVC.swift */; };
+		3DA9586122CE568900DC4678 /* SettingsSelectionTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9586022CE568900DC4678 /* SettingsSelectionTVCell.swift */; };
+		3DA9586322CE56F000DC4678 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9586222CE56F000DC4678 /* SettingsTVC.swift */; };
 		3DC31A5A22C52CF900A2E8E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */; };
 		3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */; };
 		3DE4298722CC6CF7004BB911 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4298622CC6CF7004BB911 /* Menu.swift */; };
@@ -115,8 +116,9 @@
 		3D9195EA22C2957B008BA78A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		3DA9585622CDFE7100DC4678 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		3DA9585822CE43D200DC4678 /* SettingsNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNVC.swift; sourceTree = "<group>"; };
-		3DA9585A22CE442C00DC4678 /* SettingsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsTVC.swift; path = /Users/mofawaw/Desktop/Trashy/Trashy/Einstellungen/SettingsTVC.swift; sourceTree = "<absolute>"; };
 		3DA9585C22CE4C9C00DC4678 /* SettingsSelectionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectionTVC.swift; sourceTree = "<group>"; };
+		3DA9586022CE568900DC4678 /* SettingsSelectionTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectionTVCell.swift; sourceTree = "<group>"; };
+		3DA9586222CE56F000DC4678 /* SettingsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTVC.swift; sourceTree = "<group>"; };
 		3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		3DE4298622CC6CF7004BB911 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				3D0B856322C25838003D8CAA /* Scan */,
 				3D51816922CB9F0000AA16CE /* Suche */,
 				3D0B856422C25849003D8CAA /* Information */,
+				3D0B856522C258A7003D8CAA /* Einstellungen */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -251,8 +254,9 @@
 			isa = PBXGroup;
 			children = (
 				3DA9585822CE43D200DC4678 /* SettingsNVC.swift */,
-				3DA9585A22CE442C00DC4678 /* SettingsTVC.swift */,
+				3DA9586222CE56F000DC4678 /* SettingsTVC.swift */,
 				3DA9585C22CE4C9C00DC4678 /* SettingsSelectionTVC.swift */,
+				3DA9586022CE568900DC4678 /* SettingsSelectionTVCell.swift */,
 			);
 			path = Einstellungen;
 			sourceTree = "<group>";
@@ -285,7 +289,6 @@
 				3DE4298E22CC8C3D004BB911 /* Text */,
 				3D0B855322C247D0003D8CAA /* Data */,
 				3D0B855222C244BA003D8CAA /* ViewControllers */,
-				3D0B856522C258A7003D8CAA /* Einstellungen */,
 				3D0B855422C247DE003D8CAA /* Extensions */,
 				3D3A86B922BFB46C007D2741 /* AppDelegate.swift */,
 				3D3A86BD22BFB46C007D2741 /* Main.storyboard */,
@@ -568,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D0B855622C2565E003D8CAA /* MainNVC.swift in Sources */,
+				3DA9586122CE568900DC4678 /* SettingsSelectionTVCell.swift in Sources */,
 				3D3A92B322C3B0D100FE9BAB /* Material.swift in Sources */,
 				3DE4298722CC6CF7004BB911 /* Menu.swift in Sources */,
 				3D374BE622C49AF90004C738 /* Keyboard.swift in Sources */,
@@ -579,12 +583,12 @@
 				3D3A92AD22C3A21800FE9BAB /* EingabeErgebnisVC.swift in Sources */,
 				3D3A929F22C34E0A00FE9BAB /* Produkt.swift in Sources */,
 				3D3A92AB22C3948C00FE9BAB /* RoundButton.swift in Sources */,
+				3DA9586322CE56F000DC4678 /* SettingsTVC.swift in Sources */,
 				3DE4298922CC7FCC004BB911 /* TrashAnimationVC.swift in Sources */,
 				3D374BEA22C49D2E0004C738 /* RoundImageView.swift in Sources */,
 				3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */,
 				3DE4299622CC8D80004BB911 /* Place.swift in Sources */,
 				3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */,
-				3DA9585B22CE442C00DC4678 /* SettingsTVC.swift in Sources */,
 				3D51816F22CBA10800AA16CE /* SucheTVCell.swift in Sources */,
 				3D374BEC22C49E3F0004C738 /* EingabeErgebnisCVCell.swift in Sources */,
 				3D3A92A522C37B5200FE9BAB /* EingabeVC.swift in Sources */,
