@@ -39,6 +39,7 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         recordingShadowView.layer.zPosition += 1
         setUpShatten(view: tabBarView, op: 0.5, radius: 20.0)
         setUpShatten(view: recordingShadowView, op: 0.3, radius: 8.0)
+        recordingShadowView.backgroundColor = UIColor.init(named: "TrashyBlue")
         
         self.recordingImageView.alpha = 0.0
         self.recordingShadowView.alpha = 0.0

@@ -12,7 +12,6 @@
 		3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855922C256C8003D8CAA /* ScanVC.swift */; };
 		3D0B855C22C2573F003D8CAA /* ErgebnisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */; };
 		3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */; };
-		3D0C730022CCB54C00B05F9C /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C72FF22CCB54C00B05F9C /* SettingsVC.swift */; };
 		3D0C730422CCBE7000B05F9C /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C730322CCBE7000B05F9C /* Trash.swift */; };
 		3D28963D22C745B300F3F7D1 /* MenuVCTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28963C22C745B300F3F7D1 /* MenuVCTVCell.swift */; };
 		3D374BE622C49AF90004C738 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BE522C49AF90004C738 /* Keyboard.swift */; };
@@ -40,6 +39,9 @@
 		3D51817122CBB0A000AA16CE /* TrashCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51817022CBB0A000AA16CE /* TrashCVCell.swift */; };
 		3D9195EB22C2957B008BA78A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9195EA22C2957B008BA78A /* DataService.swift */; };
 		3DA9585722CDFE7100DC4678 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9585622CDFE7100DC4678 /* Animations.swift */; };
+		3DA9585922CE43D200DC4678 /* SettingsNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9585822CE43D200DC4678 /* SettingsNVC.swift */; };
+		3DA9585B22CE442C00DC4678 /* SettingsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9585A22CE442C00DC4678 /* SettingsTVC.swift */; };
+		3DA9585D22CE4C9C00DC4678 /* SettingsSelectionTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9585C22CE4C9C00DC4678 /* SettingsSelectionTVC.swift */; };
 		3DC31A5A22C52CF900A2E8E3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */; };
 		3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */; };
 		3DE4298722CC6CF7004BB911 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE4298622CC6CF7004BB911 /* Menu.swift */; };
@@ -78,7 +80,6 @@
 		3D0B855922C256C8003D8CAA /* ScanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanVC.swift; sourceTree = "<group>"; };
 		3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErgebnisVC.swift; sourceTree = "<group>"; };
 		3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationInhaltVC.swift; sourceTree = "<group>"; };
-		3D0C72FF22CCB54C00B05F9C /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		3D0C730222CCB89D00B05F9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3D0C730322CCBE7000B05F9C /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
 		3D28963C22C745B300F3F7D1 /* MenuVCTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVCTVCell.swift; sourceTree = "<group>"; };
@@ -113,6 +114,9 @@
 		3D51817022CBB0A000AA16CE /* TrashCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashCVCell.swift; sourceTree = "<group>"; };
 		3D9195EA22C2957B008BA78A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		3DA9585622CDFE7100DC4678 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		3DA9585822CE43D200DC4678 /* SettingsNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNVC.swift; sourceTree = "<group>"; };
+		3DA9585A22CE442C00DC4678 /* SettingsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsTVC.swift; path = /Users/mofawaw/Desktop/Trashy/Trashy/Einstellungen/SettingsTVC.swift; sourceTree = "<absolute>"; };
+		3DA9585C22CE4C9C00DC4678 /* SettingsSelectionTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSelectionTVC.swift; sourceTree = "<group>"; };
 		3DC31A5922C52CF900A2E8E3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		3DE4298622CC6CF7004BB911 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
@@ -246,7 +250,9 @@
 		3D0B856522C258A7003D8CAA /* Einstellungen */ = {
 			isa = PBXGroup;
 			children = (
-				3D0C72FF22CCB54C00B05F9C /* SettingsVC.swift */,
+				3DA9585822CE43D200DC4678 /* SettingsNVC.swift */,
+				3DA9585A22CE442C00DC4678 /* SettingsTVC.swift */,
+				3DA9585C22CE4C9C00DC4678 /* SettingsSelectionTVC.swift */,
 			);
 			path = Einstellungen;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 				3D3A92B322C3B0D100FE9BAB /* Material.swift in Sources */,
 				3DE4298722CC6CF7004BB911 /* Menu.swift in Sources */,
 				3D374BE622C49AF90004C738 /* Keyboard.swift in Sources */,
+				3DA9585D22CE4C9C00DC4678 /* SettingsSelectionTVC.swift in Sources */,
 				3D3A92A922C393E900FE9BAB /* RoundView.swift in Sources */,
 				3D3A92B122C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift in Sources */,
 				3D28963D22C745B300F3F7D1 /* MenuVCTVCell.swift in Sources */,
@@ -577,11 +584,12 @@
 				3D0B855A22C256C8003D8CAA /* ScanVC.swift in Sources */,
 				3DE4299622CC8D80004BB911 /* Place.swift in Sources */,
 				3DC31A5C22C5EB3700A2E8E3 /* MenuVC.swift in Sources */,
+				3DA9585B22CE442C00DC4678 /* SettingsTVC.swift in Sources */,
 				3D51816F22CBA10800AA16CE /* SucheTVCell.swift in Sources */,
-				3D0C730022CCB54C00B05F9C /* SettingsVC.swift in Sources */,
 				3D374BEC22C49E3F0004C738 /* EingabeErgebnisCVCell.swift in Sources */,
 				3D3A92A522C37B5200FE9BAB /* EingabeVC.swift in Sources */,
 				3D374BEE22C4AE070004C738 /* EingabeErgebnisButtonCVCell.swift in Sources */,
+				3DA9585922CE43D200DC4678 /* SettingsNVC.swift in Sources */,
 				3D51816D22CB9F5F00AA16CE /* SucheVC.swift in Sources */,
 				3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */,
 				3D3A86C222BFB46C007D2741 /* Trashy.xcdatamodeld in Sources */,

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/mofawaw/Desktop/Trashy/Trashy/Einstellungen/SettingsTVC.swift">
+   </FileRef>
+   <FileRef
       location = "group:Trashy.xcodeproj">
    </FileRef>
    <FileRef

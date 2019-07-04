@@ -11,8 +11,5 @@
 /* Class = "UILabel"; text = "Menu"; ObjectID = "lDj-Uu-XZv"; */
 "lDj-Uu-XZv.text" = "Menu";
 
-/* Class = "UILabel"; text = "Settings"; ObjectID = "sKQ-Lg-8KF"; */
-"sKQ-Lg-8KF.text" = "Settings";
-
 /* Class = "UILabel"; text = "Material"; ObjectID = "tki-Xo-tSv"; */
 "tki-Xo-tSv.text" = "Material";

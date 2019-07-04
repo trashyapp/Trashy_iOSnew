@@ -49,7 +49,7 @@ class TrashData {
                 switch places[i].place {
                 case "Germany":
                     menuDataArray = [
-                        Menu(kategorie: "Settings", menuText: "Einstellungen", menuImage: "MenuEinstellungen"),
+                        Menu(kategorie: "SettingsN", menuText: "Einstellungen", menuImage: "MenuEinstellungen"),
                         Menu(kategorie: "About", menuText: "Trashy", menuImage: "MenuTrashy"),
                         Menu(kategorie: "About", menuText: "Über Uns", menuImage: "MenuUeberUns"),
                         Menu(kategorie: "Trash", menuText: "Wert-Stoffe", menuImage: "MenuEimerGelb"),
