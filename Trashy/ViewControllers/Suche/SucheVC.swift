@@ -10,7 +10,7 @@ import UIKit
 import Speech
 import AudioToolbox
 
-class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, SFSpeechRecognizerDelegate {
+class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, SFSpeechRecognizerDelegate, UISearchBarDelegate {
     
     var trashImageArray = ["TrashBlau", "TrashGrau", "TrashBraun", "TrashGelb"]
     var recordingTimer: Timer?
@@ -30,6 +30,8 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        hideKeyboardWhenTappedAround()
         
         sucheCollectionView.layer.zPosition += 1
         tabBarView.layer.zPosition += 1
@@ -63,6 +65,16 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
                 self.recordButton.isEnabled = buttonState
             }
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -105,6 +117,38 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         return trashCell
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        //hideKeyboard()
+    }
+    
+    func hideKeyboard() {
+        sucheSearchBar.resignFirstResponder()
+    }
+    
+    @objc func keyboardWillChange(notification: Notification) {
+        print(notification.name)
+        let screenSize = UIScreen.main.bounds
+        let screenWidth = screenSize.width
+        let screenHeight = screenSize.height
+        
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        guard let tabBarHeight = self.tabBarController?.tabBar.frame.size.height else {
+            return
+        }
+        
+        if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
+            print("Hi")
+            tabBarView.frame.origin.y = screenHeight - keyboardRect.height - tabBarView.frame.height + 25.0
+            sucheCollectionView.alpha = 0.0
+        } else {
+            print("Hiii")
+            tabBarView.frame.origin.y = screenHeight - tabBarHeight + 25.0 - tabBarView.frame.height
+            sucheCollectionView.alpha = 1.0
+        }
+    }
+    
     @IBAction func recordButtonAction(_ sender: Any) {
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         if audioEngine.isRunning {
@@ -125,7 +169,7 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     }
     
     func setUpRecordingImageView() {
-        self.recordingTimer = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(self.addPulse), userInfo: nil, repeats: true)
+        self.recordingTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.addPulse), userInfo: nil, repeats: true)
         UIView.animate(withDuration: 0.3, animations: {
             self.recordingImageView.alpha = 1.0
             self.recordingShadowView.alpha = 1.0
@@ -133,8 +177,8 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     }
     
     @objc func addPulse(){
-        let pulse = Pulsing(numberOfPulses: 1, radius: 150, position: recordingImageView.center)
-        pulse.animationDuration = 0.6
+        let pulse = Pulsing(numberOfPulses: 1, radius: 180, position: recordingImageView.center)
+        pulse.animationDuration = 1.0
         pulse.backgroundColor = UIColor.init(named: "TrashyBlue")?.cgColor
         
         self.view.layer.insertSublayer(pulse, below: recordingImageView.layer)
