@@ -13,8 +13,10 @@ import Hero
 class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var produktArray = [Produkt]()
+    var trash: TrashData!
+    var trashDataArray = [Trash]()
+    
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    var trashImageArray = ["TrashBlau", "TrashGrau", "TrashBraun", "TrashGelb"]
     var code = false
     
     @IBOutlet weak var tabBarView: RoundView!
@@ -22,6 +24,9 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        trash = TrashData()
+        trashDataArray = trash.trashDataArray
         
         self.codeDelegate = self as? BarcodeScannerCodeDelegate
         self.errorDelegate = self as? BarcodeScannerErrorDelegate
@@ -86,13 +91,13 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return trashImageArray.count
+        return trashDataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let trashCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCell", for: indexPath) as! TrashCVCell
         
-        trashCell.trashImageView.image = UIImage.init(named: trashImageArray[indexPath.row])
+        trashCell.trashImageView.image = UIImage.init(named: trashDataArray[indexPath.row].trashImage)
         
         if code {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

@@ -156,13 +156,13 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         }
 
         cell.materialLabel.text = currentMaterialNameArray[indexPath.row]
-        setUpShatten(view: cell.materialShadowView, op: 0.2, radius: 8)
+        setUpShatten(view: cell.materialShadowView, op: 0.2, radius: 5.0)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 110
+        return 100
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

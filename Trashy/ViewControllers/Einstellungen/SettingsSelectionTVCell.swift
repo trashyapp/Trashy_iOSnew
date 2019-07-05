@@ -10,6 +10,9 @@ import UIKit
 
 class SettingsSelectionTVCell: UITableViewCell {
 
+    @IBOutlet weak var selectionView: RoundView!
+    @IBOutlet weak var selectionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

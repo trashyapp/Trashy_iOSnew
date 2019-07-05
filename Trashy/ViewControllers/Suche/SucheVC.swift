@@ -12,7 +12,9 @@ import AudioToolbox
 
 class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, SFSpeechRecognizerDelegate, UISearchBarDelegate {
     
-    var trashImageArray = ["TrashBlau", "TrashGrau", "TrashBraun", "TrashGelb"]
+    var trash: TrashData!
+    var trashDataArray = [Trash]()
+    
     var recordingTimer: Timer?
     
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale.init(identifier:"zh_Hans"))
@@ -30,6 +32,9 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        trash = TrashData()
+        trashDataArray = trash.trashDataArray
         
         hideKeyboardWhenTappedAround()
         
@@ -107,13 +112,13 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return trashImageArray.count
+        return trashDataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let trashCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCell", for: indexPath) as! TrashCVCell
         
-        trashCell.trashImageView.image = UIImage.init(named: trashImageArray[indexPath.row])
+        trashCell.trashImageView.image = UIImage.init(named: trashDataArray[indexPath.row].trashImage)
         
         return trashCell
     }

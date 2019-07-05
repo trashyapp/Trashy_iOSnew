@@ -10,6 +10,7 @@ import UIKit
 class SettingsTVC: UITableViewController {
 
     @IBOutlet var settingsShadowViews: [RoundView]!
+    var selection: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +43,21 @@ class SettingsTVC: UITableViewController {
             print("Notification")
         case 1:
             print("Place")
+            selection = "Place"
             performSegue(withIdentifier: "toSettingsSelectionTVC", sender: self)
         case 2:
             print("Language")
+            selection = "Language"
             performSegue(withIdentifier: "toSettingsSelectionTVC", sender: self)
         default: break
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is SettingsSelectionTVC {
+            let settingsSelectionTVC = segue.destination as? SettingsSelectionTVC
+            
+            settingsSelectionTVC?.selection = selection
         }
     }
 }
