@@ -72,11 +72,7 @@ class DataService {
                                 let produkt = Produkt(produktNummer: produktNummer, barcodeNummer: barcodeNummer, produktName: produktName, produktMaterialien: produktMaterialienArray, produktBild: produktBild, letzteAenderung: letzteAenderung)
                                 
                                 self.produktArray.append(produkt)
-                            } else {
-                                let produkt = Produkt(produktNummer: -1, barcodeNummer: code, produktName: "-1", produktMaterialien: [-1], produktBild: -1, letzteAenderung: "-1")
-                                
-                                self.produktArray.append(produkt)
-                            }
+                            } 
                         }
                         handler(self.produktArray)
                     }
@@ -96,19 +92,24 @@ class DataService {
                 return
             }
             
-            for material in materialSnapshot {
-                let materialNummer = material.childSnapshot(forPath: "materialNummer").value as! Int
-                let materialName = material.childSnapshot(forPath: "materialName").value as! String
-                let materialBeschreibung = material.childSnapshot(forPath: "materialBeschreibung").value as! String
-                let materialBild = material.childSnapshot(forPath: "materialBild").value as! Int
-                let umwelt = material.childSnapshot(forPath: "umwelt").value as! Int
-                
-                //falsch
-                for i in 0..<materials.count {
+            for i in 0..<materials.count {
+                for material in materialSnapshot {
+                    let materialNummer = material.childSnapshot(forPath: "materialNummer").value as! Int
+                    let materialName = material.childSnapshot(forPath: "materialName").value as! String
+                    let materialBeschreibung = material.childSnapshot(forPath: "materialBeschreibung").value as! String
+                    let materialBild = material.childSnapshot(forPath: "materialBild").value as! Int
+                    let umwelt = material.childSnapshot(forPath: "umwelt").value as! Int
+                    
+                    print(material)
+                    print(materials[i])
+                    //falsch
                     if materials[i] == materialNummer {
                         let material = Material(materialNummer: materialNummer, materialName: materialName, materialBeschreibung: materialBeschreibung, materialBild: materialBild, umwelt: umwelt)
                         
+                        print(material)
                         self.materialArray.append(material)
+                        
+                        print(self.materialArray)
                     }
                 }
             }
@@ -125,6 +126,9 @@ class DataService {
             DispatchQueue.main.async {
                 DataService.instance.getMaterial(materials: self.produktArray[0].produktMaterialien) { (returnedMaterialArray) in
                     self.materialArray = returnedMaterialArray
+                    
+                    print(returnedProduktArray)
+                    print(self.produktArray)
                     
                     selectedDataArray.append(self.produktArray)
                     selectedDataArray.append(self.materialArray)

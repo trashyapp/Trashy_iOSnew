@@ -122,6 +122,7 @@ extension ScanVC: BarcodeScannerCodeDelegate {
     func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
         print("ScanVC1: " + code)
         
+        
         DataService.instance.getSelectedData(code: code) { (returnedSelectedDataArray) in
             print(returnedSelectedDataArray)
             
@@ -132,6 +133,9 @@ extension ScanVC: BarcodeScannerCodeDelegate {
         /*
         DataService.instance.getProdukt(code: code) { (returnedProduktArray) in
             self.produktArray = returnedProduktArray
+            
+            print(self.produktArray)
+            print(returnedProduktArray)
             
             DispatchQueue.main.async {
                 if self.produktArray.count != 0 {
