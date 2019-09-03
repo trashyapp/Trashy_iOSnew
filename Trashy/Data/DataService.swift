@@ -89,7 +89,7 @@ class DataService {
         }
     }
     
-    func getMaterial(handler: @escaping (_ material: [Material]) -> ()) {
+    func getMaterial(materials: [Int], handler: @escaping (_ material: [Material]) -> ()) {
         REF_MATERIAL.observeSingleEvent(of: .value) { (materialSnapshot) in
             guard let materialSnapshot = materialSnapshot.children.allObjects as? [DataSnapshot] else {
                 print("something is not right")
@@ -102,20 +102,37 @@ class DataService {
                 let materialBeschreibung = material.childSnapshot(forPath: "materialBeschreibung").value as! String
                 let materialBild = material.childSnapshot(forPath: "materialBild").value as! Int
                 let umwelt = material.childSnapshot(forPath: "umwelt").value as! Int
-                    
-                let material = Material(materialNummer: materialNummer, materialName: materialName, materialBeschreibung: materialBeschreibung, materialBild: materialBild, umwelt: umwelt)
-                    
-                self.materialArray.append(material)
+                
+                //falsch
+                for i in 0..<materials.count {
+                    if materials[i] == materialNummer {
+                        let material = Material(materialNummer: materialNummer, materialName: materialName, materialBeschreibung: materialBeschreibung, materialBild: materialBild, umwelt: umwelt)
+                        
+                        self.materialArray.append(material)
+                    }
+                }
             }
             handler(self.materialArray)
         }
     }
     
-    func getTrash(code: String, handler: @escaping (_ array: [Any]) -> ()) {
+    func getSelectedData(code: String, handler: @escaping (_ selectedData: [Any]) -> ()) {
+        var selectedDataArray = [Any]()
         
-        
-        
-        handler(materialArray)
+        DataService.instance.getProdukt(code: code) { (returnedProduktArray) in
+            self.produktArray = returnedProduktArray
+            
+            DispatchQueue.main.async {
+                DataService.instance.getMaterial(materials: self.produktArray[0].produktMaterialien) { (returnedMaterialArray) in
+                    self.materialArray = returnedMaterialArray
+                    
+                    selectedDataArray.append(self.produktArray)
+                    selectedDataArray.append(self.materialArray)
+                    
+                    handler(selectedDataArray)
+                }
+            }
+        }
     }
 }
 
