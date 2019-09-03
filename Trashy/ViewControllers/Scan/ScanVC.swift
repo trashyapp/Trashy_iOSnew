@@ -15,9 +15,9 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
     var produktArray = [Produkt]()
     var trash: TrashData!
     var trashDataArray = [Trash]()
+    var code = false
     
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    var code = false
     
     @IBOutlet weak var tabBarView: RoundView!
     @IBOutlet weak var scanCollectionView: UICollectionView!
@@ -99,9 +99,11 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
         
         trashCell.trashImageView.image = UIImage.init(named: trashDataArray[indexPath.row].trashImage)
         
-        if code {
+        if trashDataArray[indexPath.row].trashNumber == 2 && code {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let trashAnimationVC = storyBoard.instantiateViewController(withIdentifier: "TrashAnimationVCSB") as! TrashAnimationVC
+            
+            trashAnimationVC.produktArray = self.produktArray
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 trashCell.trashImageView.hero.id = "trashAnimation"
@@ -114,13 +116,6 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
         
         return trashCell
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is ErgebnisVC {
-            let ergebnisVC = segue.destination as? ErgebnisVC
-            ergebnisVC?.produktArray = produktArray
-        }
-    }
 }
 
 extension ScanVC: BarcodeScannerCodeDelegate {
@@ -131,18 +126,16 @@ extension ScanVC: BarcodeScannerCodeDelegate {
             self.produktArray = returnedProduktArray
             
             DispatchQueue.main.async {
-                if self.produktArray[0].produktNummer != -1 {
+                if self.produktArray.count != 0 {
                     print("ScanVC2: " + self.produktArray[0].barcodeNummer)
                     
                     self.code = true
                     self.scanCollectionView.reloadData()
-                    
-                    //self.performSegue(withIdentifier: "toErgebnisVC", sender: self)
                 } else {
                     print("ScanVC3: " + self.produktArray[0].barcodeNummer)
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        self.toKeinErgebnisPopUpVC()
+                    self.toKeinErgebnisPopUpVC()
                     }
                 }
             }

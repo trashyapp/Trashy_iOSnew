@@ -10,7 +10,7 @@ import UIKit
 import Hero
 
 class TrashAnimationVC: UIViewController {
-
+    
     var produktArray = [Produkt]()
     
     @IBOutlet weak var trashAnimationView: UIView!
@@ -56,6 +56,13 @@ class TrashAnimationVC: UIViewController {
                             self.muelleimerDeckelView.alpha = 0.0
                         }, completion: { (finished: Bool) in
                         })*/
+                    }, completion: { (finished: Bool) in
+                        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let ergebnisVC = storyBoard.instantiateViewController(withIdentifier: "ErgebnisVCSB") as! ErgebnisVC
+                        
+                        ergebnisVC.produktArray = self.produktArray
+                        
+                        self.present(ergebnisVC, animated: true, completion: nil)
                     })
                 })
             })

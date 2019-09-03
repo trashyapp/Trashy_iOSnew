@@ -9,14 +9,20 @@
 import Foundation
 
 struct Trash {
+    private var _trashNumber: Int
     private var _trashText: String
     private var _trashImage: String
     private var _trashColor: String
     
-    init(trashText: String, trashImage: String, trashColor: String) {
+    init(trashNumber: Int, trashText: String, trashImage: String, trashColor: String) {
+        self._trashNumber = trashNumber
         self._trashText = trashText
         self._trashImage = trashImage
         self._trashColor = trashColor
+    }
+    
+    var trashNumber: Int {
+        return _trashNumber
     }
 
     var trashText: String {
@@ -49,18 +55,13 @@ class TrashData {
                 switch places[i].place {
                 case "Germany":
                     trashDataArray = [
-                        Trash(trashText: "Papier", trashImage: "GER_TrashBlueImage", trashColor: "TrashBlue"),
-                        Trash(trashText: "Rest-Stoffe", trashImage: "GER_TrashGreyImage", trashColor: "TrashGrey"),
-                        Trash(trashText: "Bio-Müll", trashImage: "GER_TrashBrownImage", trashColor: "TrashBrown"),
-                        Trash(trashText: "Wert-Stoffe", trashImage: "GER_TrashYellowImage", trashColor: "TrashYellow")
+                        Trash(trashNumber: 1, trashText: "Papier", trashImage: "GER_TrashBlueImage", trashColor: "TrashBlue"),
+                        Trash(trashNumber: 2, trashText: "Rest-Stoffe", trashImage: "GER_TrashGreyImage", trashColor: "TrashGrey"),
+                        Trash(trashNumber: 3, trashText: "Bio-Müll", trashImage: "GER_TrashBrownImage", trashColor: "TrashBrown"),
+                        Trash(trashNumber: 4, trashText: "Wert-Stoffe", trashImage: "GER_TrashYellowImage", trashColor: "TrashYellow")
                     ]
                 case "Zurich":
-                    trashDataArray = [
-                        Trash(trashText: "Wert-Stoffe", trashImage: "CN_SHA_TrashBlueImage", trashColor: "TrashBlue"),
-                        Trash(trashText: "Gift-Stoffe", trashImage: "CN_SHA_TrashRedImage", trashColor: "TrashRed"),
-                        Trash(trashText: "Trocken-Müll", trashImage: "CN_SHA_TrashBlackImage", trashColor: "TrashBlack"),
-                        Trash(trashText: "Feucht-Müll", trashImage: "CN_SHA_TrashBrownImage", trashColor: "TrashBrown")
-                    ]
+                    print(".")
                 default: break
                 }
             }

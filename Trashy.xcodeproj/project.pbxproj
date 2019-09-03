@@ -30,7 +30,6 @@
 		3D3A92A722C38ED500FE9BAB /* KeinErgebnisPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92A622C38ED500FE9BAB /* KeinErgebnisPopUpVC.swift */; };
 		3D3A92A922C393E900FE9BAB /* RoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92A822C393E900FE9BAB /* RoundView.swift */; };
 		3D3A92AB22C3948C00FE9BAB /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92AA22C3948C00FE9BAB /* RoundButton.swift */; };
-		3D3A92AD22C3A21800FE9BAB /* EingabeErgebnisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92AC22C3A21800FE9BAB /* EingabeErgebnisVC.swift */; };
 		3D3A92AF22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92AE22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift */; };
 		3D3A92B122C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92B022C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift */; };
 		3D3A92B322C3B0D100FE9BAB /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3A92B222C3B0D100FE9BAB /* Material.swift */; };
@@ -106,7 +105,6 @@
 		3D3A92A622C38ED500FE9BAB /* KeinErgebnisPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeinErgebnisPopUpVC.swift; sourceTree = "<group>"; };
 		3D3A92A822C393E900FE9BAB /* RoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoundView.swift; path = ../../../Arbeiten/iMac/Trashy/Trashy/Extensions/RoundView.swift; sourceTree = "<group>"; };
 		3D3A92AA22C3948C00FE9BAB /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		3D3A92AC22C3A21800FE9BAB /* EingabeErgebnisVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EingabeErgebnisVC.swift; sourceTree = "<group>"; };
 		3D3A92AE22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EingabeProduktHinzufuegenVC.swift; sourceTree = "<group>"; };
 		3D3A92B022C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EingabeVCMaterialienTVCell.swift; sourceTree = "<group>"; };
 		3D3A92B222C3B0D100FE9BAB /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
@@ -232,7 +230,6 @@
 				3D3A92B022C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift */,
 				3D374BEB22C49E3F0004C738 /* EingabeErgebnisCVCell.swift */,
 				3D374BED22C4AE070004C738 /* EingabeErgebnisButtonCVCell.swift */,
-				3D3A92AC22C3A21800FE9BAB /* EingabeErgebnisVC.swift */,
 				3D3A92AE22C3A34800FE9BAB /* EingabeProduktHinzufuegenVC.swift */,
 			);
 			path = Scan;
@@ -578,7 +575,6 @@
 				3D3A92B122C3AE4E00FE9BAB /* EingabeVCMaterialienTVCell.swift in Sources */,
 				3D28963D22C745B300F3F7D1 /* MenuVCTVCell.swift in Sources */,
 				3D3A92A722C38ED500FE9BAB /* KeinErgebnisPopUpVC.swift in Sources */,
-				3D3A92AD22C3A21800FE9BAB /* EingabeErgebnisVC.swift in Sources */,
 				3D3A929F22C34E0A00FE9BAB /* Produkt.swift in Sources */,
 				3D3A92AB22C3948C00FE9BAB /* RoundButton.swift in Sources */,
 				3DA9586322CE56F000DC4678 /* SettingsTVC.swift in Sources */,

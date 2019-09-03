@@ -14,10 +14,17 @@ let DB_BASE = Database.database().reference()
 class DataService {
     var place: PlaceData!
     var places = [Place]()
+    var trash: TrashData!
+    var trashDataArray = [Trash]()
+    
+    var materialArray = [Material]()
+    var produktArray = [Produkt]()
     
     init() {
         place = PlaceData()
         places = place.places
+        trash = TrashData()
+        trashDataArray = trash.trashDataArray
     }
     
     static let instance = DataService()
@@ -39,8 +46,6 @@ class DataService {
     }
     
     func getProdukt(code: String, handler: @escaping (_ produkt: [Produkt]) -> ()) {
-        var produktArray = [Produkt]()
-        
         for i in 0..<places.count {
             
             if places[i].active {
@@ -66,14 +71,14 @@ class DataService {
                                 
                                 let produkt = Produkt(produktNummer: produktNummer, barcodeNummer: barcodeNummer, produktName: produktName, produktMaterialien: produktMaterialienArray, produktBild: produktBild, letzteAenderung: letzteAenderung)
                                 
-                                produktArray.append(produkt)
+                                self.produktArray.append(produkt)
                             } else {
                                 let produkt = Produkt(produktNummer: -1, barcodeNummer: code, produktName: "-1", produktMaterialien: [-1], produktBild: -1, letzteAenderung: "-1")
                                 
-                                produktArray.append(produkt)
+                                self.produktArray.append(produkt)
                             }
                         }
-                        handler(produktArray)
+                        handler(self.produktArray)
                     }
                 case "Zurich":
                     print("Zurich")
@@ -85,8 +90,6 @@ class DataService {
     }
     
     func getMaterial(handler: @escaping (_ material: [Material]) -> ()) {
-        var materialArray = [Material]()
-        
         REF_MATERIAL.observeSingleEvent(of: .value) { (materialSnapshot) in
             guard let materialSnapshot = materialSnapshot.children.allObjects as? [DataSnapshot] else {
                 print("something is not right")
@@ -102,10 +105,17 @@ class DataService {
                     
                 let material = Material(materialNummer: materialNummer, materialName: materialName, materialBeschreibung: materialBeschreibung, materialBild: materialBild, umwelt: umwelt)
                     
-                 materialArray.append(material)
+                self.materialArray.append(material)
             }
-            handler(materialArray)
+            handler(self.materialArray)
         }
+    }
+    
+    func getTrash(code: String, handler: @escaping (_ array: [Any]) -> ()) {
+        
+        
+        
+        handler(materialArray)
     }
 }
 
