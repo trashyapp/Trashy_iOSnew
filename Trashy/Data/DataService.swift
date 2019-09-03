@@ -100,16 +100,11 @@ class DataService {
                     let materialBild = material.childSnapshot(forPath: "materialBild").value as! Int
                     let umwelt = material.childSnapshot(forPath: "umwelt").value as! Int
                     
-                    print(material)
-                    print(materials[i])
-                    //falsch
                     if materials[i] == materialNummer {
                         let material = Material(materialNummer: materialNummer, materialName: materialName, materialBeschreibung: materialBeschreibung, materialBild: materialBild, umwelt: umwelt)
                         
                         print(material)
                         self.materialArray.append(material)
-                        
-                        print(self.materialArray)
                     }
                 }
             }
@@ -127,8 +122,7 @@ class DataService {
                 DataService.instance.getMaterial(materials: self.produktArray[0].produktMaterialien) { (returnedMaterialArray) in
                     self.materialArray = returnedMaterialArray
                     
-                    print(returnedProduktArray)
-                    print(self.produktArray)
+                    self.algorithm()
                     
                     selectedDataArray.append(self.produktArray)
                     selectedDataArray.append(self.materialArray)
@@ -137,6 +131,10 @@ class DataService {
                 }
             }
         }
+    }
+    
+    func algorithm() {
+        //algorithm for trash
     }
 }
 

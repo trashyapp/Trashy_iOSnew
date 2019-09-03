@@ -13,6 +13,7 @@ import Hero
 class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var produktArray = [Produkt]()
+    var materialArray = [Material]()
     var trash: TrashData!
     var trashDataArray = [Trash]()
     var code = false
@@ -122,20 +123,11 @@ extension ScanVC: BarcodeScannerCodeDelegate {
     func scanner(_ controller: BarcodeScannerViewController, didCaptureCode code: String, type: String) {
         print("ScanVC1: " + code)
         
-        
         DataService.instance.getSelectedData(code: code) { (returnedSelectedDataArray) in
             print(returnedSelectedDataArray)
             
             self.produktArray = returnedSelectedDataArray[0] as! [Produkt]
-            print("ScanVC2: " + self.produktArray[0].barcodeNummer)
-        }
-        
-        /*
-        DataService.instance.getProdukt(code: code) { (returnedProduktArray) in
-            self.produktArray = returnedProduktArray
-            
-            print(self.produktArray)
-            print(returnedProduktArray)
+            self.materialArray = returnedSelectedDataArray[1] as! [Material]
             
             DispatchQueue.main.async {
                 if self.produktArray.count != 0 {
@@ -147,10 +139,10 @@ extension ScanVC: BarcodeScannerCodeDelegate {
                     print("ScanVC3: " + self.produktArray[0].barcodeNummer)
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                    self.toKeinErgebnisPopUpVC()
+                        self.toKeinErgebnisPopUpVC()
                     }
                 }
             }
-        }*/
+        }
     }
 }
