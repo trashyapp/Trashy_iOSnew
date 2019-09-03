@@ -28,7 +28,7 @@ struct Place {
 
 struct PlaceData {
     var places = [
-        Place(place: "ShangHai", active: false),
+        Place(place: "Zurich", active: false),
         Place(place: "Germany", active: true)
     ]
 }

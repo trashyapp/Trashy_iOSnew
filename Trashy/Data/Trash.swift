@@ -54,7 +54,13 @@ class TrashData {
                         Trash(trashText: "Bio-Müll", trashImage: "GER_TrashBrownImage", trashColor: "TrashBrown"),
                         Trash(trashText: "Wert-Stoffe", trashImage: "GER_TrashYellowImage", trashColor: "TrashYellow")
                     ]
-                case "ShangHai": print("ShangHai")
+                case "Zurich":
+                    trashDataArray = [
+                        Trash(trashText: "Wert-Stoffe", trashImage: "CN_SHA_TrashBlueImage", trashColor: "TrashBlue"),
+                        Trash(trashText: "Gift-Stoffe", trashImage: "CN_SHA_TrashRedImage", trashColor: "TrashRed"),
+                        Trash(trashText: "Trocken-Müll", trashImage: "CN_SHA_TrashBlackImage", trashColor: "TrashBlack"),
+                        Trash(trashText: "Feucht-Müll", trashImage: "CN_SHA_TrashBrownImage", trashColor: "TrashBrown")
+                    ]
                 default: break
                 }
             }

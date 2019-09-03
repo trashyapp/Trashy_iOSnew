@@ -17,7 +17,7 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     
     var recordingTimer: Timer?
     
-    let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale.init(identifier:"zh_Hans"))
+    let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale.init(identifier:"de"))
     var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     var recognitionTask: SFSpeechRecognitionTask?
     let audioEngine = AVAudioEngine()

@@ -49,16 +49,25 @@ class MenuData {
                 switch places[i].place {
                 case "Germany":
                     menuDataArray = [
-                        Menu(kategorie: "SettingsN", menuText: "Einstellungen", menuImage: "MenuEinstellungen"),
+                        Menu(kategorie: "SettingsN", menuText: "Einstellungen", menuImage: "MenuSettings"),
                         Menu(kategorie: "About", menuText: "Trashy", menuImage: "MenuTrashy"),
-                        Menu(kategorie: "About", menuText: "Über Uns", menuImage: "MenuUeberUns"),
-                        Menu(kategorie: "Trash", menuText: "Wert-Stoffe", menuImage: "MenuEimerGelb"),
-                        Menu(kategorie: "Trash", menuText: "Papier", menuImage: "MenuEimerBlau"),
-                        Menu(kategorie: "Trash", menuText: "Rest-Stoffe", menuImage: "MenuEimerGrau"),
-                        Menu(kategorie: "Trash", menuText: "Bio-Müll", menuImage: "MenuEimerBraun"),
-                        Menu(kategorie: "Trash", menuText: "Glas", menuImage: "MenuEimerGruen")
+                        Menu(kategorie: "About", menuText: "Über Uns", menuImage: "MenuAboutUs"),
+                        Menu(kategorie: "Trash", menuText: "Wert-Stoffe", menuImage: "GER_MenuTrashYellowImage"),
+                        Menu(kategorie: "Trash", menuText: "Papier", menuImage: "GER_MenuTrashBlueImage"),
+                        Menu(kategorie: "Trash", menuText: "Rest-Stoffe", menuImage: "GER_MenuTrashGreyImage"),
+                        Menu(kategorie: "Trash", menuText: "Bio-Müll", menuImage: "GER_MenuTrashBrownImage"),
+                        Menu(kategorie: "Trash", menuText: "Glas", menuImage: "GER_MenuTrashGreenImage")
                     ]
-                case "ShangHai": print("ShangHai")
+                case "Zurich":
+                    menuDataArray = [
+                        Menu(kategorie: "SettingsN", menuText: "Einstellungen", menuImage: "MenuSettings"),
+                        Menu(kategorie: "About", menuText: "Trashy", menuImage: "MenuTrashy"),
+                        Menu(kategorie: "About", menuText: "Über Uns", menuImage: "MenuAboutUs"),
+                        Menu(kategorie: "Trash", menuText: "Wert-Stoffe", menuImage: "CN_SHA_MenuTrashBlueImage"),
+                        Menu(kategorie: "Trash", menuText: "Gift-Stoffe", menuImage: "CN_SHA_MenuTrashRedImage"),
+                        Menu(kategorie: "Trash", menuText: "Trocken-Müll", menuImage: "CN_SHA_MenuTrashBlackImage"),
+                        Menu(kategorie: "Trash", menuText: "Feucht-Müll", menuImage: "CN_SHA_MenuTrashBrownImage")
+                    ]
                 default: break
                 }
             }

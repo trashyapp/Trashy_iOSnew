@@ -75,8 +75,8 @@ class DataService {
                         }
                         handler(produktArray)
                     }
-                case "ShangHai":
-                    print("ShangHai")
+                case "Zurich":
+                    print("Zurich")
                 default:
                     break
                 }
@@ -107,8 +107,6 @@ class DataService {
             handler(materialArray)
         }
     }
-    
-    //China
 }
 
 

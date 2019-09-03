@@ -123,10 +123,8 @@
 		3DC31A5B22C5EB3700A2E8E3 /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		3DE4298622CC6CF7004BB911 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		3DE4298822CC7FCC004BB911 /* TrashAnimationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrashAnimationVC.swift; sourceTree = "<group>"; };
-		3DE4298C22CC8BBB004BB911 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3DE4298D22CC8BBB004BB911 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3DE4299222CC8C6E004BB911 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3DE4299422CC8C74004BB911 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3DE4299522CC8D80004BB911 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		4FA411F9E8290F6602F05D9A /* Pods-TrashyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrashyTests.debug.xcconfig"; path = "Target Support Files/Pods-TrashyTests/Pods-TrashyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6FA714B27B76C585352E8C90 /* Pods-TrashyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrashyUITests.debug.xcconfig"; path = "Target Support Files/Pods-TrashyUITests/Pods-TrashyUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -644,7 +642,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				3D3A86BE22BFB46C007D2741 /* Base */,
-				3DE4298C22CC8BBB004BB911 /* zh-Hans */,
 				3D0C730222CCB89D00B05F9C /* en */,
 			);
 			name = Main.storyboard;
@@ -663,7 +660,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				3DE4299222CC8C6E004BB911 /* en */,
-				3DE4299422CC8C74004BB911 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
