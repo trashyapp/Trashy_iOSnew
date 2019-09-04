@@ -48,6 +48,8 @@ class DataService {
     func getProdukt(code: String, handler: @escaping (_ produkt: [Produkt]) -> ()) {
         for i in 0..<places.count {
             
+            self.produktArray = [Produkt]()
+            
             if places[i].active {
                 switch places[i].place {
                 case "Germany":
@@ -92,6 +94,8 @@ class DataService {
                 return
             }
             
+            self.materialArray = [Material]()
+            
             for i in 0..<materials.count {
                 for material in materialSnapshot {
                     let materialNummer = material.childSnapshot(forPath: "materialNummer").value as! Int
@@ -121,7 +125,15 @@ class DataService {
     func getSelectedData(code: String, handler: @escaping (_ selectedData: [Any]) -> ()) {
         var selectedDataArray = [Any]()
         
+        produktArray = [Produkt]()
+        materialArray = [Material]()
+        
         DataService.instance.getProdukt(code: code) { (returnedProduktArray) in
+            print("---------------------------")
+            print(self.produktArray)
+            print(returnedProduktArray)
+            print("---------------------------")
+            
             self.produktArray = returnedProduktArray
             
             DispatchQueue.main.async {
@@ -130,6 +142,7 @@ class DataService {
                     
                     self.algorithm()
                     
+                    selectedDataArray.removeAll()
                     selectedDataArray.append(self.produktArray)
                     selectedDataArray.append(self.materialArray)
                     

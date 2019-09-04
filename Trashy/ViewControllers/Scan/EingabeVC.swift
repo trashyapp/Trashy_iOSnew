@@ -88,9 +88,14 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         //DataService Verbindung herstellen
         
         DataService.instance.getMaterial(materials: [-1]) { (returnedMaterialArray) in
+            self.produktArray.removeAll()
+            self.materialArray.removeAll()
+            
             self.materialArray = returnedMaterialArray
             
             print(self.materialArray[0].materialBeschreibung)
+            self.materialNameArray.removeAll()
+            self.currentMaterialNameArray.removeAll()
             
             //Materialiennamen in ein einzelnes Array packen
             for i in 0..<self.materialArray.count {

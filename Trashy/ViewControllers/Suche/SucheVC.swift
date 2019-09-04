@@ -46,12 +46,20 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         sucheCollectionView.alpha = 0.0
         
         setUpVoice()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         setUpData()
     }
     
     func setUpData() {
         DataService.instance.getSelectedData(code: "Trashy") { (returnedSelectedDataArray) in
             print(returnedSelectedDataArray)
+            
+            self.produktArray.removeAll()
+            self.materialArray.removeAll()
             
             self.produktArray = returnedSelectedDataArray[0] as! [Produkt]
             self.materialArray = returnedSelectedDataArray[1] as! [Material]
