@@ -12,6 +12,9 @@ import AudioToolbox
 
 class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, SFSpeechRecognizerDelegate, UISearchBarDelegate {
     
+    var produktArray = [Produkt]()
+    var materialArray = [Material]()
+    
     var trash: TrashData!
     var trashDataArray = [Trash]()
     
@@ -40,6 +43,35 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         
         sucheCollectionView.layer.zPosition += 1
         tabBarView.layer.zPosition += 1
+        
+        setUpVoice()
+    }
+    
+    func setUpData() {
+        /*DataService.instance.getSelectedData(code: code) { (returnedSelectedDataArray) in
+            print(returnedSelectedDataArray)
+            
+            self.produktArray = returnedSelectedDataArray[0] as! [Produkt]
+            self.materialArray = returnedSelectedDataArray[1] as! [Material]
+            
+            DispatchQueue.main.async {
+                if self.produktArray.count != 0 {
+                    print("ScanVC2: " + self.produktArray[0].barcodeNummer)
+                    
+                    self.code = true
+                    self.scanCollectionView.reloadData()
+                } else {
+                    print("ScanVC3: " + self.produktArray[0].barcodeNummer)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        self.toKeinErgebnisPopUpVC()
+                    }
+                }
+            }
+        }*/
+    }
+    
+    func setUpVoice() {
         recordingImageView.layer.zPosition += 1
         recordingShadowView.layer.zPosition += 1
         setUpShatten(view: tabBarView, op: 0.5, radius: 20.0)
@@ -75,6 +107,7 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+
     }
     
     deinit {

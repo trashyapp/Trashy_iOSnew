@@ -106,6 +106,12 @@ class DataService {
                         print(material)
                         self.materialArray.append(material)
                     }
+                    if materials[0] == -1 {
+                        let material = Material(materialNummer: materialNummer, materialName: materialName, materialBeschreibung: materialBeschreibung, materialBild: materialBild, umwelt: umwelt)
+                        
+                        print(material)
+                        self.materialArray.append(material)
+                    }
                 }
             }
             handler(self.materialArray)

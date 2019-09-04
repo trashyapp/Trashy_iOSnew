@@ -86,13 +86,8 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         super.viewDidAppear(animated)
         
         //DataService Verbindung herstellen
-        var allMaterials = [Int]()
         
-        for i in 0..<materialArray.count {
-            allMaterials.append(i)
-        }
-        
-        DataService.instance.getMaterial(materials: allMaterials) { (returnedMaterialArray) in
+        DataService.instance.getMaterial(materials: [-1]) { (returnedMaterialArray) in
             self.materialArray = returnedMaterialArray
             
             print(self.materialArray[0].materialBeschreibung)
