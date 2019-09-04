@@ -17,7 +17,7 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     
     var trash: TrashData!
     var trashDataArray = [Trash]()
-    
+
     var recordingTimer: Timer?
     
     let speechRecognizer: SFSpeechRecognizer? = SFSpeechRecognizer(locale: Locale.init(identifier:"de"))
@@ -43,32 +43,23 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         
         sucheCollectionView.layer.zPosition += 1
         tabBarView.layer.zPosition += 1
+        sucheCollectionView.alpha = 0.0
         
         setUpVoice()
+        setUpData()
     }
     
     func setUpData() {
-        /*DataService.instance.getSelectedData(code: code) { (returnedSelectedDataArray) in
+        DataService.instance.getSelectedData(code: "Trashy") { (returnedSelectedDataArray) in
             print(returnedSelectedDataArray)
             
             self.produktArray = returnedSelectedDataArray[0] as! [Produkt]
             self.materialArray = returnedSelectedDataArray[1] as! [Material]
             
-            DispatchQueue.main.async {
-                if self.produktArray.count != 0 {
-                    print("ScanVC2: " + self.produktArray[0].barcodeNummer)
-                    
-                    self.code = true
-                    self.scanCollectionView.reloadData()
-                } else {
-                    print("ScanVC3: " + self.produktArray[0].barcodeNummer)
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                        self.toKeinErgebnisPopUpVC()
-                    }
-                }
-            }
-        }*/
+            print("MMM" + self.produktArray[0].barcodeNummer)
+            
+            self.sucheTabelView.reloadData()
+        }
     }
     
     func setUpVoice() {
@@ -129,12 +120,14 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        print("AAA" + String(produktArray.count))
+        return produktArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sucheCell = tableView.dequeueReusableCell(withIdentifier: "SucheCell") as! SucheTVCell
         
+        sucheCell.sucheLabel.text = produktArray[indexPath.row].produktName
         setUpShatten(view: sucheCell.sucheView, op: 0.3, radius: 8.0)
         
         return sucheCell
