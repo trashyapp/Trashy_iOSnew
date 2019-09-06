@@ -25,6 +25,10 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     var recognitionTask: SFSpeechRecognitionTask?
     let audioEngine = AVAudioEngine()
     
+    var produktNameArray = [String]()
+    var currentProduktNameArray = [String]()
+    var searchActive = false
+    
     @IBOutlet weak var tabBarView: RoundView!
     @IBOutlet weak var sucheTabelView: UITableView!
     @IBOutlet weak var sucheCollectionView: UICollectionView!
@@ -66,7 +70,18 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
             
             print("MMM" + self.produktArray[0].barcodeNummer)
             
+            self.produktNameArray.removeAll()
+            self.currentProduktNameArray.removeAll()
+            
+            //Produktnamen in ein einzelnes Array packen
+            for i in 0..<self.produktArray.count {
+                self.produktNameArray.append(self.produktArray[i].produktName)
+            }
+            
+            self.currentProduktNameArray = self.produktNameArray
+            
             self.sucheTabelView.reloadData()
+            
         }
     }
     
@@ -129,13 +144,13 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("AAA" + String(produktArray.count))
-        return produktArray.count
+        return currentProduktNameArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sucheCell = tableView.dequeueReusableCell(withIdentifier: "SucheCell") as! SucheTVCell
         
-        sucheCell.sucheLabel.text = produktArray[indexPath.row].produktName
+        sucheCell.sucheLabel.text = currentProduktNameArray[indexPath.row]
         setUpShatten(view: sucheCell.sucheView, op: 0.3, radius: 8.0)
         
         return sucheCell
@@ -158,7 +173,43 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        //hideKeyboard()
+        searchActive = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            currentProduktNameArray = produktNameArray
+            self.sucheTabelView.reloadData()
+            return
+        }
+        currentProduktNameArray = produktNameArray.filter({ material -> Bool in
+            material.lowercased().contains(searchText.lowercased())
+        })
+        
+        if currentProduktNameArray.count == 0 {
+            searchActive = false
+        } else {
+            searchActive = true
+        }
+        self.sucheTabelView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
     
     func hideKeyboard() {
@@ -219,7 +270,7 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     @objc func addPulse(){
         let pulse = Pulsing(numberOfPulses: 1, radius: 180, position: recordingImageView.center)
         pulse.animationDuration = 1.0
-        pulse.backgroundColor = UIColor.init(named: "TrashyBlue")?.cgColor
+        pulse.backgroundColor = UIColor.init(named: "TrashyDarkGray")?.cgColor
         
         self.view.layer.insertSublayer(pulse, below: recordingImageView.layer)
     }

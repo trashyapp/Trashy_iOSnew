@@ -217,7 +217,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         if indexPath.row == selectedMaterialArray.count {
             let bestaetigenCell = collectionView.dequeueReusableCell(withReuseIdentifier: "BestaetigenCell", for: indexPath) as! EingabeErgebnisButtonCVCell
             
-            bestaetigenCell.bestaetigenButton.setTitle("Fertig", for: .normal)
+//            bestaetigenCell.bestaetigenButton.setTitle("Fertig", for: .normal)
             
             //self.materialienCollectionView.scrollToItem(at: indexPath, at: [.centeredVertically, .centeredHorizontally], animated: true)
             
