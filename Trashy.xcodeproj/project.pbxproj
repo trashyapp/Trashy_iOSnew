@@ -36,6 +36,7 @@
 		3D51816D22CB9F5F00AA16CE /* SucheVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51816C22CB9F5F00AA16CE /* SucheVC.swift */; };
 		3D51816F22CBA10800AA16CE /* SucheTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51816E22CBA10800AA16CE /* SucheTVCell.swift */; };
 		3D51817122CBB0A000AA16CE /* TrashCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D51817022CBB0A000AA16CE /* TrashCVCell.swift */; };
+		3D74DDAC2322396B00E97FC4 /* Algorithmus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D74DDAB2322396B00E97FC4 /* Algorithmus.swift */; };
 		3D9195EB22C2957B008BA78A /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D9195EA22C2957B008BA78A /* DataService.swift */; };
 		3DA9585722CDFE7100DC4678 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9585622CDFE7100DC4678 /* Animations.swift */; };
 		3DA9585922CE43D200DC4678 /* SettingsNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA9585822CE43D200DC4678 /* SettingsNVC.swift */; };
@@ -111,6 +112,7 @@
 		3D51816C22CB9F5F00AA16CE /* SucheVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucheVC.swift; sourceTree = "<group>"; };
 		3D51816E22CBA10800AA16CE /* SucheTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SucheTVCell.swift; sourceTree = "<group>"; };
 		3D51817022CBB0A000AA16CE /* TrashCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashCVCell.swift; sourceTree = "<group>"; };
+		3D74DDAB2322396B00E97FC4 /* Algorithmus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Algorithmus.swift; sourceTree = "<group>"; };
 		3D9195EA22C2957B008BA78A /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		3DA9585622CDFE7100DC4678 /* Animations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
 		3DA9585822CE43D200DC4678 /* SettingsNVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNVC.swift; sourceTree = "<group>"; };
@@ -184,7 +186,7 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		3D0B855322C247D0003D8CAA /* Data */ = {
+		3D0B855322C247D0003D8CAA /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				3DE4299522CC8D80004BB911 /* Place.swift */,
@@ -193,8 +195,9 @@
 				3D3A92B222C3B0D100FE9BAB /* Material.swift */,
 				3DE4298622CC6CF7004BB911 /* Menu.swift */,
 				3D0C730322CCBE7000B05F9C /* Trash.swift */,
+				3D74DDAB2322396B00E97FC4 /* Algorithmus.swift */,
 			);
-			path = Data;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		3D0B855422C247DE003D8CAA /* Extensions */ = {
@@ -282,7 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				3DE4298E22CC8C3D004BB911 /* Text */,
-				3D0B855322C247D0003D8CAA /* Data */,
+				3D0B855322C247D0003D8CAA /* Service */,
 				3D0B855222C244BA003D8CAA /* ViewControllers */,
 				3D0B855422C247DE003D8CAA /* Extensions */,
 				3D3A86B922BFB46C007D2741 /* AppDelegate.swift */,
@@ -592,6 +595,7 @@
 				3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */,
 				3D3A86C222BFB46C007D2741 /* Trashy.xcdatamodeld in Sources */,
 				3D0B855822C256AD003D8CAA /* MainTBC.swift in Sources */,
+				3D74DDAC2322396B00E97FC4 /* Algorithmus.swift in Sources */,
 				3D3A86BA22BFB46C007D2741 /* AppDelegate.swift in Sources */,
 				3D51817122CBB0A000AA16CE /* TrashCVCell.swift in Sources */,
 				3D0B855C22C2573F003D8CAA /* ErgebnisVC.swift in Sources */,

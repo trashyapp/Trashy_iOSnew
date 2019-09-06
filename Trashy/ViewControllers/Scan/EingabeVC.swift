@@ -21,6 +21,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     var selectedMaterialArray = [String]()
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     var longPressedEnabled = false
+    var produktCode: String?
     
     @IBOutlet weak var materialienTableView: UITableView!
     @IBOutlet weak var materialienCollectionView: UICollectionView!
@@ -43,7 +44,7 @@ class EingabeVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         
         //Case: Wenn User von KeinErgebnisPopUpVC kommt, also ein Barcode hat, welcher nicht in der DB ist
         if barcodeVorhanden {
-            print("KeinErgebnisVC: " + produktArray[0].barcodeNummer)
+            print("KeinErgebnisVC: " + produktCode!)
             //Dann wird eine view / ein button sichtbar, die fragt, ob man helfen will, das Produkt hinzuzufügen
         }
         

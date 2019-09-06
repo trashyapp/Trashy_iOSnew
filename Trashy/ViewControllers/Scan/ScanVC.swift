@@ -17,6 +17,8 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
     var trash: TrashData!
     var trashDataArray = [Trash]()
     var code = false
+    var produktCode: String?
+    var trashNumber = 0
     
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
@@ -86,7 +88,7 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
     func toKeinErgebnisPopUpVC() {
         let keinErgebnisPopUpVC = storyBoard.instantiateViewController(withIdentifier: "KeinErgebnisPopUpVCSB") as! KeinErgebnisPopUpVC
         keinErgebnisPopUpVC.modalPresentationStyle = .overFullScreen
-        keinErgebnisPopUpVC.produktArray = produktArray
+        keinErgebnisPopUpVC.produktCode = produktCode
         
         self.present(keinErgebnisPopUpVC, animated: true, completion: nil)
     }
@@ -100,11 +102,12 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
         
         trashCell.trashImageView.image = UIImage.init(named: trashDataArray[indexPath.row].trashImage)
         
-        if trashDataArray[indexPath.row].trashNumber == 2 && code {
+        if trashDataArray[indexPath.row].trashNumber == trashNumber && code {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let trashAnimationVC = storyBoard.instantiateViewController(withIdentifier: "TrashAnimationVCSB") as! TrashAnimationVC
             
             trashAnimationVC.produktArray = self.produktArray
+            trashAnimationVC.trashNumber = self.trashNumber
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 trashCell.trashImageView.hero.id = "trashAnimation"
@@ -128,6 +131,7 @@ extension ScanVC: BarcodeScannerCodeDelegate {
             
             self.produktArray = returnedSelectedDataArray[0] as! [Produkt]
             self.materialArray = returnedSelectedDataArray[1] as! [Material]
+            self.trashNumber = returnedSelectedDataArray[2] as! Int
             
             DispatchQueue.main.async {
                 if self.produktArray.count != 0 {
@@ -136,7 +140,7 @@ extension ScanVC: BarcodeScannerCodeDelegate {
                     self.code = true
                     self.scanCollectionView.reloadData()
                 } else {
-                    print("ScanVC3: " + self.produktArray[0].barcodeNummer)
+                    self.produktCode = code
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                         self.toKeinErgebnisPopUpVC()

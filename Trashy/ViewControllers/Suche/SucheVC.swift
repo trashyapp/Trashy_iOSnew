@@ -43,7 +43,7 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         
         sucheCollectionView.layer.zPosition += 1
         tabBarView.layer.zPosition += 1
-        sucheCollectionView.alpha = 0.0
+        sucheCollectionView.isHidden = true
         
         setUpVoice()
     }

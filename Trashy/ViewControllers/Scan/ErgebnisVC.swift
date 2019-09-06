@@ -12,14 +12,16 @@ class ErgebnisVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var produktArray = [Produkt]()
     var materialArray = [Material]()
-    var materials = ["r23423423", "r3werwer", "rewrwerwer", "rewrwerwe"]
+    var materials = [String]()
+    var trashNumber = 0
 
     @IBOutlet weak var materialienTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("rwerwererwer!" + produktArray[0].barcodeNummer)
+        print("!!!!!" + produktArray[0].barcodeNummer)
+        print("!!!!!\(trashNumber)")
         /*
         if produktArray.count != 0 {
             print("ErgebnisVC: " + produktArray[0].barcodeNummer)

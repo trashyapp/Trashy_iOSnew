@@ -11,8 +11,8 @@ import Hero
 
 class KeinErgebnisPopUpVC: UIViewController {
     
-    var produktArray = [Produkt]()
     let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+    var produktCode: String?
 
     @IBOutlet weak var mainView: RoundView!
     @IBOutlet weak var kEStackView: UIStackView!
@@ -30,7 +30,7 @@ class KeinErgebnisPopUpVC: UIViewController {
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.01)
         
-        print("KeinErgebnisVC: " + produktArray[0].barcodeNummer)
+        print("KeinErgebnisVC: " + produktCode!)
     }
     
     func setUpShatten(any: AnyObject, op: Float) {
@@ -52,7 +52,7 @@ class KeinErgebnisPopUpVC: UIViewController {
     
     func toEingabeVC() {
         let eingabeVC = storyBoard.instantiateViewController(withIdentifier: "EingabeVCSB") as! EingabeVC
-        eingabeVC.produktArray = produktArray
+        eingabeVC.produktCode = produktCode
         eingabeVC.barcodeVorhanden = true
         
         self.present(eingabeVC, animated: true, completion: nil)

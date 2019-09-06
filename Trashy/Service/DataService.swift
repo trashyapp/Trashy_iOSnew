@@ -14,17 +14,19 @@ let DB_BASE = Database.database().reference()
 class DataService {
     var place: PlaceData!
     var places = [Place]()
-    var trash: TrashData!
-    var trashDataArray = [Trash]()
+    var algorithmus: Algorithmus!
     
     var materialArray = [Material]()
     var produktArray = [Produkt]()
+    var materialNameArray = [String]()
+    
+    var trashNumber: Int
     
     init() {
         place = PlaceData()
         places = place.places
-        trash = TrashData()
-        trashDataArray = trash.trashDataArray
+        algorithmus = Algorithmus()
+        self.trashNumber = 0
     }
     
     static let instance = DataService()
@@ -127,8 +129,11 @@ class DataService {
         
         produktArray = [Produkt]()
         materialArray = [Material]()
+        materialNameArray = [String]()
+        trashNumber = 0
         
         DataService.instance.getProdukt(code: code) { (returnedProduktArray) in
+            
             print("---------------------------")
             print(self.produktArray)
             print(returnedProduktArray)
@@ -136,24 +141,40 @@ class DataService {
             
             self.produktArray = returnedProduktArray
             
-            DispatchQueue.main.async {
-                DataService.instance.getMaterial(materials: self.produktArray[0].produktMaterialien) { (returnedMaterialArray) in
-                    self.materialArray = returnedMaterialArray
-                    
-                    self.algorithm()
-                    
-                    selectedDataArray.removeAll()
-                    selectedDataArray.append(self.produktArray)
-                    selectedDataArray.append(self.materialArray)
-                    
-                    handler(selectedDataArray)
+            if self.produktArray.count != 0 {
+                DispatchQueue.main.async {
+                    DataService.instance.getMaterial(materials: self.produktArray[0].produktMaterialien) { (returnedMaterialArray) in
+                        self.materialArray = returnedMaterialArray
+                        
+                        for i in 0..<self.materialArray.count {
+                            for k in 0..<self.produktArray[0].produktMaterialien.count {
+                                if self.produktArray[0].produktMaterialien[k] == self.materialArray[i].materialNummer {
+                                    self.materialNameArray.append(self.materialArray[i].materialName)
+                                }
+                            }
+                        }
+                        
+                        self.trashNumber = self.algorithmus.algorithmus(materials: self.materialNameArray)
+                        
+                        print("trashNumber: \(self.trashNumber)")
+                        
+                        selectedDataArray.removeAll()
+                        selectedDataArray.append(self.produktArray)
+                        selectedDataArray.append(self.materialArray)
+                        selectedDataArray.append(self.trashNumber)
+                        
+                        handler(selectedDataArray)
+                    }
                 }
             }
+            selectedDataArray.append(self.produktArray)
+            selectedDataArray.append(self.materialArray)
+            selectedDataArray.append(self.trashNumber)
+            
+            print(selectedDataArray)
+            
+            handler(selectedDataArray)
         }
-    }
-    
-    func algorithm() {
-        //algorithm for trash
     }
 }
 

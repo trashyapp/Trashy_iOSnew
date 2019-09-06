@@ -12,6 +12,7 @@ import Hero
 class TrashAnimationVC: UIViewController {
     
     var produktArray = [Produkt]()
+    var trashNumber = 0
     
     @IBOutlet weak var trashAnimationView: UIView!
     @IBOutlet weak var trashAnimationImageView: UIImageView!
@@ -61,6 +62,7 @@ class TrashAnimationVC: UIViewController {
                         let ergebnisVC = storyBoard.instantiateViewController(withIdentifier: "ErgebnisVCSB") as! ErgebnisVC
                         
                         ergebnisVC.produktArray = self.produktArray
+                        ergebnisVC.trashNumber = self.trashNumber
                         
                         self.present(ergebnisVC, animated: true, completion: nil)
                     })
