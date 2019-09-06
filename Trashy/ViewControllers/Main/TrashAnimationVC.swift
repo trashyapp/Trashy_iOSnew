@@ -13,6 +13,8 @@ class TrashAnimationVC: UIViewController {
     
     var produktArray = [Produkt]()
     var trashNumber = 0
+    var trash: TrashData!
+    var trashDataArray = [Trash]()
     
     @IBOutlet weak var trashAnimationView: UIView!
     @IBOutlet weak var trashAnimationImageView: UIImageView!
@@ -20,7 +22,10 @@ class TrashAnimationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //trashAnimationView.backgroundColor = UIColor(named: color)
+        trash = TrashData()
+        trashDataArray = trash.trashDataArray
+        
+        self.trashAnimationView.backgroundColor = UIColor.init(named: self.trash.trashDataArray[self.trashNumber-1].trashColor)
         
         self.hero.isEnabled = true
         trashAnimationImageView.hero.id = "trashAnimation"

@@ -1164,7 +1164,7 @@
                                     <constraint firstAttribute="height" constant="322" id="ylJ-JJ-jfM"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Us1-ma-ydG">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Us1-ma-ydG" customClass="RoundView" customModule="Trashy" customModuleProvider="target">
                                 <rect key="frame" x="62" y="235" width="290" height="50"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>

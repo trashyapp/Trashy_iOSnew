@@ -13,16 +13,18 @@ class Algorithmus {
     var places = [Place]()
     var trash: TrashData!
     var trashDataArray = [Trash]()
+    var trashNumber: Int
     
     init() {
         place = PlaceData()
         places = place.places
         trash = TrashData()
         trashDataArray = trash.trashDataArray
+        trashNumber = 1
     }
     
     func algorithmus(materials: [String]) -> Int {
-        var trashNumber = 0
+        var trashNumber = 2
         
         for i in 0..<places.count {
             if places[i].active {
@@ -41,12 +43,19 @@ class Algorithmus {
     
     func algorithmusGermany(materials: [String]) -> Int {
         for i in 0..<materials.count {
-            switch materials[i] {
-            case "Papier":
-                return trash.trashDataArray[1].trashNumber
-            default: break
+            if (materials[i] == "Plastik") || (materials[i] == "Kunststoff") || (materials[i] == "Hart Plastik") || (materials[i] == "Metall") || (materials[i] == "Aluminium") || (materials[i] == "Blech") {
+                return trashDataArray[3].trashNumber
+            }
+            if (materials[i] == "Papier") || (materials[i] == "Pappe") {
+                trashNumber = 1
+            }
+            if materials[i] == "Bio" {
+                return trashDataArray[2].trashNumber
+            }
+            if materials[i] == "Glas" {
+                trashNumber = 0
             }
         }
-        return 0
+        return trashNumber
     }
 }

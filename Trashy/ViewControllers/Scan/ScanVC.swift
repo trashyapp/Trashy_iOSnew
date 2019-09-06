@@ -108,6 +108,7 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
             
             trashAnimationVC.produktArray = self.produktArray
             trashAnimationVC.trashNumber = self.trashNumber
+            //trashAnimationVC.trashAnimationView.backgroundColor = UIColor(named: trash.trashDataArray[trashNumber-1].trashColor)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 trashCell.trashImageView.hero.id = "trashAnimation"
