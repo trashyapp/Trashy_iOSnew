@@ -40,6 +40,8 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
         scanCollectionView.layer.zPosition += 1
         tabBarView.layer.zPosition += 1
         
+        scanCollectionView.alpha = 0.0
+        
         setUpShatten(view: tabBarView, op: 0.5)
         
         setUpEingabeButton()
@@ -69,7 +71,7 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
         
         let margins = view.layoutMarginsGuide
         eingabeButton.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 3).isActive = true
-        eingabeButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -155).isActive = true
+        eingabeButton.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -55).isActive = true
         
         eingabeButton.hero.id = "EingabeVCAnimation"
     }
@@ -108,7 +110,6 @@ class ScanVC: BarcodeScannerViewController, UICollectionViewDelegate, UICollecti
             
             trashAnimationVC.produktArray = self.produktArray
             trashAnimationVC.trashNumber = self.trashNumber
-            //trashAnimationVC.trashAnimationView.backgroundColor = UIColor(named: trash.trashDataArray[trashNumber-1].trashColor)
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 trashCell.trashImageView.hero.id = "trashAnimation"
@@ -140,6 +141,9 @@ extension ScanVC: BarcodeScannerCodeDelegate {
                     
                     self.code = true
                     self.scanCollectionView.reloadData()
+                    UIView.animate(withDuration: 0.2, animations: {
+                        self.scanCollectionView.alpha = 1.0
+                    })
                 } else {
                     self.produktCode = code
                     

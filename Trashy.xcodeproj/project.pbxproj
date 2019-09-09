@@ -13,6 +13,7 @@
 		3D0B855C22C2573F003D8CAA /* ErgebnisVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855B22C2573F003D8CAA /* ErgebnisVC.swift */; };
 		3D0B856022C25818003D8CAA /* InformationInhaltVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */; };
 		3D0C730422CCBE7000B05F9C /* Trash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C730322CCBE7000B05F9C /* Trash.swift */; };
+		3D214168232696B90039E0A3 /* RoundDeckel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D214167232696B90039E0A3 /* RoundDeckel.swift */; };
 		3D28963D22C745B300F3F7D1 /* MenuVCTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D28963C22C745B300F3F7D1 /* MenuVCTVCell.swift */; };
 		3D374BE622C49AF90004C738 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BE522C49AF90004C738 /* Keyboard.swift */; };
 		3D374BEA22C49D2E0004C738 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D374BE922C49D2E0004C738 /* RoundImageView.swift */; };
@@ -83,6 +84,7 @@
 		3D0B855F22C25818003D8CAA /* InformationInhaltVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationInhaltVC.swift; sourceTree = "<group>"; };
 		3D0C730222CCB89D00B05F9C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3D0C730322CCBE7000B05F9C /* Trash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trash.swift; sourceTree = "<group>"; };
+		3D214167232696B90039E0A3 /* RoundDeckel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundDeckel.swift; sourceTree = "<group>"; };
 		3D28963C22C745B300F3F7D1 /* MenuVCTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVCTVCell.swift; sourceTree = "<group>"; };
 		3D374BE522C49AF90004C738 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keyboard.swift; path = "../../../Arbeiten/iMac/Arbeiten/Außerschulisch/Swift/Apps/KKG/KKG/Extensions/Keyboard.swift"; sourceTree = "<group>"; };
 		3D374BE922C49D2E0004C738 /* RoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				3D3A92A822C393E900FE9BAB /* RoundView.swift */,
+				3D214167232696B90039E0A3 /* RoundDeckel.swift */,
 				3D374BE922C49D2E0004C738 /* RoundImageView.swift */,
 				3D3A92AA22C3948C00FE9BAB /* RoundButton.swift */,
 				3D374BE522C49AF90004C738 /* Keyboard.swift */,
@@ -568,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D214168232696B90039E0A3 /* RoundDeckel.swift in Sources */,
 				3D0B855622C2565E003D8CAA /* MainNVC.swift in Sources */,
 				3DA9586122CE568900DC4678 /* SettingsSelectionTVCell.swift in Sources */,
 				3D3A92B322C3B0D100FE9BAB /* Material.swift in Sources */,

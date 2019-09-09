@@ -24,8 +24,6 @@ class Algorithmus {
     }
     
     func algorithmus(materials: [String]) -> Int {
-        var trashNumber = 2
-        
         for i in 0..<places.count {
             if places[i].active {
                 switch places[i].place {
@@ -42,6 +40,8 @@ class Algorithmus {
     }
     
     func algorithmusGermany(materials: [String]) -> Int {
+        print("DAAAA ++++ \(materials)")
+        
         for i in 0..<materials.count {
             if (materials[i] == "Plastik") || (materials[i] == "Kunststoff") || (materials[i] == "Hart Plastik") || (materials[i] == "Metall") || (materials[i] == "Aluminium") || (materials[i] == "Blech") {
                 return trashDataArray[3].trashNumber

@@ -26,6 +26,7 @@ class TrashAnimationVC: UIViewController {
         trashDataArray = trash.trashDataArray
         
         self.trashAnimationView.backgroundColor = UIColor.init(named: self.trash.trashDataArray[self.trashNumber-1].trashColor)
+        self.trashAnimationImageView.image = UIImage.init(named: self.trash.trashDataArray[self.trashNumber-1].trashImage)
         
         self.hero.isEnabled = true
         trashAnimationImageView.hero.id = "trashAnimation"

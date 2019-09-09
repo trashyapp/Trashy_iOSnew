@@ -9,6 +9,7 @@
 import UIKit
 import Speech
 import AudioToolbox
+import Hero
 
 class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, SFSpeechRecognizerDelegate, UISearchBarDelegate {
     
@@ -28,6 +29,9 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
     var produktNameArray = [String]()
     var currentProduktNameArray = [String]()
     var searchActive = false
+    var trashNumber: Int!
+    var selected = false
+    var trashNumberArray = [Int]()
     
     @IBOutlet weak var tabBarView: RoundView!
     @IBOutlet weak var sucheTabelView: UITableView!
@@ -47,7 +51,9 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         
         sucheCollectionView.layer.zPosition += 1
         tabBarView.layer.zPosition += 1
-        sucheCollectionView.isHidden = true
+        sucheCollectionView.alpha = 0.0
+        
+        trashNumber = 0
         
         setUpVoice()
     }
@@ -67,6 +73,7 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
             
             self.produktArray = returnedSelectedDataArray[0] as! [Produkt]
             self.materialArray = returnedSelectedDataArray[1] as! [Material]
+            self.trashNumberArray = returnedSelectedDataArray[3] as! [Int]
             
             print("MMM" + self.produktArray[0].barcodeNummer)
             
@@ -160,6 +167,27 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         return 150
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sucheCell = tableView.dequeueReusableCell(withIdentifier: "SucheCell") as! SucheTVCell
+        
+        print("TrashNumberArray::: \(trashNumberArray)")
+        for i in 0..<produktArray.count {
+            print(sucheCell.sucheLabel.text)
+            print(produktArray[i].produktName)
+            
+            if produktArray[i].produktName == produktArray[indexPath.row].produktName {
+                trashNumber = trashNumberArray[i]
+                print("TrashNumber::: \(trashNumber)")
+            }
+        }
+        
+        selected = true
+        sucheCollectionView.reloadData()
+        UIView.animate(withDuration: 0.2, animations: {
+            self.sucheCollectionView.alpha = 1.0
+        })
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return trashDataArray.count
     }
@@ -168,6 +196,22 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         let trashCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrashCell", for: indexPath) as! TrashCVCell
         
         trashCell.trashImageView.image = UIImage.init(named: trashDataArray[indexPath.row].trashImage)
+        
+        if trashDataArray[indexPath.row].trashNumber == trashNumber && selected {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let trashAnimationVC = storyBoard.instantiateViewController(withIdentifier: "TrashAnimationVCSB") as! TrashAnimationVC
+        
+            trashAnimationVC.produktArray = self.produktArray
+            trashAnimationVC.trashNumber = self.trashNumber
+        
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                trashCell.trashImageView.hero.id = "trashAnimation"
+                
+                trashAnimationVC.modalPresentationStyle = .overFullScreen
+                
+                self.present(trashAnimationVC, animated: true, completion: nil)
+            }
+        }
         
         return trashCell
     }
@@ -232,11 +276,9 @@ class SucheVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIC
         if notification.name == UIResponder.keyboardWillShowNotification || notification.name == UIResponder.keyboardWillChangeFrameNotification {
             print("Hi")
             tabBarView.frame.origin.y = screenHeight - keyboardRect.height - tabBarView.frame.height + 25.0
-            sucheCollectionView.alpha = 0.0
         } else {
             print("Hiii")
             tabBarView.frame.origin.y = screenHeight - tabBarHeight + 25.0 - tabBarView.frame.height
-            sucheCollectionView.alpha = 1.0
         }
     }
     

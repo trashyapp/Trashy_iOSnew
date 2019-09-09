@@ -602,7 +602,7 @@
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AW2-eT-HEr" customClass="RoundImageView" customModule="Trashy" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="10" width="374" height="87"/>
-                                                    <color key="backgroundColor" name="TrashyOrange"/>
+                                                    <color key="backgroundColor" red="0.90980392156862744" green="0.53333333333333333" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Produkt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pji-FA-Ix6">
                                                     <rect key="frame" x="40" y="37" width="101.5" height="50"/>
@@ -1164,7 +1164,7 @@
                                     <constraint firstAttribute="height" constant="322" id="ylJ-JJ-jfM"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Us1-ma-ydG" customClass="RoundView" customModule="Trashy" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Us1-ma-ydG" customClass="RoundDeckel" customModule="Trashy" customModuleProvider="target">
                                 <rect key="frame" x="62" y="235" width="290" height="50"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1210,7 +1210,7 @@
             <color red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TrashyOrange">
-            <color red="0.92549019607843142" green="0.52941176470588236" blue="0.47843137254901963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.90980392156862744" green="0.53333333333333333" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

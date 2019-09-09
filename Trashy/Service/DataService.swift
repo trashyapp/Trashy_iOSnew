@@ -21,12 +21,14 @@ class DataService {
     var materialNameArray = [String]()
     
     var trashNumber: Int
+    var trashNumberArray = [Int]()
     
     init() {
         place = PlaceData()
         places = place.places
         algorithmus = Algorithmus()
         self.trashNumber = 0
+        trashNumberArray = []
     }
     
     static let instance = DataService()
@@ -130,6 +132,7 @@ class DataService {
         produktArray = [Produkt]()
         materialArray = [Material]()
         materialNameArray = [String]()
+        trashNumberArray = [Int]()
         trashNumber = 0
         
         DataService.instance.getProdukt(code: code) { (returnedProduktArray) in
@@ -143,35 +146,81 @@ class DataService {
             
             if self.produktArray.count != 0 {
                 DispatchQueue.main.async {
-                    DataService.instance.getMaterial(materials: self.produktArray[0].produktMaterialien) { (returnedMaterialArray) in
-                        self.materialArray = returnedMaterialArray
-                        
-                        for i in 0..<self.materialArray.count {
-                            for k in 0..<self.produktArray[0].produktMaterialien.count {
-                                if self.produktArray[0].produktMaterialien[k] == self.materialArray[i].materialNummer {
-                                    self.materialNameArray.append(self.materialArray[i].materialName)
+                    if self.produktArray[0].barcodeNummer == "Trashy" {
+                        for i in 0..<self.produktArray.count {
+                            print("MOFAWAW" + self.produktArray[i].produktName)
+                            print("MOFAWAW\(self.produktArray[i].produktMaterialien)")
+                            
+                            DataService.instance.getMaterial(materials: self.produktArray[i].produktMaterialien) { (returnedMaterialArray) in
+                                self.materialArray = returnedMaterialArray
+                                
+                                print("MOFAWAW++" + self.produktArray[i].produktName)
+                                print("MOFAWAW++\(self.produktArray[i].produktMaterialien)")
+                                
+                                print("materailCOUNT\(self.materialArray.count)")
+    
+                                for k in 0..<self.produktArray[i].produktMaterialien.count {
+                                        
+                                    print("A\(self.produktArray[i].produktMaterialien[k])")
+                                    print("B\(self.materialArray[0].materialNummer)")
+                                        
+                                    if self.produktArray[i].produktMaterialien[k] == self.materialArray[0].materialNummer {
+                                        self.materialNameArray.append(self.materialArray[0].materialName)
+                                        print("!!!!!!!!!!!!!!!!!!!!\(self.materialNameArray)")
+                                    }
                                 }
+                                print("!!!!!!!!!!!!!!!!!!!!\(self.materialNameArray)")
+                                
+                                self.trashNumberArray.append(self.algorithmus.algorithmus(materials: self.materialNameArray))
+                                
+                                self.materialNameArray.removeAll()
+                                
+                                print("OOOOOOOOOOOOOO\(self.trashNumberArray)")
+                                
+                                selectedDataArray.removeAll()
+                                selectedDataArray.append(self.produktArray)
+                                selectedDataArray.append(self.materialArray)
+                                selectedDataArray.append(self.trashNumber)
+                                selectedDataArray.append(self.trashNumberArray)
+                                
+                                handler(selectedDataArray)
                             }
                         }
-                        
-                        self.trashNumber = self.algorithmus.algorithmus(materials: self.materialNameArray)
-                        
-                        print("trashNumber: \(self.trashNumber)")
-                        
-                        selectedDataArray.removeAll()
-                        selectedDataArray.append(self.produktArray)
-                        selectedDataArray.append(self.materialArray)
-                        selectedDataArray.append(self.trashNumber)
-                        
-                        handler(selectedDataArray)
+                    } else {
+                        DataService.instance.getMaterial(materials: self.produktArray[0].produktMaterialien) { (returnedMaterialArray) in
+                            self.materialArray = returnedMaterialArray
+                            
+                            for i in 0..<self.materialArray.count {
+                                for k in 0..<self.produktArray[0].produktMaterialien.count {
+                                    if self.produktArray[0].produktMaterialien[k] == self.materialArray[i].materialNummer {
+                                        self.materialNameArray.append(self.materialArray[i].materialName)
+                                    }
+                                }
+                            }
+                            
+                            self.trashNumber = self.algorithmus.algorithmus(materials: self.materialNameArray)
+                            
+                            print("trashNumber: \(self.trashNumber)")
+                            
+                            selectedDataArray.removeAll()
+                            selectedDataArray.append(self.produktArray)
+                            selectedDataArray.append(self.materialArray)
+                            selectedDataArray.append(self.trashNumber)
+                            selectedDataArray.append(self.trashNumberArray)
+                            
+                            handler(selectedDataArray)
+                        }
                     }
                 }
             }
+            print("---\(selectedDataArray)")
+            
             selectedDataArray.append(self.produktArray)
             selectedDataArray.append(self.materialArray)
             selectedDataArray.append(self.trashNumber)
+            selectedDataArray.append(self.trashNumberArray)
             
-            print(selectedDataArray)
+            print("---\(selectedDataArray)")
             
             handler(selectedDataArray)
         }
